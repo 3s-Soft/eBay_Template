@@ -1,49 +1,725 @@
 <html lang="en">
 
 <head>
-
-    <script nonce="">$ssgST = new Date().getTime();</script>
-    <link rel="preload" fetchpriority="high"
-        href="https://ir.ebaystatic.com/cr/v/c1/market-sans/v1.0/MarketSans-Regular-WebS.woff2" as="font"
-        type="font/woff2">
-    <style nonce="">
-        body {
-            font-family: "Market Sans", Arial, sans-serif;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GMQ Stone London LTD</title>
+    <meta name="description" content="GMQ Stone - Premium Quartz, Granite & Marble Worktops">
+    <meta name="keywords" content="Quartz Worktops, Granite, Marble, Kitchen Worktops, GMQ Stone">
 
+    <!-- Fonts & Icons (Online) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Bootstrap CSS (Online) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Listing CSS (Online) -->
+    <link href="https://dezignbrain.com/ebay/quartz_city_ltd/listing/css/listing.css" rel="stylesheet" type="text/css">
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        /* ============================================
+           GMQ STONE UNIQUE COLOR SCHEME
+           Crimson Red | Charcoal Black | Gold Accents
+        ============================================ */
+        :root {
+            --gmq-crimson: #B22234;
+            --gmq-crimson-dark: #8B1A28;
+            --gmq-crimson-light: #D4364A;
+            --gmq-charcoal: #1C1C1C;
+            --gmq-charcoal-light: #2D2D2D;
+            --gmq-gold: #D4AF37;
+            --gmq-gold-light: #E8C547;
+            --gmq-cream: #FFF8F0;
+            --gmq-gray: #6B7280;
+            --gmq-light-gray: #F3F4F6;
+        }
+
+        /* Top Navigation - Charcoal with Gold Accent Line */
+        .promo_top_text {
+            background: linear-gradient(180deg, var(--gmq-charcoal) 0%, var(--gmq-charcoal-light) 100%) !important;
+            border-bottom: 3px solid var(--gmq-gold) !important;
+        }
+
+        .welcom_text {
+            color: #e0e0e0 !important;
+        }
+
+        .welcom_text span {
+            color: var(--gmq-gold) !important;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .welcom_text i {
+            color: var(--gmq-crimson) !important;
+        }
+
+        .main_menu ul li a {
+            color: #fff !important;
+            transition: all 0.3s ease;
+        }
+
+        .main_menu ul li a:hover {
+            color: var(--gmq-gold) !important;
+        }
+
+        /* Header Section */
+        .top_section {
+            background: linear-gradient(180deg, var(--gmq-cream) 0%, #fff 100%) !important;
+        }
+
+        .Verifie-text h1 {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .Verifie-text p {
+            color: var(--gmq-gray) !important;
+        }
+
+        /* Product Title - Crimson with Gold Border */
+        .main_title p {
+            background: linear-gradient(135deg, var(--gmq-crimson) 0%, var(--gmq-crimson-dark) 100%) !important;
+            border-left: 4px solid var(--gmq-gold) !important;
+            box-shadow: 0 4px 15px rgba(178, 34, 52, 0.3) !important;
+        }
+
+        .desc-hedtitle {
+            background: var(--gmq-charcoal) !important;
+            color: var(--gmq-gold) !important;
+        }
+
+        /* About Section */
+        .about_wrapper {
+            background: linear-gradient(180deg, var(--gmq-light-gray) 0%, #fff 100%) !important;
+        }
+
+        .about_content span {
+            color: var(--gmq-crimson) !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about_content h3 {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .about_button a {
+            background: linear-gradient(135deg, var(--gmq-crimson) 0%, var(--gmq-crimson-dark) 100%) !important;
+            border-radius: 50px !important;
+            box-shadow: 0 4px 15px rgba(178, 34, 52, 0.4) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .about_button a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(178, 34, 52, 0.5) !important;
+        }
+
+        .about_img img {
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border: 4px solid #fff;
+        }
+
+        /* Features/Promotion Section */
+        .promotion_bg {
+            background: linear-gradient(135deg, var(--gmq-charcoal) 0%, #2a2a2a 100%) !important;
+            border-top: 4px solid var(--gmq-crimson) !important;
+            border-bottom: 4px solid var(--gmq-gold) !important;
+        }
+
+        .promo_main .promo_text h1 {
+            color: #fff !important;
+        }
+
+        .promo_main .promo_text p {
+            color: var(--gmq-gold) !important;
+        }
+
+        /* Collection Cards */
+        .cat_main_title h4 {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .medical_section {
+            overflow: hidden;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.4s ease !important;
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        }
+
+        .medical_section:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2) !important;
+            border-color: var(--gmq-gold) !important;
+        }
+
+        .cat_text_box {
+            background: linear-gradient(180deg, #fff 0%, var(--gmq-cream) 100%) !important;
+        }
+
+        .cat_text_box h4 a {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .cat_text_box>a {
+            color: var(--gmq-crimson) !important;
+            font-weight: 600;
+        }
+
+        /* Care Guidelines */
+        .intro_section {
+            background: linear-gradient(180deg, #fff 0%, var(--gmq-light-gray) 100%) !important;
+        }
+
+        .intro_title h2 {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .intro_box {
+            border-left: 4px solid var(--gmq-crimson) !important;
+            transition: all 0.3s ease;
+        }
+
+        .intro_box:hover {
+            border-left-color: var(--gmq-gold) !important;
+        }
+
+        /* Tabs */
+        .tabsbottom label {
+            background: var(--gmq-light-gray) !important;
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .tabsbottom input:checked+label {
+            background: var(--gmq-crimson) !important;
+            color: #fff !important;
+        }
+
+        /* Reviews */
+        .guaranteed_wapper {
+            background: linear-gradient(180deg, var(--gmq-cream) 0%, #fff 100%) !important;
+        }
+
+        .guaranteed-head h5 {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .guaranteed_box {
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .guaranteed_box:hover {
+            transform: scale(1.03);
+            border-color: var(--gmq-gold) !important;
+        }
+
+        .guaranteed_box .start i {
+            color: var(--gmq-gold) !important;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .guaranteed_text {
+            color: var(--gmq-charcoal) !important;
+        }
+
+        .guaranteed_name {
+            color: var(--gmq-crimson) !important;
+        }
+
+        /* Footer */
+        .store_footer_wapper {
+            background: linear-gradient(180deg, var(--gmq-charcoal) 0%, #111 100%) !important;
+            border-top: 4px solid var(--gmq-crimson) !important;
+        }
+
+        .footer_block_titel {
+            color: var(--gmq-gold) !important;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .footer_menu ul li a {
+            color: #ccc !important;
+            transition: all 0.3s ease;
+        }
+
+        .footer_menu ul li a:hover {
+            color: var(--gmq-gold) !important;
+            padding-left: 10px;
+        }
+
+        .footer_menu ul li a i {
+            color: var(--gmq-crimson) !important;
+        }
+
+        .footer_bottom {
+            background: #000 !important;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .dezign_copyright {
+            color: #888 !important;
+        }
+
+        .dezign_copyright span {
+            color: var(--gmq-gold) !important;
+        }
+
+        .dezign_by span {
+            color: var(--gmq-crimson) !important;
+        }
+
+        .dezign_by i {
+            color: var(--gmq-crimson) !important;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Mobile Menu */
+        .amon ul {
+            background: linear-gradient(180deg, var(--gmq-crimson) 0%, var(--gmq-crimson-dark) 100%) !important;
+        }
+
+        .menu_icon div {
+            background: var(--gmq-crimson) !important;
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE STYLES
+        ============================================ */
+
+        /* Tablet (max-width: 991px) */
+        @media screen and (max-width: 991px) {
+            .welcom_text {
+                text-align: center;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+            .main_menu {
+                display: none !important;
+            }
+
+            .mobile_menu {
+                display: block !important;
+            }
+
+            .top_header_wrapper {
+                justify-content: center;
+            }
+
+            .Verifie-main {
+                margin: 10px 0;
+                justify-content: center;
+            }
+
+            .about_content {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .about_img {
+                margin-top: 20px;
+            }
+
+            .promo_main {
+                margin: 10px 0;
+            }
+
+            .medical_section {
+                margin-bottom: 20px;
+            }
+
+            .intro_box {
+                margin-bottom: 15px;
+            }
+
+            .footer_logo {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .footer_block {
+                margin-bottom: 25px;
+            }
+
+            .footer_bottom_menu {
+                text-align: center;
+            }
+        }
+
+        /* Mobile (max-width: 767px) */
+        @media screen and (max-width: 767px) {
+            .promo_top_text {
+                padding: 10px 0 !important;
+            }
+
+            .welcom_text {
+                font-size: 12px !important;
+            }
+
+            .welcom_text span {
+                display: block;
+                margin-top: 3px;
+            }
+
+            .top_section {
+                padding: 15px 0 !important;
+            }
+
+            .logo img {
+                width: 80px !important;
+            }
+
+            .Verifie-main {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .Verifie-icon {
+                margin-bottom: 8px;
+            }
+
+            .Verifie-text h1 {
+                font-size: 14px !important;
+            }
+
+            .Verifie-text p {
+                font-size: 12px !important;
+            }
+
+            .main_title p {
+                font-size: 16px !important;
+                padding: 12px 15px !important;
+            }
+
+            .desc-hedtitle {
+                font-size: 16px !important;
+                padding: 10px 15px !important;
+            }
+
+            .listing_listingarea-box {
+                padding: 15px !important;
+            }
+
+            #main_gallery .thumb img {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .promo_box {
+                flex-direction: column;
+                padding: 15px !important;
+                margin: 10px 0;
+            }
+
+            .promo_icon_2 {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .promo_text {
+                text-align: center;
+            }
+
+            .promo_text h1 {
+                font-size: 14px !important;
+            }
+
+            .promo_text p {
+                font-size: 12px !important;
+            }
+
+            .about_wrapper {
+                padding: 30px 15px !important;
+            }
+
+            .about_content span {
+                font-size: 12px !important;
+                letter-spacing: 1px !important;
+            }
+
+            .about_content h3 {
+                font-size: 22px !important;
+            }
+
+            .about_content p {
+                font-size: 14px !important;
+                line-height: 1.6 !important;
+            }
+
+            .about_button a {
+                padding: 12px 25px !important;
+                font-size: 14px !important;
+            }
+
+            .about_img img {
+                border-radius: 10px !important;
+            }
+
+            .promotion_bg {
+                padding: 25px 15px !important;
+            }
+
+            .promo_main {
+                width: 48% !important;
+                margin: 5px 1% !important;
+                padding: 15px 10px !important;
+                text-align: center;
+            }
+
+            .promo_icon img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .promo_main .promo_text h1 {
+                font-size: 12px !important;
+            }
+
+            .promo_main .promo_text p {
+                font-size: 11px !important;
+            }
+
+            .similar_section {
+                padding: 25px 15px !important;
+            }
+
+            .cat_main_title h4 {
+                font-size: 20px !important;
+            }
+
+            .medical_section {
+                margin-bottom: 15px !important;
+            }
+
+            .cat_text_box {
+                padding: 15px !important;
+            }
+
+            .cat_text_box h4 {
+                font-size: 16px !important;
+            }
+
+            .intro_section {
+                padding: 25px 15px !important;
+            }
+
+            .intro_title h2 {
+                font-size: 20px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .intro_box {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px !important;
+                border-left: none !important;
+                border-top: 4px solid var(--gmq-crimson) !important;
+            }
+
+            .intro_box:hover {
+                border-top-color: var(--gmq-gold) !important;
+            }
+
+            .intro_img {
+                margin-bottom: 10px;
+            }
+
+            .intro_content p {
+                font-size: 13px !important;
+            }
+
+            .tabsbottom {
+                padding: 20px 10px !important;
+            }
+
+            .tabsbottom label {
+                font-size: 12px !important;
+                padding: 10px 12px !important;
+            }
+
+            .tabsbottom section {
+                padding: 15px !important;
+            }
+
+            .tabsbottom section p {
+                font-size: 13px !important;
+            }
+
+            .guaranteed_wapper {
+                padding: 25px 10px !important;
+            }
+
+            .guaranteed-head h5 {
+                font-size: 20px !important;
+            }
+
+            .guaranteed_box {
+                padding: 15px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .guaranteed_text {
+                font-size: 13px !important;
+            }
+
+            .guaranteed_name {
+                font-size: 12px !important;
+            }
+
+            .start i {
+                font-size: 14px !important;
+            }
+
+            .store_footer_wapper {
+                padding: 25px 15px !important;
+            }
+
+            .footer_logo {
+                margin-bottom: 20px !important;
+            }
+
+            .footer_logo img {
+                width: 80px !important;
+            }
+
+            .footer_block_titel {
+                font-size: 16px !important;
+                margin-bottom: 15px !important;
+            }
+
+            .footer_menu ul li {
+                margin-bottom: 8px !important;
+            }
+
+            .footer_menu ul li a {
+                font-size: 13px !important;
+            }
+
+            .footer_bottom {
+                padding: 15px !important;
+            }
+
+            .dezign_copyright {
+                font-size: 12px !important;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .dezign_by {
+                font-size: 12px !important;
+                text-align: center;
+            }
+        }
+
+        /* Small Mobile (max-width: 480px) */
+        @media screen and (max-width: 480px) {
+            .welcom_text {
+                font-size: 11px !important;
+            }
+
+            .logo img {
+                width: 70px !important;
+            }
+
+            .main_title p {
+                font-size: 14px !important;
+            }
+
+            #main_gallery .thumb img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .promo_main {
+                width: 100% !important;
+                margin: 5px 0 !important;
+            }
+
+            .about_content h3 {
+                font-size: 18px !important;
+            }
+
+            .cat_main_title h4 {
+                font-size: 18px !important;
+            }
+
+            .guaranteed_box {
+                padding: 12px !important;
+            }
+
+            .guaranteed_text {
+                font-size: 12px !important;
+            }
+
+            .tabsbottom label {
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }
+        }
+
+        /* Touch-friendly buttons */
+        @media (hover: none) and (pointer: coarse) {
+            .about_button a {
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .main_menu ul li a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .footer_menu ul li a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .tabsbottom label {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body marginwidth="0" marginheight="0">
-    <div data-marko-key="@container s0-2-11" class="x-item-description-child" data-testid="x-item-description-child">
-        <title>GMQ Stone London LTD</title>
-        <meta name="description" content="Quartz Worktop - Serene">
-        <meta name="keywords" content="Quartz Worktop - Serene">
-        <link href="https://dezignbrain.com/ebay/quartz_city_ltd/listing/css/bootstrap.min.css" rel="stylesheet"
-            type="text/css">
-        <link href="https://dezignbrain.com/ebay/quartz_city_ltd/listing/css/listing.css" rel="stylesheet"
-            type="text/css">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap"
-            rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap"
-            rel="stylesheet">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            img {
-                max-width: 100%;
-            }
-        </style>
+    <div class="x-item-description-child">
 
-
+        <!-- ============ HEADER START ============ -->
         <div class="main_dezign_brain_header">
             <div class="promo_top_text">
                 <div class="container">
@@ -51,19 +727,20 @@
                         <div class="row align-items-center">
                             <div class="col-lg-4">
                                 <div class="welcom_text">
-                                    <i class="fa-solid fa-house-chimney"></i> Welcome to <span>GMQ Stone London LTD</span>
+                                    <i class="fa-solid fa-house-chimney"></i> Welcome to <span>GMQ Stone London
+                                        LTD</span>
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="main_menu">
                                     <ul>
-                                        <li><a target="_blank" href="https://www.ebay.co.uk/str/gmqstone">Store
-                                                Home</a></li>
+                                        <li><a target="_blank" href="https://www.ebay.co.uk/str/gmqstone">Store Home</a>
+                                        </li>
                                         <li><a target="_blank"
-                                                href="https://www.ebay.co.uk/sch/gmqstone/m.html?_trksid=p3692">Items
-                                                For Sale </a></li>
+                                                href="https://www.ebay.co.uk/str/gmqstone?_tab=sales">Items For Sale</a>
+                                        </li>
                                         <li><a target="_blank"
-                                                href="https://www.ebay.co.uk/usr/gmqstone?_tab=feedback">Feedback</a>
+                                                href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback">Feedback</a>
                                         </li>
                                         <li><a target="_blank"
                                                 href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmqstone">Contact
@@ -75,6 +752,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="top_section">
                 <div class="container">
                     <div class="row align-items-center">
@@ -82,7 +760,7 @@
                             <div class="Verifie-main">
                                 <div class="Verifie-icon">
                                     <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/header-authenticity-icon.png"
-                                        alt="">
+                                        alt="Verified">
                                 </div>
                                 <div class="Verifie-text">
                                     <h1>eBay-Verified Seller</h1>
@@ -94,11 +772,11 @@
                             <div class="top_header_wrapper">
                                 <div class="top_header">
                                     <div class="logo">
-                                        <a target="_blank" href="https://www.ebay.co.uk/usr/gmqstone">
-                                            <img style="width: 100px;" 
+                                        <a target="_blank" href="https://www.ebay.co.uk/str/gmqstone">
+                                            <img style="width: 100px;"
                                                 src="https://i.ibb.co.com/Lz4BcMSm/Logo-GMQ-Stone.png"
-                                                alt="">
-                                            </a>
+                                                alt="GMQ Stone Logo">
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="mobile_menu amon-container open-text theme-1">
@@ -112,11 +790,10 @@
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><a href="https://www.ebay.co.uk/usr/gmqstone">Store Home</a></li>
-                                            <li><a href="https://www.ebay.co.uk/sch/gmqstone/m.html?_trksid=p3692">Items
-                                                    For Sale</a></li>
-                                            <li><a
-                                                    href="https://www.ebay.co.uk/usr/gmqstone?_tab=feedback">Feedback</a>
+                                            <li><a href="https://www.ebay.co.uk/str/gmqstone">Store Home</a></li>
+                                            <li><a href="https://www.ebay.co.uk/str/gmqstone?_tab=sales">Items For
+                                                    Sale</a></li>
+                                            <li><a href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback">Feedback</a>
                                             </li>
                                             <li><a
                                                     href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmqstone">Contact
@@ -130,11 +807,11 @@
                             <div class="Verifie-main">
                                 <div class="Verifie-icon">
                                     <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/header-authenticity-icon.png"
-                                        alt="">
+                                        alt="Quality">
                                 </div>
                                 <div class="Verifie-text">
                                     <h1>Top Quality Products</h1>
-                                    <p>All Our Items Are High Quality</p>
+                                    <p>Quartz, Granite & Marble</p>
                                 </div>
                             </div>
                         </div>
@@ -142,11 +819,9 @@
                 </div>
             </div>
         </div>
-        <!--Header //end-->
+        <!-- ============ HEADER END ============ -->
 
-
-
-        <!-- PRODUCT_DES3 START -->
+        <!-- ============ PRODUCT GALLERY START ============ -->
         <div class="listing_section">
             <div class="container">
                 <div class="row">
@@ -168,8 +843,7 @@
                                                         <label for="images1" class="thumb"><img class="img-fluid"
                                                                 src="{{img1}}"></label>
                                                         <div class="imagsbox_w">
-                                                            <div class="imagsbox"><img class="full-img"
-                                                                    src="{{img1}}">
+                                                            <div class="imagsbox"><img class="full-img" src="{{img1}}">
                                                             </div>
                                                         </div>
                                                     </li>
@@ -178,8 +852,7 @@
                                                         <label for="images2" class="thumb"><img class="img-fluid"
                                                                 src="{{img2}}"></label>
                                                         <div class="imagsbox_w">
-                                                            <div class="imagsbox"><img class="full-img"
-                                                                    src="{{img2}}">
+                                                            <div class="imagsbox"><img class="full-img" src="{{img2}}">
                                                             </div>
                                                         </div>
                                                     </li>
@@ -188,8 +861,7 @@
                                                         <label for="images3" class="thumb"><img class="img-fluid"
                                                                 src="{{img3}}"></label>
                                                         <div class="imagsbox_w">
-                                                            <div class="imagsbox"><img class="full-img"
-                                                                    src="{{img3}}">
+                                                            <div class="imagsbox"><img class="full-img" src="{{img3}}">
                                                             </div>
                                                         </div>
                                                     </li>
@@ -198,21 +870,10 @@
                                                         <label for="images4" class="thumb"><img class="img-fluid"
                                                                 src="{{img4}}"></label>
                                                         <div class="imagsbox_w">
-                                                            <div class="imagsbox"><img class="full-img"
-                                                                    src="{{img4}}">
+                                                            <div class="imagsbox"><img class="full-img" src="{{img4}}">
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <!-- <li>
-                                                        <input id="images5" name="images" type="radio">
-                                                        <label for="images5" class="thumb"><img class="img-fluid"
-                                                                src="{{img5}}"></label>
-                                                        <div class="imagsbox_w">
-                                                            <div class="imagsbox"><img class="full-img"
-                                                                    src="{{img5}}">
-                                                            </div>
-                                                        </div>
-                                                    </li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -221,6 +882,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Product Description -->
                     <div class="product-text">
                         <div class="desc_box">
                             <div class="main_title">
@@ -229,29 +892,35 @@
                             <div class="listing_listingarea-box" id="right_box">
                                 <div class="desc-rd desc-text">
                                     <div vocab="https://schema.org/" typeof="Product">
-                                        <p>At GMQ Stone we are dedicated and committed to bringing you the best service and product, from the simple to the lavish we have experienced it all and we are here to help you every step of the way. We are a company based in North West London that fabricate, supply and install great quality stones at a very affordable price. Whether its getting a new kitchen worktop, fire place or vanity top we've got all your needs covered with a satisfaction guarantee. All of our staff are friendly and knowledgeable and your needs will always come first..</p>
+                                        <p>At GMQ Stone we are dedicated and committed to bringing you the best service
+                                            and product, from the simple to the lavish we have experienced it all and we
+                                            are here to help you every step of the way. We are a company based in North
+                                            West London that fabricate, supply and install great quality stones at a
+                                            very affordable price. Whether its getting a new kitchen worktop, fire place
+                                            or vanity top we've got all your needs covered with a satisfaction
+                                            guarantee. All of our staff are friendly and knowledgeable and your needs
+                                            will always come first.</p>
 
-                                        <!-- PRODUCT_DES3 END -->
-
-                                        <!-- ------------ BANNER START ------------ -->
+                                        <!-- ============ BANNER START ============ -->
                                         <div id="dezign_home_banner">
                                             <div id="maine_slider">
-                                                <a target="_blank" href="https://www.ebay.co.uk/usr/quartzcityltd"><img
-                                                        class="img-fluid"
-                                                        src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/Banner_01.png"
-                                                        alt=""></a>
+                                                <a target="_blank" href="https://www.ebay.co.uk/str/gmqstone">
+                                                    <img class="img-fluid"
+                                                        src="https://i.ibb.co.com/YTC0n76c/Banner-01.png"
+                                                        alt="GMQ Stone Banner">
+                                                </a>
                                             </div>
                                             <div id="maine_slider_res">
-                                                <a target="_blank" href="https://www.ebay.co.uk/usr/quartzcityltd"><img
-                                                        class="img-fluid"
-                                                        src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/Banner_01_res.jpg"
-                                                        alt=""></a>
+                                                <a target="_blank" href="https://www.ebay.co.uk/str/gmqstone">
+                                                    <img class="img-fluid"
+                                                        src="https://i.ibb.co.com/SX0kK5dB/Banner-01-res.jpg"
+                                                        alt="GMQ Stone Banner Mobile">
+                                                </a>
                                             </div>
                                         </div>
-                                        <!-- ------------ BANNER END ------------ -->
+                                        <!-- ============ BANNER END ============ -->
 
-                                        <!-- promo code start -->
-
+                                        <!-- ============ PROMO BADGES START ============ -->
                                         <div class="promo_wrepper_main">
                                             <div class="container">
                                                 <div class="row">
@@ -260,7 +929,7 @@
                                                             <div class="promo_box">
                                                                 <div class="promo_icon_2">
                                                                     <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/promo_icon_1.png"
-                                                                        alt="">
+                                                                        alt="Verified">
                                                                 </div>
                                                                 <div class="promo_text">
                                                                     <h1>eBay-Verified Seller</h1>
@@ -272,7 +941,7 @@
                                                             <div class="promo_box">
                                                                 <div class="promo_icon_2">
                                                                     <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/promo_icon_2.png"
-                                                                        alt="">
+                                                                        alt="Returns">
                                                                 </div>
                                                                 <div class="promo_text">
                                                                     <h1>Buy with confidence</h1>
@@ -284,11 +953,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- ============ PROMO BADGES END ============ -->
 
-                                        <!-- promo code end -->
-
-
-                                        <!-- ABOUT1 START -->
+                                        <!-- ============ ABOUT SECTION START ============ -->
                                         <div class="about_wrapper">
                                             <div class="container">
                                                 <div class="row align-items-center">
@@ -296,33 +963,35 @@
                                                         <div class="about_content">
                                                             <span>About Us</span>
                                                             <h3>Why Choose GMQ Stone?</h3>
-                                                            <p>GMQ Stone specialises in the supply of Quartz
-                                                                Slabs. We pride ourselves on offering the latest designs
-                                                                and styles in trend and affordable prices.</p>
-                                                            <p>Should you have any questions about our items at GMQ
-                                                                Stone or anything else, please feel free to contact
-                                                                us.</p>
-                                                            <p>As a trusted supplier of Quartz, we ensure a 10-year
-                                                                manufacturer warranty.</p>
+                                                            <p>GMQ Stone specialises in the fabrication, supply and
+                                                                installation of premium Quartz, Granite and Marble
+                                                                worktops. Based in North West London, we pride ourselves
+                                                                on offering the latest designs at affordable prices.</p>
+                                                            <p>Our friendly and knowledgeable staff are dedicated to
+                                                                putting your needs first. Whether you're looking for a
+                                                                kitchen worktop, fireplace or vanity top, we've got you
+                                                                covered.</p>
+                                                            <p>We ensure quality craftsmanship with a satisfaction
+                                                                guarantee on all our projects.</p>
                                                             <p>Thanks for your visit and happy shopping!</p>
-                                                            <div class="about_button"><a
-                                                                    href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmqstone"
-                                                                    target="_blank">Contact Us</a></div>
+                                                            <div class="about_button">
+                                                                <a href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmqstone"
+                                                                    target="_blank">Contact Us</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="about_img">
                                                             <img src="https://i.ibb.co.com/YTJ7bVB3/christa-grover-kf-Ktt3j-Jhho-unsplash.jpg"
-                                                                alt="">
+                                                                alt="GMQ Stone Worktop">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- ABOUT1 END -->
+                                        <!-- ============ ABOUT SECTION END ============ -->
 
-
-                                        <!-- ------------ PROMOTION START ------------ -->
+                                        <!-- ============ FEATURES START ============ -->
                                         <div class="promotion_bg">
                                             <div class="container">
                                                 <div class="promotion_wrapper">
@@ -330,7 +999,7 @@
                                                         <div class="promo_main">
                                                             <div class="promo_icon"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/s1.png"
-                                                                    alt=""></div>
+                                                                    alt="Delivery"></div>
                                                             <div class="promo_text">
                                                                 <h1>Fast 'N Secure</h1>
                                                                 <p>Delivery</p>
@@ -339,7 +1008,7 @@
                                                         <div class="promo_main">
                                                             <div class="promo_icon"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/s2.png"
-                                                                    alt=""></div>
+                                                                    alt="Quality"></div>
                                                             <div class="promo_text">
                                                                 <h1>Best Quality</h1>
                                                                 <p>Products</p>
@@ -348,7 +1017,7 @@
                                                         <div class="promo_main">
                                                             <div class="promo_icon"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/s3.png"
-                                                                    alt=""></div>
+                                                                    alt="Satisfaction"></div>
                                                             <div class="promo_text">
                                                                 <h1>100% Satisfaction</h1>
                                                                 <p>Guarantee</p>
@@ -357,7 +1026,7 @@
                                                         <div class="promo_main">
                                                             <div class="promo_icon"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/s4.png"
-                                                                    alt=""></div>
+                                                                    alt="Secure"></div>
                                                             <div class="promo_text">
                                                                 <h1>Safe &amp; Secure</h1>
                                                                 <p>Shopping</p>
@@ -367,10 +1036,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- ------------ PROMOTION END ------------ -->
+                                        <!-- ============ FEATURES END ============ -->
 
-
-                                        <!-- collection 1 start START -->
+                                        <!-- ============ COLLECTION START ============ -->
                                         <div class="similar_section collection_1">
                                             <div class="container">
                                                 <div class="fea_text">
@@ -379,42 +1047,63 @@
                                                     </div>
                                                 </div>
                                                 <div class="row justify-content-center">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-4">
                                                         <div class="medical_section">
                                                             <div class="feature-image">
-                                                                <a href="#" target="_blank">
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">
                                                                     <img src="https://i.ibb.co.com/qHv7RDW/shutterstock-450121621.jpg"
-                                                                        alt=""></a>
+                                                                        alt="Quartz Worktops">
+                                                                </a>
                                                             </div>
                                                             <div class="cat_text_box">
-                                                                <h4><a href="#" target="_blank">GMQ Stone Worktops</a></h4>
-                                                                <a href="#" target="_blank">View All</a>
+                                                                <h4><a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                        target="_blank">Quartz Worktops</a></h4>
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">View All</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-4">
                                                         <div class="medical_section">
                                                             <div class="feature-image">
-                                                                <a href="#" target="_blank">
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">
                                                                     <img src="https://i.ibb.co.com/Jw5jNcGJ/simona-sergi-Ek-EJRx-Zlo-KI-unsplash.jpg"
-                                                                        alt=""></a>
+                                                                        alt="Granite Worktops">
+                                                                </a>
                                                             </div>
                                                             <div class="cat_text_box">
-                                                                <h4><a href="#" target="_blank">Printed GMQ Stone
-                                                                        Worktops</a></h4>
-                                                                <a href="#" target="_blank">View All</a>
+                                                                <h4><a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                        target="_blank">Granite Worktops</a></h4>
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">View All</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+                                                    <div class="col-lg-4">
+                                                        <div class="medical_section">
+                                                            <div class="feature-image">
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">
+                                                                    <img src="https://i.ibb.co.com/YTJ7bVB3/christa-grover-kf-Ktt3j-Jhho-unsplash.jpg"
+                                                                        alt="Marble Worktops">
+                                                                </a>
+                                                            </div>
+                                                            <div class="cat_text_box">
+                                                                <h4><a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                        target="_blank">Marble Worktops</a></h4>
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">View All</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- PRODUCT END -->
+                                        <!-- ============ COLLECTION END ============ -->
 
-
-                                        <!-- introduction section Start -->
-
+                                        <!-- ============ CARE GUIDELINES START ============ -->
                                         <div class="intro_section section_wrapper">
                                             <div class="intro_title">
                                                 <h2>Care and Maintenance Guidelines</h2>
@@ -424,7 +1113,7 @@
                                                     <div class="intro_box">
                                                         <div class="intro_img">
                                                             <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/intro_icon_1.png"
-                                                                alt="">
+                                                                alt="Clean">
                                                         </div>
                                                         <div class="intro_content">
                                                             <p>We advise that you clean your quartz stone surfaces
@@ -436,60 +1125,57 @@
                                                     <div class="intro_box">
                                                         <div class="intro_img">
                                                             <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/intro_icon_2.png"
-                                                                alt="">
+                                                                alt="Avoid">
                                                         </div>
                                                         <div class="intro_content">
                                                             <p>DO NOT use abrasive cleaning products on your Quartz
                                                                 slabs. Bleach, chlorine-based cleaners, acids, alkalis
                                                                 or concentrated disinfectants will damage your stone
-                                                                surfaces. If any of these come into contact with the
-                                                                stone, clean them off immediately, otherwise, surface
-                                                                damage and discolouration are likely to occur.</p>
+                                                                surfaces.</p>
                                                         </div>
                                                     </div>
                                                     <div class="intro_box">
                                                         <div class="intro_img">
                                                             <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/intro_icon_3.png"
-                                                                alt="">
+                                                                alt="Heat">
                                                         </div>
                                                         <div class="intro_content">
                                                             <p>Thermal Protection - Always use pan stands and trivets to
                                                                 protect stone surfaces from hot and rough pans and
-                                                                utensils. Direct contact can burn and stain the stone
-                                                                surfaces. Quartz is heat resistant NOT heatproof.</p>
+                                                                utensils. Quartz is heat resistant NOT heatproof.</p>
                                                         </div>
                                                     </div>
                                                     <div class="intro_box">
                                                         <div class="intro_img">
                                                             <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/intro_icon_4.png"
-                                                                alt="">
+                                                                alt="Scratch">
                                                         </div>
                                                         <div class="intro_content">
                                                             <p>Protect against scratches - Always use cutting boards to
                                                                 chop and slice food. Never cut directly onto the stone
-                                                                surfaces. Although quartz is a scratch-resistant
-                                                                material, it is NOT scratch-proof.</p>
+                                                                surfaces. Quartz is scratch-resistant but NOT
+                                                                scratch-proof.</p>
                                                         </div>
                                                     </div>
                                                     <div class="intro_box">
                                                         <div class="intro_img">
                                                             <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/intro_icon_5.png"
-                                                                alt="">
+                                                                alt="Stains">
                                                         </div>
                                                         <div class="intro_content">
-                                                            <p>Stubborn Stains and Marks - Make sure you use the
-                                                                recommended product, such as Cif Original Cream or The
-                                                                Pink Stuff with a microfibre cloth. <br> <br>Do not use
-                                                                bleach or acidic cleaning products.</p>
+                                                            <p>Stubborn Stains and Marks - Use recommended products such
+                                                                as Cif Original Cream or The Pink Stuff with a
+                                                                microfibre cloth. Do not use bleach or acidic cleaning
+                                                                products.</p>
                                                         </div>
                                                     </div>
                                                     <div class="intro_box">
                                                         <div class="intro_img">
                                                             <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/intro_icon_6.png"
-                                                                alt="">
+                                                                alt="Indoor">
                                                         </div>
                                                         <div class="intro_content">
-                                                            <p>Quartz City Slabs are designed for indoor use. Using the
+                                                            <p>GMQ Stone products are designed for indoor use. Using the
                                                                 slabs outdoors will eventually lead to discolouration
                                                                 and this is not covered by your warranty.</p>
                                                         </div>
@@ -497,19 +1183,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- ============ CARE GUIDELINES END ============ -->
 
-
-
-
-                                        <!-- ------------ MAIN TAB START ------------ -->
-
+                                        <!-- ============ TABS START ============ -->
                                         <div class="tabsbottom">
                                             <div class="container">
                                                 <div class="clear"></div>
                                                 <input id="table1" name="tables" type="radio"><label
-                                                    for="table1">Payment</label><input id="table2" name="tables"
-                                                    type="radio" checked=""><label for="table2">Shipping</label><input
-                                                    id="table3" name="tables" type="radio"><label
+                                                    for="table1">Payment</label>
+                                                <input id="table2" name="tables" type="radio" checked=""><label
+                                                    for="table2">Shipping</label>
+                                                <input id="table3" name="tables" type="radio"><label
                                                     for="table3">Returns</label>
                                                 <section id="content1">
                                                     <p>We accept PayPal, and all major credit cards and debit cards.
@@ -522,13 +1206,12 @@
                                                     <p>We do everything possible to ensure that your package arrives as
                                                         quickly as possible. Please understand that certain factors such
                                                         as weather conditions, heavy postal traffic and the performance
-                                                        of the shipping company are beyond our control. Please message
-                                                        us for details if needed.</p>
+                                                        of the shipping company are beyond our control.</p>
                                                 </section>
                                                 <section id="content3">
                                                     <p>If you change your mind, or the product is not suitable, then you
                                                         can return the item for a refund within 30 days. We only accept
-                                                        the unopended/unused products. All postage and package costs
+                                                        the unopened/unused products. All postage and package costs
                                                         remain the responsibility of the customer unless we delivered an
                                                         item to you in error, or the item is damaged or faulty.</p>
                                                     <p><strong>CUSTOMER SUPPORT:</strong> We guarantee 100% satisfaction
@@ -538,15 +1221,13 @@
                                                 </section>
                                             </div>
                                         </div>
+                                        <!-- ============ TABS END ============ -->
 
-                                        <!-- ------------ MAIN TAB END ------------ -->
-
-
-                                        <!-- ------------ REVIEWS START ------------ -->
+                                        <!-- ============ REVIEWS START ============ -->
                                         <div class="guaranteed_wapper">
                                             <div class="container">
                                                 <div class="guaranteed-head">
-                                                    <h5>Why Customer love Us?</h5>
+                                                    <h5>Why Customers Love Us</h5>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-6 col-6">
@@ -558,15 +1239,14 @@
                                                                 <i class="fa-solid fa-star"></i>
                                                                 <i class="fa-solid fa-star"></i>
                                                             </div>
-                                                            <div class="guaranteed_text">"As described, arrived on time,
-                                                                great seller"</div>
-                                                            <div class="guaranteed_name">Buyer:B***E (125)</div>
+                                                            <div class="guaranteed_text">"Excellent quality stone, very
+                                                                happy with the purchase!"</div>
+                                                            <div class="guaranteed_name">Buyer: A***M (89)</div>
                                                             <div class="ebay_logo"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
-                                                                    alt=""></div>
+                                                                    alt="eBay"></div>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-lg-3 col-md-6 col-6">
                                                         <div class="guaranteed_box">
                                                             <div class="start">
@@ -576,15 +1256,14 @@
                                                                 <i class="fa-solid fa-star"></i>
                                                                 <i class="fa-solid fa-star"></i>
                                                             </div>
-                                                            <div class="guaranteed_text">"Item arrived quickly. no
-                                                                issues, will trade again for sure"</div>
-                                                            <div class="guaranteed_name">Buyer: C***D (private)</div>
+                                                            <div class="guaranteed_text">"Fast delivery and great
+                                                                communication. Highly recommend!"</div>
+                                                            <div class="guaranteed_name">Buyer: S***K (156)</div>
                                                             <div class="ebay_logo"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
-                                                                    alt=""></div>
+                                                                    alt="eBay"></div>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-lg-3 col-md-6 col-6">
                                                         <div class="guaranteed_box">
                                                             <div class="start">
@@ -594,15 +1273,14 @@
                                                                 <i class="fa-solid fa-star"></i>
                                                                 <i class="fa-solid fa-star"></i>
                                                             </div>
-                                                            <div class="guaranteed_text">"Happy, good postage deal with
-                                                                anytime"</div>
-                                                            <div class="guaranteed_name">Buyer: I***P (69)</div>
+                                                            <div class="guaranteed_text">"Beautiful sample, exactly as
+                                                                described. Will order more!"</div>
+                                                            <div class="guaranteed_name">Buyer: J***T (42)</div>
                                                             <div class="ebay_logo"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
-                                                                    alt=""></div>
+                                                                    alt="eBay"></div>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-lg-3 col-md-6 col-6">
                                                         <div class="guaranteed_box">
                                                             <div class="start">
@@ -612,39 +1290,40 @@
                                                                 <i class="fa-solid fa-star"></i>
                                                                 <i class="fa-solid fa-star"></i>
                                                             </div>
-                                                            <div class="guaranteed_text">"A hassle-free transaction,
-                                                                fast delivery. Would deal with again"</div>
-                                                            <div class="guaranteed_name">Buyer: B***E (125)</div>
+                                                            <div class="guaranteed_text">"Professional service from
+                                                                start to finish. Thank you!"</div>
+                                                            <div class="guaranteed_name">Buyer: R***P (203)</div>
                                                             <div class="ebay_logo"><img
                                                                     src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
-                                                                    alt=""></div>
+                                                                    alt="eBay"></div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div class="container">
                                                 <div class="cat-btn btn_2">
-                                                    <div class="about_button revue_btn"><a
-                                                            href="https://www.ebay.co.uk/fdbk/feedback_profile/gmqstone?commentType=POSITIVE&amp;user_context=BUYER"
-                                                            target="_blank">View All Reviews</a></div>
+                                                    <div class="about_button revue_btn">
+                                                        <a href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback"
+                                                            target="_blank">View All Reviews</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- ------------ REVIEWS END ------------ -->
+                                        <!-- ============ REVIEWS END ============ -->
 
-
-
+                                        <!-- ============ FOOTER START ============ -->
                                         <footer>
                                             <div class="store_footer_wapper">
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-6">
-                                                            <div class="footer_logo"> <a
-                                                                    href="https://www.ebay.co.uk/str/gmqstone"
-                                                                    target="_blank"> <img
-                                                                        src="https://i.ibb.co.com/Lz4BcMSm/Logo-GMQ-Stone.png"
-                                                                        alt=""></a> </div>
+                                                            <div class="footer_logo">
+                                                                <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                    target="_blank">
+                                                                    <img src="https://i.ibb.co.com/Lz4BcMSm/Logo-GMQ-Stone.png"
+                                                                        alt="GMQ Stone Logo" style="width: 100px;">
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                         <div class="col-lg-3 col-md-6">
                                                             <div class="footer_bottom_menu">
@@ -652,22 +1331,22 @@
                                                                     <div class="footer_block_titel">Useful Links</div>
                                                                     <div class="footer_menu">
                                                                         <ul>
-                                                                            <li> <a href="https://www.ebay.co.uk/str/gmqstone"
+                                                                            <li><a href="https://www.ebay.co.uk/str/gmqstone"
                                                                                     target="_blank"><i
                                                                                         class="fa-solid fa-caret-right"></i>
                                                                                     Store Home</a></li>
-                                                                            <li> <a href="https://www.ebay.co.uk/str/gmqstone?_tab=sales"
+                                                                            <li><a href="https://www.ebay.co.uk/str/gmqstone?_tab=sales"
                                                                                     target="_blank"><i
                                                                                         class="fa-solid fa-caret-right"></i>
-                                                                                    Items For Sale</a> </li>
-                                                                            <li> <a href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback"
+                                                                                    Items For Sale</a></li>
+                                                                            <li><a href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback"
                                                                                     target="_blank"><i
                                                                                         class="fa-solid fa-caret-right"></i>
                                                                                     Feedback</a></li>
-                                                                            <li> <a href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmq_stone_ltd"
+                                                                            <li><a href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmqstone"
                                                                                     target="_blank"><i
                                                                                         class="fa-solid fa-caret-right"></i>
-                                                                                    Contact Us</a> </li>
+                                                                                    Contact Us</a></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -678,7 +1357,7 @@
                                                                 <div class="footer_block_titel">Payment Options</div>
                                                                 <div class="payment_img">
                                                                     <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/footer_payment.png"
-                                                                        class="img-fluid">
+                                                                        class="img-fluid" alt="Payment Methods">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -686,9 +1365,10 @@
                                                             <div class="footer_block footer_block04">
                                                                 <div class="footer_block_titel">Shop With Confidence
                                                                 </div>
-                                                                <div class="shop_img"> <img
-                                                                        src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/footer_confidence.png"
-                                                                        class="img-fluid"> </div>
+                                                                <div class="shop_img">
+                                                                    <img src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/footer_confidence.png"
+                                                                        class="img-fluid" alt="Shop With Confidence">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -698,7 +1378,8 @@
                                                 <div class="container">
                                                     <div class="row align-items-center">
                                                         <div class="col-md-7">
-                                                            <div class="dezign_copyright">© Copyright 2026,<span> GMQ Stone London LTD. </span>All rights reserved.</div>
+                                                            <div class="dezign_copyright">© Copyright 2026, <span>GMQ
+                                                                    Stone London LTD.</span> All rights reserved.</div>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="dezign_by">Made with <i
@@ -710,7 +1391,7 @@
                                                 </div>
                                             </div>
                                         </footer>
-
+                                        <!-- ============ FOOTER END ============ -->
 
                                     </div>
                                 </div>
@@ -720,6 +1401,8 @@
                 </div>
             </div>
         </div>
+        <!-- ============ PRODUCT GALLERY END ============ -->
+
     </div>
 </body>
 
