@@ -1,0 +1,1932 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      GMQ Stone London LTD - Premium Quartz, Granite & Marble Worktops
+    </title>
+    <meta
+      name="description"
+      content="GMQ Stone - North West London's trusted supplier of premium quartz, granite & marble worktops. Fabrication, supply & installation since 2006."
+    />
+    <meta
+      name="keywords"
+      content="Quartz Worktops, Granite Worktops, Marble Worktops, Kitchen Worktops, Fireplace, Vanity Top, GMQ Stone, North West London, Stone Fabrication"
+    />
+
+    <!-- Fonts & Icons (Online) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap CSS (Online) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================
+           GMQ STONE UNIQUE COLOR SCHEME
+           Deep Navy Blue | Warm Copper | Ivory Cream
+           Modern Glassmorphism & Elegant Design
+        ============================================ */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --gmq-navy: #0a1628;
+        --gmq-navy-light: #162544;
+        --gmq-navy-medium: #1e3a5f;
+        --gmq-copper: #b87333;
+        --gmq-copper-light: #d4956a;
+        --gmq-copper-dark: #8b5a2b;
+        --gmq-ivory: #faf8f5;
+        --gmq-cream: #f5efe6;
+        --gmq-slate: #64748b;
+        --gmq-white: #ffffff;
+        --gmq-gradient-primary: linear-gradient(
+          135deg,
+          var(--gmq-navy) 0%,
+          var(--gmq-navy-medium) 100%
+        );
+        --gmq-gradient-copper: linear-gradient(
+          135deg,
+          var(--gmq-copper) 0%,
+          var(--gmq-copper-dark) 100%
+        );
+        --gmq-shadow-soft: 0 4px 30px rgba(10, 22, 40, 0.1);
+        --gmq-shadow-medium: 0 10px 40px rgba(10, 22, 40, 0.15);
+        --gmq-shadow-strong: 0 20px 60px rgba(10, 22, 40, 0.2);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--gmq-ivory);
+        color: var(--gmq-navy);
+        line-height: 1.7;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      /* ============================================
+        TOP ANNOUNCEMENT BAR
+        ============================================ */
+      .announcement-bar {
+        background: var(--gmq-gradient-primary);
+        padding: 12px 0;
+        border-bottom: 3px solid var(--gmq-copper);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .announcement-bar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(184, 115, 51, 0.1),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-50%);
+        }
+
+        100% {
+          transform: translateX(50%);
+        }
+      }
+
+      .announcement-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .welcome-text {
+        color: var(--gmq-ivory);
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+      }
+
+      .welcome-text i {
+        color: var(--gmq-copper);
+        margin-right: 8px;
+      }
+
+      .welcome-text span {
+        color: var(--gmq-copper-light);
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links a {
+        color: var(--gmq-ivory);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gmq-copper);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a:hover {
+        color: var(--gmq-copper-light);
+      }
+
+      /* ============================================
+           HEADER SECTION
+        ============================================ */
+      .header-section {
+        background: var(--gmq-white);
+        padding: 25px 0;
+        box-shadow: var(--gmq-shadow-soft);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 20px;
+        background: var(--gmq-cream);
+        border-radius: 12px;
+        border-left: 4px solid var(--gmq-copper);
+        transition: all 0.3s ease;
+      }
+
+      .trust-badge:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--gmq-shadow-soft);
+      }
+
+      .trust-badge-icon {
+        width: 45px;
+        height: 45px;
+        background: var(--gmq-gradient-copper);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .trust-badge-icon i {
+        color: var(--gmq-white);
+        font-size: 18px;
+      }
+
+      .trust-badge-text h4 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gmq-navy);
+      }
+
+      .trust-badge-text p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--gmq-slate);
+      }
+
+      .logo-wrapper {
+        text-align: center;
+      }
+
+      .logo-wrapper img {
+        width: 120px;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-wrapper img:hover {
+        transform: scale(1.05);
+      }
+
+      /* ============================================
+        HERO PRODUCT SECTION
+        ============================================ */
+      .product-hero {
+        background: var(--gmq-gradient-primary);
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(184, 115, 51, 0.15) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .product-hero::after {
+        content: "";
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(184, 115, 51, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .product-title-box {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .product-title-box h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--gmq-white);
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+
+      .product-title-box .subtitle {
+        color: var(--gmq-copper-light);
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      /* Product Gallery */
+      .product-gallery {
+        position: relative;
+        z-index: 1;
+      }
+
+      .gallery-main {
+        background: var(--gmq-white);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: var(--gmq-shadow-strong);
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+
+      .gallery-main img {
+        width: 100%;
+        border-radius: 12px;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-main:hover img {
+        transform: scale(1.02);
+      }
+
+      .gallery-thumbs {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .thumb-item {
+        width: 80px;
+        height: 80px;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+      }
+
+      .thumb-item:hover,
+      .thumb-item.active {
+        border-color: var(--gmq-copper);
+        opacity: 1;
+        transform: translateY(-5px);
+      }
+
+      .thumb-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Product Description */
+      .product-description {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--gmq-ivory);
+        position: relative;
+        z-index: 1;
+      }
+
+      .product-description h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--gmq-copper-light);
+      }
+
+      .product-description p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* ============================================
+           FEATURES SECTION
+        ============================================ */
+      .features-section {
+        padding: 80px 0;
+        background: var(--gmq-white);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-header span {
+        color: var(--gmq-copper);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .section-header h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 38px;
+        font-weight: 700;
+        color: var(--gmq-navy);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .feature-card {
+        background: var(--gmq-cream);
+        border-radius: 16px;
+        padding: 30px 25px;
+        text-align: center;
+        transition: all 0.4s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gmq-gradient-copper);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+
+      .feature-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gmq-copper-light);
+        box-shadow: var(--gmq-shadow-medium);
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--gmq-gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: all 0.4s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        background: var(--gmq-gradient-copper);
+        transform: rotateY(180deg);
+      }
+
+      .feature-icon i {
+        color: var(--gmq-white);
+        font-size: 26px;
+      }
+
+      .feature-card h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--gmq-navy);
+        margin-bottom: 8px;
+      }
+
+      .feature-card p {
+        font-size: 13px;
+        color: var(--gmq-slate);
+        margin: 0;
+      }
+
+      /* ============================================
+           ABOUT SECTION
+        ============================================ */
+      .about-section {
+        padding: 100px 0;
+        background: var(--gmq-ivory);
+        position: relative;
+      }
+
+      .about-content {
+        padding-right: 50px;
+      }
+
+      .about-content span {
+        color: var(--gmq-copper);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      .about-content h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--gmq-navy);
+        margin-bottom: 25px;
+        line-height: 1.2;
+      }
+
+      .about-content p {
+        font-size: 15px;
+        color: var(--gmq-slate);
+        margin-bottom: 15px;
+      }
+
+      .about-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--gmq-gradient-copper);
+        color: var(--gmq-white);
+        padding: 15px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        margin-top: 20px;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba(184, 115, 51, 0.3);
+      }
+
+      .about-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(184, 115, 51, 0.4);
+        color: var(--gmq-white);
+      }
+
+      .about-image {
+        position: relative;
+      }
+
+      .about-image img {
+        border-radius: 20px;
+        box-shadow: var(--gmq-shadow-strong);
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100%;
+        height: 100%;
+        border: 4px solid var(--gmq-copper);
+        border-radius: 20px;
+        z-index: -1;
+      }
+
+      .experience-badge {
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        background: var(--gmq-gradient-primary);
+        color: var(--gmq-white);
+        padding: 25px 30px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: var(--gmq-shadow-medium);
+      }
+
+      .experience-badge h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--gmq-copper-light);
+      }
+
+      .experience-badge p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /* ============================================
+           COLLECTION SECTION
+        ============================================ */
+      .collection-section {
+        padding: 80px 0;
+        background: var(--gmq-gradient-primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .collection-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B87333' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .collection-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .collection-header span {
+        color: var(--gmq-copper-light);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .collection-header h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 38px;
+        font-weight: 700;
+        color: var(--gmq-white);
+      }
+
+      .collection-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .collection-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 350px;
+        transition: all 0.4s ease;
+      }
+
+      .collection-card:hover {
+        transform: scale(1.02);
+      }
+
+      .collection-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .collection-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .collection-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 22, 40, 0.95) 0%,
+          transparent 100%
+        );
+        padding: 40px 30px 30px;
+      }
+
+      .collection-overlay h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--gmq-white);
+        margin-bottom: 10px;
+      }
+
+      .collection-overlay a {
+        color: var(--gmq-copper-light);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .collection-overlay a:hover {
+        color: var(--gmq-copper);
+        gap: 12px;
+      }
+
+      /* ============================================
+           CARE GUIDELINES SECTION
+        ============================================ */
+      .care-section {
+        padding: 80px 0;
+        background: var(--gmq-white);
+      }
+
+      .care-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .care-card {
+        background: var(--gmq-ivory);
+        border-radius: 16px;
+        padding: 30px;
+        display: flex;
+        gap: 20px;
+        transition: all 0.3s ease;
+        border-left: 4px solid var(--gmq-copper);
+      }
+
+      .care-card:hover {
+        transform: translateX(10px);
+        box-shadow: var(--gmq-shadow-soft);
+      }
+
+      .care-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: var(--gmq-gradient-copper);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .care-icon i {
+        color: var(--gmq-white);
+        font-size: 20px;
+      }
+
+      .care-text p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--gmq-slate);
+        line-height: 1.7;
+      }
+
+      /* ============================================
+           TABS SECTION
+        ============================================ */
+      .tabs-section {
+        padding: 60px 0;
+        background: var(--gmq-cream);
+      }
+
+      .tabs-wrapper {
+        background: var(--gmq-white);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--gmq-shadow-soft);
+      }
+
+      .tab-buttons {
+        display: flex;
+        background: var(--gmq-gradient-primary);
+      }
+
+      .tab-button {
+        flex: 1;
+        padding: 20px;
+        background: transparent;
+        border: none;
+        color: var(--gmq-ivory);
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .tab-button::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gmq-copper);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .tab-button:hover,
+      .tab-button.active {
+        background: rgba(184, 115, 51, 0.2);
+      }
+
+      .tab-button.active::after {
+        transform: scaleX(1);
+      }
+
+      .tab-content {
+        padding: 30px;
+      }
+
+      .tab-pane {
+        display: none;
+      }
+
+      .tab-pane.active {
+        display: block;
+      }
+
+      .tab-pane p {
+        font-size: 14px;
+        color: var(--gmq-slate);
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      .tab-pane p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ============================================
+           REVIEWS SECTION
+        ============================================ */
+      .reviews-section {
+        padding: 80px 0;
+        background: var(--gmq-ivory);
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .review-card {
+        background: var(--gmq-white);
+        border-radius: 16px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.4s ease;
+        border: 2px solid transparent;
+      }
+
+      .review-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gmq-copper-light);
+        box-shadow: var(--gmq-shadow-medium);
+      }
+
+      .review-stars {
+        margin-bottom: 15px;
+      }
+
+      .review-stars i {
+        color: var(--gmq-copper);
+        font-size: 16px;
+        margin: 0 2px;
+      }
+
+      .review-text {
+        font-size: 14px;
+        color: var(--gmq-navy);
+        font-style: italic;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .review-author {
+        font-size: 12px;
+        color: var(--gmq-copper);
+        font-weight: 600;
+      }
+
+      .review-logo {
+        margin-top: 15px;
+      }
+
+      .review-logo img {
+        height: 20px;
+        opacity: 0.6;
+      }
+
+      .reviews-cta {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .reviews-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--gmq-gradient-primary);
+        color: var(--gmq-white);
+        padding: 15px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba(10, 22, 40, 0.3);
+      }
+
+      .reviews-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(10, 22, 40, 0.4);
+        color: var(--gmq-white);
+      }
+
+      /* ============================================
+           FOOTER SECTION
+        ============================================ */
+      .footer-section {
+        background: var(--gmq-gradient-primary);
+        padding: 60px 0 0;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding-bottom: 40px;
+      }
+
+      .footer-logo {
+        text-align: center;
+      }
+
+      .footer-logo img {
+        width: 100px;
+        background: var(--gmq-white);
+        padding: 15px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .footer-title {
+        color: var(--gmq-copper-light);
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(184, 115, 51, 0.3);
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .footer-links a i {
+        color: var(--gmq-copper);
+        font-size: 10px;
+      }
+
+      .footer-links a:hover {
+        color: var(--gmq-copper-light);
+        padding-left: 10px;
+      }
+
+      .payment-icons img,
+      .confidence-icons img {
+        max-width: 100%;
+        margin-top: 10px;
+      }
+
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 20px 0;
+        border-top: 1px solid rgba(184, 115, 51, 0.2);
+      }
+
+      .footer-bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .copyright {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+      }
+
+      .copyright span {
+        color: var(--gmq-copper-light);
+      }
+
+      .made-by {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+      }
+
+      .made-by i {
+        color: var(--gmq-copper);
+        animation: heartbeat 1.5s infinite;
+      }
+
+      .made-by span {
+        color: var(--gmq-copper-light);
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* ============================================
+           MOBILE MENU
+        ============================================ */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .mobile-menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--gmq-ivory);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      /* ============================================
+           RESPONSIVE STYLES
+        ============================================ */
+      @media screen and (max-width: 991px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .header-content {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .trust-badge {
+          display: none;
+        }
+
+        .feature-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-content {
+          padding-right: 0;
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .about-image::before {
+          display: none;
+        }
+
+        .experience-badge {
+          position: static;
+          margin-top: 20px;
+        }
+
+        .collection-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .care-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .reviews-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .announcement-content {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .welcome-text {
+          font-size: 12px;
+        }
+
+        .product-title-box h1 {
+          font-size: 28px;
+        }
+
+        .product-title-box .subtitle {
+          font-size: 12px;
+        }
+
+        .section-header h2,
+        .collection-header h2,
+        .about-content h2 {
+          font-size: 28px;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .footer-bottom-content {
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .gallery-thumbs {
+          flex-wrap: wrap;
+        }
+
+        .thumb-item {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .product-title-box h1 {
+          font-size: 24px;
+        }
+
+        .feature-card {
+          padding: 20px 15px;
+        }
+
+        .feature-icon {
+          width: 55px;
+          height: 55px;
+        }
+
+        .feature-icon i {
+          font-size: 20px;
+        }
+
+        .care-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .tab-button {
+          padding: 15px 10px;
+          font-size: 12px;
+        }
+
+        .review-card {
+          padding: 20px 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============ ANNOUNCEMENT BAR ============ -->
+    <div class="announcement-bar">
+      <div class="container">
+        <div class="announcement-content">
+          <div class="welcome-text">
+            <i class="fa-solid fa-gem"></i> Welcome to
+            <span>GMQ Stone London LTD</span>
+          </div>
+          <ul class="nav-links">
+            <li>
+              <a target="_blank" href="https://www.ebay.co.uk/str/gmqstone"
+                >Store Home</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.ebay.co.uk/str/gmqstone?_tab=sales"
+                >Items For Sale</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback"
+                >Feedback</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmq_stone_ltd"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+          <button class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ HEADER SECTION ============ -->
+    <div class="header-section">
+      <div class="container">
+        <div class="header-content">
+          <div class="trust-badge">
+            <div class="trust-badge-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="trust-badge-text">
+              <h4>eBay Verified Seller</h4>
+              <p>100% Authenticity Guaranteed</p>
+            </div>
+          </div>
+
+          <div class="logo-wrapper">
+            <a target="_blank" href="https://www.ebay.co.uk/str/gmqstone">
+              <img
+                src="https://i.ibb.co.com/Lz4BcMSm/Logo-GMQ-Stone.png"
+                alt="GMQ Stone Logo"
+              />
+            </a>
+          </div>
+
+          <div class="trust-badge">
+            <div class="trust-badge-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="trust-badge-text">
+              <h4>Premium Quality</h4>
+              <p>Handpicked Stone Surfaces</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ HERO PRODUCT SECTION ============ -->
+    <div class="product-hero">
+      <div class="container">
+        <div class="product-title-box">
+          <h1>Calacatta Quartz Worktop 20mm - All colours available</h1>
+          <p class="subtitle">Premium Stone Surface Collection</p>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <div class="product-gallery">
+              <div class="gallery-main">
+                <img
+                  id="mainImage"
+                  src="https://i.ebayimg.com/images/g/JF0AAOSwQlJf40Ki/s-l1600.webp"
+                  alt="Product Image"
+                />
+              </div>
+              <div class="gallery-thumbs">
+                <div
+                  class="thumb-item active"
+                  onclick="
+                    changeImage(
+                      'https://i.ebayimg.com/images/g/JF0AAOSwQlJf40Ki/s-l1600.webp',
+                      this,
+                    )
+                  "
+                >
+                  <img
+                    src="https://i.ebayimg.com/images/g/JF0AAOSwQlJf40Ki/s-l1600.webp"
+                    alt="Thumbnail 1"
+                  />
+                </div>
+                <div
+                  class="thumb-item"
+                  onclick="
+                    changeImage(
+                      'https://i.ebayimg.com/images/g/E3oAAOSwOxtf40Kf/s-l1600.webp',
+                      this,
+                    )
+                  "
+                >
+                  <img
+                    src="https://i.ebayimg.com/images/g/E3oAAOSwOxtf40Kf/s-l1600.webp"
+                    alt="Thumbnail 2"
+                  />
+                </div>
+                <div
+                  class="thumb-item"
+                  onclick="
+                    changeImage(
+                      'https://i.ebayimg.com/images/g/5LwAAOSwYBRf40Kc/s-l1600.webp',
+                      this,
+                    )
+                  "
+                >
+                  <img
+                    src="https://i.ebayimg.com/images/g/5LwAAOSwYBRf40Kc/s-l1600.webp"
+                    alt="Thumbnail 3"
+                  />
+                </div>
+                <div
+                  class="thumb-item"
+                  onclick="
+                    changeImage(
+                      'https://i.ebayimg.com/images/g/fF8AAOSw0dVf40Ke/s-l1600.webp',
+                      this,
+                    )
+                  "
+                >
+                  <img
+                    src="https://i.ebayimg.com/images/g/fF8AAOSw0dVf40Ke/s-l1600.webp"
+                    alt="Thumbnail 4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="product-description">
+              <h3>Product Description</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+                adipisci animi ea voluptatibus! Consectetur optio saepe
+                doloremque corrupti sit. Unde, rem iure. Soluta quasi architecto
+                ipsa! Repellendus voluptatibus nobis, veritatis quaerat ipsum
+                alias ullam aliquam velit, dicta impedit id quasi fugiat
+                recusandae! Ea temporibus inventore odit impedit pariatur iste
+                porro?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FEATURES SECTION ============ -->
+    <div class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <span>Why Choose Us</span>
+          <h2>Our Premium Services</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <h4>Fast & Secure</h4>
+            <p>Delivery</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h4>Best Quality</h4>
+            <p>Products</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-medal"></i>
+            </div>
+            <h4>100% Satisfaction</h4>
+            <p>Guarantee</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <h4>Safe & Secure</h4>
+            <p>Shopping</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <div class="about-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="about-content">
+              <span>About Us</span>
+              <h2>Why Choose GMQ Stone?</h2>
+              <p>
+                At GMQ Stone we are dedicated and committed to bringing you the
+                best service and product. We fabricate, supply and install great
+                quality quartz, granite and marble stones at very affordable
+                prices.
+              </p>
+              <p>
+                Based in North West London since 2006, we have the experience
+                and expertise to help you every step of the way - from simple
+                worktops to lavish installations.
+              </p>
+              <p>
+                As a trusted supplier, we ensure a 10-year manufacturer warranty
+                on all our products.
+              </p>
+              <p>Thanks for your visit and happy shopping!</p>
+              <a
+                href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmq_stone_ltd"
+                target="_blank"
+                class="about-btn"
+              >
+                Contact Us <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-image">
+              <img
+                src="https://i.ibb.co.com/YTJ7bVB3/christa-grover-kf-Ktt3j-Jhho-unsplash.jpg"
+                alt="About GMQ Stone"
+              />
+              <div class="experience-badge">
+                <h3>20+</h3>
+                <p>Years of Excellence</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ COLLECTION SECTION ============ -->
+    <div class="collection-section">
+      <div class="container">
+        <div class="collection-header">
+          <span>Our Products</span>
+          <h2>GMQ Stone Collection</h2>
+        </div>
+        <div class="collection-grid">
+          <div class="collection-card">
+            <img
+              src="https://i.ibb.co.com/qHv7RDW/shutterstock-450121621.jpg"
+              alt="Quartz Worktops"
+            />
+            <div class="collection-overlay">
+              <h4>Quartz Worktops</h4>
+              <a href="https://www.ebay.co.uk/str/gmqstone" target="_blank"
+                >View All <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="collection-card">
+            <img
+              src="https://i.ibb.co.com/Jw5jNcGJ/simona-sergi-Ek-EJRx-Zlo-KI-unsplash.jpg"
+              alt="Printed Quartz Worktops"
+            />
+            <div class="collection-overlay">
+              <h4>Granite Worktops</h4>
+              <a href="https://www.ebay.co.uk/str/gmqstone" target="_blank"
+                >View All <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ CARE GUIDELINES SECTION ============ -->
+    <div class="care-section">
+      <div class="container">
+        <div class="section-header">
+          <span>Important Information</span>
+          <h2>Care & Maintenance Guidelines</h2>
+        </div>
+        <div class="care-grid">
+          <div class="care-card">
+            <div class="care-icon">
+              <i class="fa-solid fa-spray-can-sparkles"></i>
+            </div>
+            <div class="care-text">
+              <p>
+                Clean your quartz stone surfaces regularly with soapy water or a
+                neutral mild detergent and a soft cloth/sponge. Rinse off
+                surfaces with clean water. Polish dry with a soft cloth.
+              </p>
+            </div>
+          </div>
+          <div class="care-card">
+            <div class="care-icon">
+              <i class="fa-solid fa-ban"></i>
+            </div>
+            <div class="care-text">
+              <p>
+                DO NOT use abrasive cleaning products on your Quartz slabs.
+                Bleach, chlorine-based cleaners, acids, alkalis or concentrated
+                disinfectants will damage your stone surfaces.
+              </p>
+            </div>
+          </div>
+          <div class="care-card">
+            <div class="care-icon">
+              <i class="fa-solid fa-temperature-high"></i>
+            </div>
+            <div class="care-text">
+              <p>
+                Always use pan stands and trivets to protect stone surfaces from
+                hot and rough pans and utensils. Quartz is heat resistant NOT
+                heatproof.
+              </p>
+            </div>
+          </div>
+          <div class="care-card">
+            <div class="care-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="care-text">
+              <p>
+                Always use cutting boards to chop and slice food. Never cut
+                directly onto the stone surfaces. Quartz is scratch-resistant
+                NOT scratch-proof.
+              </p>
+            </div>
+          </div>
+          <div class="care-card">
+            <div class="care-icon">
+              <i class="fa-solid fa-broom"></i>
+            </div>
+            <div class="care-text">
+              <p>
+                For stubborn stains, use recommended products such as Cif
+                Original Cream or The Pink Stuff with a microfibre cloth. Do not
+                use bleach or acidic products.
+              </p>
+            </div>
+          </div>
+          <div class="care-card">
+            <div class="care-icon">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="care-text">
+              <p>
+                GMQ Stone Slabs are designed for indoor use only. Using the
+                slabs outdoors will eventually lead to discolouration and this
+                is not covered by your warranty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TABS SECTION ============ -->
+    <div class="tabs-section">
+      <div class="container">
+        <div class="tabs-wrapper">
+          <div class="tab-buttons">
+            <button
+              class="tab-button active"
+              onclick="openTab(event, 'payment')"
+            >
+              <i class="fa-solid fa-credit-card"></i> Payment
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'shipping')">
+              <i class="fa-solid fa-truck"></i> Shipping
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'returns')">
+              <i class="fa-solid fa-rotate-left"></i> Returns
+            </button>
+          </div>
+          <div class="tab-content">
+            <div id="payment" class="tab-pane active">
+              <p>
+                We accept PayPal, and all major credit cards and debit cards.
+                Please message us for details if needed.
+              </p>
+            </div>
+            <div id="shipping" class="tab-pane">
+              <p>
+                We offer FREE Shipping on all our products with tracking to your
+                home or to relay points. Each package is insured for its value
+                in case of loss or damage.
+              </p>
+              <p>
+                We do everything possible to ensure that your package arrives as
+                quickly as possible. Please understand that certain factors such
+                as weather conditions, heavy postal traffic and the performance
+                of the shipping company are beyond our control. Please message
+                us for details if needed.
+              </p>
+            </div>
+            <div id="returns" class="tab-pane">
+              <p>
+                If you change your mind, or the product is not suitable, then
+                you can return the item for a refund within 30 days. We only
+                accept the unopened/unused products. All postage and package
+                costs remain the responsibility of the customer unless we
+                delivered an item to you in error, or the item is damaged or
+                faulty.
+              </p>
+              <p>
+                <strong>CUSTOMER SUPPORT:</strong> We guarantee 100%
+                satisfaction on all purchases. Please, contact us if you have
+                any problems with your order before opening a case or leaving
+                negative feedback. Our team will do our best to solve any issue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ REVIEWS SECTION ============ -->
+    <div class="reviews-section">
+      <div class="container">
+        <div class="section-header">
+          <span>Testimonials</span>
+          <h2>Why Customers Love Us</h2>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Item as described. Very quickly sent. Excellent service."
+            </p>
+            <p class="review-author">Buyer: s***o (2151)</p>
+            <div class="review-logo">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
+                alt="eBay"
+              />
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Thank you received today 18 June well packed and happy with the
+              sample."
+            </p>
+            <p class="review-author">Buyer: e***1 (461)</p>
+            <div class="review-logo">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
+                alt="eBay"
+              />
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "As described and arrived on time thank you."
+            </p>
+            <p class="review-author">Buyer: g***g (986)</p>
+            <div class="review-logo">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
+                alt="eBay"
+              />
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Great seller five ⭐️"</p>
+            <p class="review-author">Buyer: h***r (1618)</p>
+            <div class="review-logo">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
+                alt="eBay"
+              />
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Great piece of worktop, nice colour"</p>
+            <p class="review-author">Buyer: a***6 (343)</p>
+            <div class="review-logo">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
+                alt="eBay"
+              />
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Good"</p>
+            <p class="review-author">Buyer: d***k (1859)</p>
+            <div class="review-logo">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/ebay_logo1.png"
+                alt="eBay"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="reviews-cta">
+          <a
+            href="https://www.ebay.co.uk/fdbk/feedback_profile/gmq_stone_ltd?filter=feedback_page%3ARECEIVED_AS_SELLER"
+            target="_blank"
+            class="reviews-btn"
+          >
+            View All Reviews <i class="fa-solid fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FOOTER SECTION ============ -->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <a href="https://www.ebay.co.uk/str/gmqstone" target="_blank">
+              <img
+                src="https://i.ibb.co.com/Lz4BcMSm/Logo-GMQ-Stone.png"
+                alt="GMQ Stone Logo"
+              />
+            </a>
+            <p>
+              North West London's trusted supplier of premium quartz, granite &
+              marble. Quality craftsmanship since 2006.
+            </p>
+          </div>
+          <div class="footer-links-wrapper">
+            <h5 class="footer-title">Useful Links</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="https://www.ebay.co.uk/str/gmqstone" target="_blank"
+                  ><i class="fa-solid fa-caret-right"></i> Store Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.ebay.co.uk/str/gmqstone?_tab=sales"
+                  target="_blank"
+                  ><i class="fa-solid fa-caret-right"></i> Items For Sale</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.ebay.co.uk/str/gmqstone?_tab=feedback"
+                  target="_blank"
+                  ><i class="fa-solid fa-caret-right"></i> Feedback</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=gmq_stone_ltd"
+                  target="_blank"
+                  ><i class="fa-solid fa-caret-right"></i> Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-payment">
+            <h5 class="footer-title">Payment Options</h5>
+            <div class="payment-icons">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/footer_payment.png"
+                alt="Payment Methods"
+              />
+            </div>
+          </div>
+          <div class="footer-confidence">
+            <h5 class="footer-title">Shop With Confidence</h5>
+            <div class="confidence-icons">
+              <img
+                src="https://dezignbrain.com/ebay/quartz_city_ltd/listing/images/footer_confidence.png"
+                alt="Confidence Badges"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-content">
+            <p class="copyright">
+              © Copyright 2026, <span>GMQ Stone London LTD.</span> All rights
+              reserved.
+            </p>
+            <p class="made-by">
+              Made with <i class="fa-solid fa-heart"></i> by
+              <span>3s-Soft</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Tabs and Gallery -->
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabPane, tabButtons;
+
+        tabPane = document.getElementsByClassName("tab-pane");
+        for (i = 0; i < tabPane.length; i++) {
+          tabPane[i].classList.remove("active");
+        }
+
+        tabButtons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabButtons.length; i++) {
+          tabButtons[i].classList.remove("active");
+        }
+
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+
+      function changeImage(src, elem) {
+        document.getElementById("mainImage").src = src;
+
+        var thumbs = document.getElementsByClassName("thumb-item");
+        for (var i = 0; i < thumbs.length; i++) {
+          thumbs[i].classList.remove("active");
+        }
+        elem.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

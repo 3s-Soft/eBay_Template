@@ -1,0 +1,239 @@
+<!-- ================= eBay Safe Single HTML Template ================= -->
+<style>
+/* ===== Reset ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; color: #0a1628; }
+
+/* ===== Colors ===== */
+:root{
+  --navy:#0a1628;
+  --copper:#b87333;
+  --cream:#f5efe6;
+  --white:#ffffff;
+  --gray:#64748b;
+}
+
+/* ===== Layout ===== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:15px;
+}
+
+/* ===== Top Bar ===== */
+.top-bar{
+  background:var(--navy);
+  color:#fff;
+  padding:10px;
+  text-align:center;
+  font-size:14px;
+}
+.top-bar span{ color:var(--copper); font-weight:bold; }
+
+/* ===== Header ===== */
+.header{
+  background:#fff;
+  border-bottom:3px solid var(--copper);
+  text-align:center;
+  padding:20px;
+}
+.header img{ max-width:120px; }
+
+/* ===== Title ===== */
+.title{
+  background:var(--navy);
+  color:#fff;
+  padding:30px 15px;
+  text-align:center;
+}
+.title h1{
+  font-size:26px;
+  margin-bottom:8px;
+}
+.title p{
+  color:var(--copper);
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+/* ===== Gallery ===== */
+.gallery-main img{
+  display:none;
+  width:100%;
+  border-radius:10px;
+}
+.gallery-main img:first-child{ display:block; }
+.gallery-main img:target{ display:block; }
+
+.thumbs{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:10px;
+}
+.thumbs img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border:2px solid #ccc;
+  border-radius:6px;
+}
+
+/* ===== Description ===== */
+.box{
+  background:var(--cream);
+  padding:20px;
+  border-radius:12px;
+  margin-top:20px;
+}
+.box h2{
+  color:var(--navy);
+  margin-bottom:10px;
+}
+.box p{
+  font-size:14px;
+  color:#333;
+  line-height:1.7;
+}
+
+/* ===== Features ===== */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+.feature{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+  border:1px solid #ddd;
+}
+.feature strong{ color:var(--copper); }
+
+/* ===== Tabs (details) ===== */
+.tabs details{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin-top:10px;
+  padding:10px 15px;
+}
+.tabs summary{
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ===== Reviews ===== */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+.review{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:15px;
+  text-align:center;
+  font-size:13px;
+}
+
+/* ===== Footer ===== */
+.footer{
+  background:var(--navy);
+  color:#fff;
+  padding:25px 15px;
+  margin-top:30px;
+  text-align:center;
+}
+.footer a{
+  color:var(--copper);
+  text-decoration:none;
+}
+</style>
+
+<!-- ================= CONTENT ================= -->
+
+<div class="top-bar">
+  Welcome to <span>GMQ Stone London LTD</span> – Premium Quartz & Granite
+</div>
+
+<div class="header">
+  <img src="https://i.ibb.co.com/Lz4BcMSm/Logo-GMQ-Stone.png" alt="GMQ Stone">
+</div>
+
+<div class="title">
+  <h1>Calacatta Quartz Worktop 20mm</h1>
+  <p>PREMIUM STONE COLLECTION</p>
+</div>
+
+<div class="container">
+
+  <!-- Gallery -->
+  <div class="gallery-main">
+    <img id="img1" src="https://i.ebayimg.com/images/g/JF0AAOSwQlJf40Ki/s-l1600.webp">
+    <img id="img2" src="https://i.ebayimg.com/images/g/E3oAAOSwOxtf40Kf/s-l1600.webp">
+    <img id="img3" src="https://i.ebayimg.com/images/g/5LwAAOSwYBRf40Kc/s-l1600.webp">
+    <img id="img4" src="https://i.ebayimg.com/images/g/fF8AAOSw0dVf40Ke/s-l1600.webp">
+  </div>
+
+  <div class="thumbs">
+    <a href="#img1"><img src="https://i.ebayimg.com/images/g/JF0AAOSwQlJf40Ki/s-l1600.webp"></a>
+    <a href="#img2"><img src="https://i.ebayimg.com/images/g/E3oAAOSwOxtf40Kf/s-l1600.webp"></a>
+    <a href="#img3"><img src="https://i.ebayimg.com/images/g/5LwAAOSwYBRf40Kc/s-l1600.webp"></a>
+    <a href="#img4"><img src="https://i.ebayimg.com/images/g/fF8AAOSw0dVf40Ke/s-l1600.webp"></a>
+  </div>
+
+  <!-- Description -->
+  <div class="box">
+    <h2>Product Description</h2>
+    <p>
+      Premium quality Calacatta Quartz Worktop, fabricated with precision and
+      designed for long-lasting durability. Ideal for kitchens, countertops,
+      and interior applications.
+    </p>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature"><strong>✔ Premium Quality</strong><br>Handpicked Stone</div>
+    <div class="feature"><strong>✔ Fast Delivery</strong><br>Secure Packaging</div>
+    <div class="feature"><strong>✔ Trusted Seller</strong><br>Since 2006</div>
+    <div class="feature"><strong>✔ Warranty</strong><br>Manufacturer Backed</div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <details open>
+      <summary>Payment</summary>
+      <p>We accept PayPal and all major debit & credit cards.</p>
+    </details>
+
+    <details>
+      <summary>Shipping</summary>
+      <p>FREE tracked delivery. Items are securely packed and insured.</p>
+    </details>
+
+    <details>
+      <summary>Returns</summary>
+      <p>30-day return policy. Items must be unused and in original condition.</p>
+    </details>
+  </div>
+
+  <!-- Reviews -->
+  <div class="reviews">
+    <div class="review">★★★★★<br>“Excellent service and fast delivery.”</div>
+    <div class="review">★★★★★<br>“Item exactly as described.”</div>
+    <div class="review">★★★★★<br>“Very happy with the quality.”</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 GMQ Stone London LTD<br>
+  <a href="https://www.ebay.co.uk/str/gmqstone" target="_blank">Visit Our eBay Store</a>
+</div>
+<!-- ================= END ================= -->
