@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K9handler2024 – Minimal Light Theme</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #f4f4f6;
+      color: #1a1a2e;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    :root {
+      --bg:       #f4f4f6;
+      --surface:  #ffffff;
+      --surface2: #f8f8fb;
+      --blue:     #2563eb;
+      --blue-lt:  #3b82f6;
+      --blue-bg:  rgba(37,99,235,0.06);
+      --dark:     #0f0f1a;
+      --text:     #1a1a2e;
+      --muted:    #6b7280;
+      --border:   #e5e7eb;
+      --green:    #059669;
+      --radius:   10px;
+      --shadow:   0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    .eb-wrap { max-width: 860px; margin: 0 auto; background: var(--bg); }
+
+    /* ── HEADER ── */
+    .eb-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 28px;
+      display: flex; align-items: center; gap: 18px;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .eb-logo {
+      width: 68px; height: 68px;
+      border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      border: 2px solid var(--blue);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+    }
+    .eb-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .eb-header-text h1 { font-size: 18px; font-weight: 800; color: var(--dark); }
+    .eb-header-text h1 span { color: var(--blue); }
+    .eb-header-text p { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .eb-header-badge {
+      margin-left: auto; flex-shrink: 0;
+      background: var(--blue); color: #fff;
+      font-size: 10px; font-weight: 700;
+      padding: 5px 14px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    /* ── HERO STRIP ── */
+    .eb-hero {
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+      padding: 16px 28px; display: flex; align-items: center; gap: 14px;
+    }
+    .eb-hero-icon { font-size: 26px; }
+    .eb-hero-text strong { display: block; font-size: 15px; font-weight: 700; color: #fff; }
+    .eb-hero-text span { font-size: 12px; color: rgba(255,255,255,0.75); }
+    .eb-hero-stars { margin-left: auto; color: #fbbf24; font-size: 18px; letter-spacing: 2px; }
+
+    /* ── SECTION TITLE ── */
+    .eb-section-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--muted);
+      padding: 20px 28px 10px;
+    }
+
+    /* ── PRODUCT TITLE ── */
+    .eb-product-title { padding: 4px 28px 20px; }
+    .eb-product-title h2 { font-size: 21px; font-weight: 800; color: var(--dark); line-height: 1.35; }
+    .eb-subtitle { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .eb-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--blue-bg); border: 1px solid rgba(37,99,235,0.2);
+      color: var(--blue); font-size: 11px; font-weight: 600;
+      padding: 4px 11px; border-radius: 20px; letter-spacing: 0.3px;
+    }
+    .eb-tag.green { background: rgba(5,150,105,0.07); border-color: rgba(5,150,105,0.2); color: var(--green); }
+    .eb-tag.grey { background: #f3f4f6; border-color: var(--border); color: var(--muted); }
+
+    /* ── GALLERY ── */
+    .eb-gallery { padding: 0 28px 20px; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .eb-img-slot {
+      aspect-ratio: 1; border-radius: var(--radius); border: 1.5px dashed var(--border);
+      background: var(--surface); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+      color: var(--muted); font-size: 11px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .eb-img-slot span.cam { font-size: 24px; opacity: 0.35; }
+    .eb-img-slot.main { grid-column: 1/span 2; grid-row: 1/span 2; aspect-ratio: auto; min-height: 210px; }
+    .eb-img-slot.main span.cam { font-size: 38px; }
+
+    /* ── SPECS ── */
+    .eb-specs {
+      padding: 0 28px 20px;
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 8px;
+    }
+    .eb-spec-row {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 12px 16px;
+      box-shadow: var(--shadow);
+    }
+    .eb-spec-row .label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 3px; }
+    .eb-spec-row .value { font-size: 14px; font-weight: 700; color: var(--dark); }
+    .eb-spec-row.full { grid-column: 1/span 2; }
+    .eb-spec-row.highlight .value { color: var(--blue); }
+
+    /* ── CONDITION ── */
+    .eb-condition { padding: 0 28px 20px; }
+    .eb-condition-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+    }
+    .eb-condition-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .eb-condition-header .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; }
+    .eb-condition-rating { font-size: 13px; font-weight: 800; color: var(--green); }
+    .eb-meter-track { height: 8px; background: #e5e7eb; border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
+    .eb-meter-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, #10b981, #059669); width: 90%; }
+    .eb-meter-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+    .eb-condition-notes { font-size: 13px; color: #374151; line-height: 1.7; border-top: 1px solid var(--border); padding-top: 14px; }
+    .eb-condition-notes p { margin-bottom: 6px; }
+
+    /* ── DESCRIPTION ── */
+    .eb-description { padding: 0 28px 20px; }
+    .eb-description p { font-size: 14px; color: #374151; line-height: 1.75; margin-bottom: 10px; }
+    .eb-highlight-box {
+      background: var(--blue-bg); border: 1px solid rgba(37,99,235,0.15);
+      border-left: 4px solid var(--blue); border-radius: var(--radius);
+      padding: 14px 18px; margin: 14px 0;
+    }
+    .eb-highlight-box p { font-size: 13.5px; color: var(--blue); font-style: italic; margin: 0; line-height: 1.65; }
+
+    /* ── FEATURES ── */
+    .eb-features { padding: 0 28px 20px; }
+    .eb-feature-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .eb-feature-item:last-child { border-bottom: none; }
+    .eb-feature-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--blue-bg); border: 1px solid rgba(37,99,235,0.15);
+      display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
+    }
+    .eb-feature-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+    .eb-feature-text span { font-size: 12.5px; color: var(--muted); }
+
+    /* ── PILLARS ── */
+    .eb-pillars { padding: 0 28px 20px; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .eb-pillar {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 14px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .eb-pillar .pillar-icon { font-size: 24px; margin-bottom: 8px; }
+    .eb-pillar .pillar-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--blue); margin-bottom: 5px; }
+    .eb-pillar .pillar-desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+    /* ── TABLE ── */
+    .eb-info-table { padding: 0 28px 20px; }
+    .eb-table { width: 100%; border-collapse: collapse; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .eb-table th { background: var(--blue); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 11px 16px; text-align: left; }
+    .eb-table td { background: var(--surface); border-bottom: 1px solid var(--border); padding: 11px 16px; font-size: 13px; color: #374151; }
+    .eb-table tr:last-child td { border-bottom: none; }
+    .eb-table td:first-child { font-weight: 600; color: var(--muted); width: 36%; font-size: 12px; }
+
+    /* ── FOOTER ── */
+    .eb-footer { background: var(--dark); padding: 24px 28px; text-align: center; }
+    .eb-footer-logo { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .eb-footer-logo span { color: var(--blue-lt); }
+    .eb-footer p { font-size: 12px; color: #9ca3af; line-height: 1.7; max-width: 540px; margin: 0 auto 8px; }
+    .eb-footer-links { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 12px; }
+    .eb-footer-links a { color: var(--blue-lt); text-decoration: none; font-size: 12px; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .eb-header, .eb-section-title, .eb-product-title, .eb-gallery,
+      .eb-specs, .eb-condition, .eb-description, .eb-features,
+      .eb-pillars, .eb-info-table, .eb-footer { padding-left: 14px; padding-right: 14px; }
+      .eb-gallery { grid-template-columns: 1fr 1fr; }
+      .eb-img-slot.main { grid-column: 1/span 2; }
+      .eb-specs { grid-template-columns: 1fr; }
+      .eb-spec-row.full { grid-column: 1; }
+      .eb-pillars { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="eb-wrap">
+
+  <!-- HEADER -->
+  <header class="eb-header">
+    <div class="eb-logo">
+      <img src="https://i.ebayimg.com/images/g/ugIAAeSw9lFp0r~J/s-l140.webp" alt="K9handler2024 Logo" />
+    </div>
+    <div class="eb-header-text">
+      <h1>K9handler<span>2024</span></h1>
+      <p>Premium Footwear · New &amp; Preloved · Washed &amp; Refreshed</p>
+    </div>
+    <div class="eb-header-badge">⭐ Top Rated</div>
+  </header>
+
+  <!-- HERO -->
+  <div class="eb-hero">
+    <div class="eb-hero-icon">👟</div>
+    <div class="eb-hero-text">
+      <strong>Authentic Trainers · Honestly Described</strong>
+      <span>Every pair inspected and photographed in natural light</span>
+    </div>
+    <div class="eb-hero-stars">★★★★★</div>
+  </div>
+
+  <!-- ITEM -->
+  <div class="eb-section-title">Item Listed</div>
+  <div class="eb-product-title">
+    <!-- ✏️ EDIT -->
+    <h2>Nike Air Max 95 Essentials – Midnight Navy 2017 · UK 11 · Very Rare Retro OG Colourway</h2>
+    <div class="eb-subtitle">
+      <span class="eb-tag">🆕 New Without Box</span>
+      <span class="eb-tag">📅 2017 Release</span>
+      <span class="eb-tag green">✅ Authentic</span>
+      <span class="eb-tag grey">🔥 Rare OG</span>
+    </div>
+  </div>
+
+  <!-- PHOTOS -->
+  <div class="eb-section-title">Item Photos</div>
+  <div class="eb-gallery">
+    <!-- ✏️ EDIT: Replace divs with <img src="URL"> -->
+    <div class="eb-img-slot main"><span class="cam">📷</span><span>Main Photo</span></div>
+    <div class="eb-img-slot"><span class="cam">📷</span><span>Side View</span></div>
+    <div class="eb-img-slot"><span class="cam">📷</span><span>Sole</span></div>
+    <div class="eb-img-slot"><span class="cam">📷</span><span>Interior</span></div>
+    <div class="eb-img-slot"><span class="cam">📷</span><span>Label</span></div>
+  </div>
+
+  <!-- SPECS -->
+  <div class="eb-section-title">Item Specifics</div>
+  <div class="eb-specs">
+    <!-- ✏️ EDIT -->
+    <div class="eb-spec-row"><div class="label">Brand</div><div class="value">Nike</div></div>
+    <div class="eb-spec-row"><div class="label">Model</div><div class="value">Air Max 95</div></div>
+    <div class="eb-spec-row highlight"><div class="label">UK Size</div><div class="value">UK 11</div></div>
+    <div class="eb-spec-row"><div class="label">US Size</div><div class="value">US 12</div></div>
+    <div class="eb-spec-row"><div class="label">EU Size</div><div class="value">EU 46</div></div>
+    <div class="eb-spec-row"><div class="label">Colour</div><div class="value">Midnight Navy</div></div>
+    <div class="eb-spec-row"><div class="label">Year</div><div class="value">2017</div></div>
+    <div class="eb-spec-row highlight"><div class="label">Condition</div><div class="value">New Without Box</div></div>
+    <div class="eb-spec-row"><div class="label">Upper</div><div class="value">Mesh / Fabric</div></div>
+    <div class="eb-spec-row"><div class="label">Sole</div><div class="value">Rubber</div></div>
+    <div class="eb-spec-row full"><div class="label">Type</div><div class="value">Retro OG · Men's Lifestyle / Running</div></div>
+  </div>
+
+  <!-- CONDITION -->
+  <div class="eb-section-title">Condition Report</div>
+  <div class="eb-condition">
+    <div class="eb-condition-card">
+      <div class="eb-condition-header">
+        <span class="label">Condition Rating</span>
+        <span class="eb-condition-rating">⭐ Excellent — New Without Box</span>
+      </div>
+      <div class="eb-meter-track"><div class="eb-meter-fill" style="width:95%;"></div></div>
+      <div class="eb-meter-labels"><span>Poor</span><span>Fair</span><span>Good</span><span>V.Good</span><span>Excellent</span></div>
+      <div class="eb-condition-notes">
+        <!-- ✏️ EDIT -->
+        <p>✅ <strong>Upper:</strong> Clean, no marks, staining, or creasing. Original laces.</p>
+        <p>✅ <strong>Sole:</strong> Unused rubber — no yellowing or wear.</p>
+        <p>✅ <strong>Interior:</strong> Fresh, no odour. Insoles clean.</p>
+        <p>⚠️ <strong>Box:</strong> Not included.</p>
+        <p>📸 All photos taken in natural light — accurate true-to-life photos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="eb-section-title">Item Description</div>
+  <div class="eb-description">
+    <!-- ✏️ EDIT -->
+    <p>Up for sale is a pair of <strong>Nike Air Max 95 Essentials</strong> in the iconic <strong>Midnight Navy</strong> colourway — a rare OG release from <strong>2017</strong> in outstanding new without-box condition.</p>
+    <div class="eb-highlight-box"><p>"A genuine piece of Nike history — the Midnight Navy Air Max 95 OG colourway is increasingly hard to find unworn."</p></div>
+    <p>The Air Max 95 Essentials features the timeless rippled upper inspired by the human anatomy. Max Air cushioning and padded collar deliver outstanding everyday comfort.</p>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="eb-section-title">Key Features</div>
+  <div class="eb-features">
+    <!-- ✏️ EDIT -->
+    <div class="eb-feature-item"><div class="eb-feature-icon">🏅</div><div class="eb-feature-text"><strong>Rare OG Colourway</strong><span>2017 Midnight Navy — increasingly scarce unworn.</span></div></div>
+    <div class="eb-feature-item"><div class="eb-feature-icon">💨</div><div class="eb-feature-text"><strong>Max Air Cushioning</strong><span>Full-length visible Air unit, iconic Nike comfort.</span></div></div>
+    <div class="eb-feature-item"><div class="eb-feature-icon">🧵</div><div class="eb-feature-text"><strong>Premium Upper</strong><span>Breathable mesh with overlays for structure and support.</span></div></div>
+    <div class="eb-feature-item"><div class="eb-feature-icon">🔒</div><div class="eb-feature-text"><strong>Lace-Up Closure</strong><span>Classic lacing for a secure, customisable fit.</span></div></div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="eb-section-title">Why Buy from K9handler2024</div>
+  <div class="eb-pillars">
+    <div class="eb-pillar"><div class="pillar-icon">📸</div><div class="pillar-title">Natural Light Photos</div><div class="pillar-desc">See exactly what you're getting — no filters.</div></div>
+    <div class="eb-pillar"><div class="pillar-icon">🧼</div><div class="pillar-title">Washed &amp; Refreshed</div><div class="pillar-desc">Preloved pairs cleaned before listing.</div></div>
+    <div class="eb-pillar"><div class="pillar-icon">📦</div><div class="pillar-title">Secure Packaging</div><div class="pillar-desc">Arrives exactly as listed.</div></div>
+    <div class="eb-pillar"><div class="pillar-icon">💬</div><div class="pillar-title">Fast Replies</div><div class="pillar-desc">Happy to send extra photos or answer questions.</div></div>
+    <div class="eb-pillar"><div class="pillar-icon">✅</div><div class="pillar-title">100% Authentic</div><div class="pillar-desc">Every item verified genuine.</div></div>
+    <div class="eb-pillar"><div class="pillar-icon">🤝</div><div class="pillar-title">Best Offer Welcome</div><div class="pillar-desc">Send an offer — we love a deal!</div></div>
+  </div>
+
+  <!-- SHIPPING -->
+  <div class="eb-section-title">Shipping &amp; Payment</div>
+  <div class="eb-info-table">
+    <!-- ✏️ EDIT -->
+    <table class="eb-table">
+      <thead><tr><th>Detail</th><th>Information</th></tr></thead>
+      <tbody>
+        <tr><td>📦 Dispatch</td><td>1–2 business days of cleared payment</td></tr>
+        <tr><td>🚀 UK Postage</td><td>Royal Mail Tracked 48 · Free UK Delivery</td></tr>
+        <tr><td>🌍 International</td><td>Message for a quote before purchasing</td></tr>
+        <tr><td>💳 Payment</td><td>PayPal · eBay Managed Payments · All major cards</td></tr>
+        <tr><td>🔄 Returns</td><td>30-day returns — item returned in same condition</td></tr>
+        <tr><td>📏 Size Advice</td><td>Compare to a pair you own — UK/US/EU all listed</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="eb-footer">
+    <div class="eb-footer-logo">K9handler<span>2024</span></div>
+    <p>Premium Footwear for the K9 Community — new &amp; preloved trainers, photographed in natural light, washed &amp; refreshed before every listing.</p>
+    <p style="font-size:11px;color:#6b7280;">⚠️ All photos are of the actual item — no stock images. Please read condition report carefully.</p>
+    <div class="eb-footer-links">
+      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">🏪 Visit Our Store</a>
+      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">📦 All Listings</a>
+      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">💬 Ask a Question</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>K9handler2024 – Premium Trainers & Sneakers</title>
+  <meta name="description" content="K9handler2024 – Premium new & preloved trainers. Washed, refreshed & photographed in natural light. 100% authentic." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #050a0f;
+      --bg2:      #0b1520;
+      --bg3:      #0f1e30;
+      --bg4:      #142640;
+      --orange:   #ff6b00;
+      --orange-lt:#ff9a4d;
+      --orange-dk:#cc5200;
+      --cyan:     #00e5ff;
+      --white:    #f0f4f8;
+      --muted:    #6a8096;
+      --border:   rgba(255,107,0,0.15);
+      --radius:   8px;
+      --shadow:   0 8px 32px rgba(0,0,0,0.4);
+    }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--white); line-height: 1.7; }
+    img { max-width: 100%; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement-bar { background: var(--orange); padding: 9px 0; }
+    .announcement-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .welcome-text { font-size: 12.5px; color: #fff; font-weight: 600; letter-spacing: 0.5px; }
+    .welcome-text i { margin-right: 7px; }
+    .nav-links { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .mobile-menu { display: none; position: relative; }
+    .mobile-menu input[type="checkbox"] { display: none; }
+    .mobile-menu .menu-icon { width: 26px; height: 20px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
+    .mobile-menu .menu-icon span { display: block; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu ul { position: absolute; top: 36px; right: 0; background: var(--bg3); border-radius: var(--radius); padding: 10px 0; min-width: 170px; box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.3s; list-style: none; margin: 0; z-index: 200; }
+    .mobile-menu ul a { display: block; padding: 10px 20px; color: var(--white); text-decoration: none; font-size: 13px; }
+    .mobile-menu ul a:hover { background: rgba(255,107,0,0.15); color: var(--orange-lt); }
+    .mobile-menu input:checked ~ label .menu-icon span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .mobile-menu input:checked ~ label .menu-icon span:nth-child(2) { opacity: 0; }
+    .mobile-menu input:checked ~ label .menu-icon span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mobile-menu input:checked ~ ul { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    /* ── HEADER ── */
+    .header-section { background: var(--bg2); padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .header-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .trust-badge { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg3); border-radius: var(--radius); border-left: 3px solid var(--orange); }
+    .trust-badge-icon { width: 40px; height: 40px; background: var(--orange); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .trust-badge-icon i { color: #fff; font-size: 16px; }
+    .trust-badge-text h4 { margin: 0; font-size: 13px; font-weight: 700; color: var(--white); }
+    .trust-badge-text p { margin: 0; font-size: 11px; color: var(--muted); }
+    .logo-wrapper { text-align: center; }
+    .logo-wrapper img { width: 76px; height: 76px; border-radius: 50%; border: 2px solid var(--orange); object-fit: cover; box-shadow: 0 0 20px rgba(255,107,0,0.3); }
+    .logo-wrapper .store-name { display: block; margin-top: 5px; font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange-lt); }
+
+    /* ── HERO ── */
+    .product-hero { background: var(--bg2); padding: 56px 0 44px; position: relative; overflow: hidden; }
+    .product-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(255,107,0,0.12) 0%, transparent 65%); pointer-events: none; }
+    .product-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), var(--cyan), var(--orange)); }
+    .product-subtitle { color: var(--orange); font-size: 10.5px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 12px; }
+    .product-title-box { text-align: center; margin-bottom: 40px; position: relative; z-index: 1; }
+    .product-title-box h1 { font-family: 'Rajdhani', sans-serif; font-size: 44px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; }
+    .product-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px; }
+    .product-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.35); color: var(--orange-lt); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 3px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .product-badge.cyan { background: rgba(0,229,255,0.08); border-color: rgba(0,229,255,0.3); color: var(--cyan); }
+    .product-badge.green { background: rgba(0,200,120,0.08); border-color: rgba(0,200,120,0.3); color: #4ade80; }
+
+    /* ── CSS GALLERY ── */
+    .gallery-main { background: var(--bg3); border-radius: var(--radius); border: 1px solid var(--border); padding: 16px; box-shadow: var(--shadow); }
+    #main_gallery input[type="radio"] { display: none; }
+    #main_gallery .full_img_wapper { position: relative; min-height: 340px; margin-bottom: 14px; }
+    #main_gallery .imagsbox_w { display: none; }
+    #main_gallery .imagsbox img { width: 100%; border-radius: var(--radius); }
+    #main_gallery #img1:checked ~ .full_img_wapper .slide1,
+    #main_gallery #img2:checked ~ .full_img_wapper .slide2,
+    #main_gallery #img3:checked ~ .full_img_wapper .slide3,
+    #main_gallery #img4:checked ~ .full_img_wapper .slide4,
+    #main_gallery #img5:checked ~ .full_img_wapper .slide5 { display: block; }
+    #main_gallery ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 8px; justify-content: center; }
+    #main_gallery .thumb { width: 68px; height: 68px; display: block; border-radius: var(--radius); overflow: hidden; border: 2px solid transparent; opacity: 0.55; cursor: pointer; transition: all 0.25s; }
+    #main_gallery .thumb:hover { opacity: 1; border-color: var(--orange-lt); }
+    #main_gallery .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    #main_gallery #img1:checked ~ ul li:nth-child(1) .thumb,
+    #main_gallery #img2:checked ~ ul li:nth-child(2) .thumb,
+    #main_gallery #img3:checked ~ ul li:nth-child(3) .thumb,
+    #main_gallery #img4:checked ~ ul li:nth-child(4) .thumb,
+    #main_gallery #img5:checked ~ ul li:nth-child(5) .thumb { border-color: var(--orange); opacity: 1; transform: translateY(-3px); }
+    .gallery-slot { width: 100%; border-radius: var(--radius); background: var(--bg4); border: 1px dashed rgba(255,107,0,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 12px; min-height: 340px; }
+    .gallery-slot i { font-size: 34px; opacity: 0.25; }
+    .gallery-thumb-slot { width: 68px; height: 68px; border-radius: var(--radius); background: var(--bg4); border: 1px dashed rgba(255,107,0,0.15); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 10px; opacity: 0.55; }
+
+    /* ── PRODUCT DESC ── */
+    .product-description { background: rgba(255,107,0,0.05); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; height: 100%; }
+    .product-description h3 { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--orange-lt); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 2px; }
+    .spec-table { width: 100%; }
+    .spec-table tr td { font-size: 13px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.8); }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-label { font-weight: 700; color: var(--orange); width: 42%; font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; }
+    .product-description p { font-size: 13.5px; line-height: 1.78; color: rgba(255,255,255,0.75); margin-bottom: 10px; }
+    .product-description ul { list-style: none; padding: 0; margin: 12px 0; }
+    .product-description ul li { font-size: 13px; color: rgba(255,255,255,0.75); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .product-description ul li:last-child { border-bottom: none; }
+    .product-description ul li i { color: var(--orange); margin-right: 9px; }
+
+    /* ── SECTION HEADER ── */
+    .section-header { text-align: center; margin-bottom: 44px; }
+    .eyebrow { color: var(--orange); font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+    .section-header h2 { font-family: 'Rajdhani', sans-serif; font-size: 38px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--white); }
+
+    /* ── CONDITION ── */
+    .condition-section { padding: 70px 0; background: var(--bg); }
+    .condition-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; border-left: 4px solid var(--orange); }
+    .condition-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .condition-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+    .condition-rating { font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; color: #4ade80; text-transform: uppercase; letter-spacing: 1px; }
+    .meter-track { height: 6px; background: rgba(255,255,255,0.07); border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+    .meter-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--orange), var(--cyan)); width: 95%; }
+    .meter-labels { display: flex; justify-content: space-between; font-size: 9px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+    .condition-items { list-style: none; padding: 0; }
+    .condition-items li { font-size: 13px; color: rgba(255,255,255,0.75); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .condition-items li:last-child { border-bottom: none; }
+    .condition-items li i { margin-right: 9px; }
+    .condition-items li i.fa-check-circle { color: #4ade80; }
+    .condition-items li i.fa-triangle-exclamation { color: var(--orange-lt); }
+    .condition-items li i.fa-camera { color: var(--cyan); }
+
+    /* ── FEATURES ── */
+    .features-section { padding: 70px 0; background: var(--bg2); }
+    .feature-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 20px; text-align: center; transition: all 0.3s; height: 100%; }
+    .feature-card:hover { transform: translateY(-8px); border-color: var(--orange); box-shadow: 0 12px 40px rgba(255,107,0,0.15); }
+    .feature-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--orange-dk), var(--orange)); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .feature-icon i { color: #fff; font-size: 22px; }
+    .feature-card h4 { font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .feature-card p { font-size: 12.5px; color: var(--muted); margin: 0; }
+
+    /* ── TABS ── */
+    .tabsbottom { padding: 70px 0; background: var(--bg); }
+    .tabsbottom input[type="radio"] { display: none; }
+    .tabs-header { display: flex; }
+    .tabs-header label { flex: 1; text-align: center; padding: 14px 16px; background: var(--bg3); color: var(--muted); font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.25s; border-right: 1px solid var(--border); }
+    .tabs-header label:first-of-type { border-radius: var(--radius) 0 0 0; }
+    .tabs-header label:last-of-type { border-radius: 0 var(--radius) 0 0; border-right: none; }
+    .tabs-header label i { margin-right: 7px; }
+    .tab-panel { display: none; background: var(--bg3); padding: 28px; border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; }
+    .tab-panel p { font-size: 13.5px; color: var(--muted); line-height: 1.8; margin-bottom: 10px; }
+    .tab-panel table { width: 100%; border-collapse: collapse; }
+    .tab-panel table th { background: var(--bg4); color: var(--orange); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 10px 14px; text-align: left; }
+    .tab-panel table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(255,255,255,0.75); }
+    .tab-panel table tr:last-child td { border-bottom: none; }
+    .tab-panel table td:first-child { font-weight: 600; color: var(--muted); width: 36%; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+    #stab1:checked ~ .tabs-header label[for="stab1"],
+    #stab2:checked ~ .tabs-header label[for="stab2"],
+    #stab3:checked ~ .tabs-header label[for="stab3"] { background: var(--orange); color: #fff; }
+    #stab1:checked ~ .tabs-content #spanel1,
+    #stab2:checked ~ .tabs-content #spanel2,
+    #stab3:checked ~ .tabs-content #spanel3 { display: block; }
+
+    /* ── TRUST ── */
+    .trust-section { padding: 70px 0; background: var(--bg2); }
+    .trust-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 16px; text-align: center; transition: all 0.3s; height: 100%; }
+    .trust-card:hover { border-color: var(--orange); transform: translateY(-6px); }
+    .trust-card .t-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+    .trust-card h5 { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--orange-lt); margin-bottom: 6px; }
+    .trust-card p { font-size: 12px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+    /* ── REVIEWS ── */
+    .reviews-section { padding: 70px 0; background: var(--bg); }
+    .review-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; transition: all 0.3s; height: 100%; }
+    .review-card:hover { transform: translateY(-6px); border-color: var(--orange); }
+    .review-stars { margin-bottom: 12px; }
+    .review-stars i { color: var(--orange); font-size: 14px; margin: 0 1px; }
+    .review-text { font-size: 13px; color: rgba(255,255,255,0.75); font-style: italic; margin-bottom: 12px; line-height: 1.65; }
+    .review-author { font-size: 11px; color: var(--orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── FOOTER ── */
+    .footer-section { background: var(--bg2); padding: 56px 0 0; border-top: 3px solid var(--orange); }
+    .footer-logo { text-align: center; margin-bottom: 8px; }
+    .footer-logo img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--orange); object-fit: cover; margin-bottom: 10px; }
+    .footer-logo h3 { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 3px; color: var(--orange-lt); text-transform: uppercase; }
+    .footer-logo p { color: var(--muted); font-size: 12px; }
+    .footer-title { color: var(--orange-lt); font-size: 13px; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-list { list-style: none; padding: 0; margin: 0; }
+    .footer-list li { margin-bottom: 9px; }
+    .footer-list a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.25s; display: inline-flex; align-items: center; gap: 7px; }
+    .footer-list a i { color: var(--orange); font-size: 9px; }
+    .footer-list a:hover { color: var(--orange-lt); }
+    .footer-bottom { background: rgba(0,0,0,0.4); padding: 16px 0; border-top: 1px solid var(--border); margin-top: 48px; }
+    .footer-bottom-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .copyright, .made-by { color: var(--muted); font-size: 12px; }
+    .copyright span, .made-by span { color: var(--orange-lt); }
+
+    @media (max-width: 991px) { .nav-links, .trust-badge { display: none; } .mobile-menu { display: block; } .header-content { justify-content: center; } }
+    @media (max-width: 767px) { .product-title-box h1, .section-header h2 { font-size: 28px; } .tabs-header { flex-wrap: wrap; } .footer-bottom-content { justify-content: center; flex-direction: column; text-align: center; } }
+    @media (max-width: 480px) { .tabs-header { flex-direction: column; } .tabs-header label:first-of-type { border-radius: var(--radius) var(--radius) 0 0; } .tabs-header label:last-of-type { border-radius: 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <div class="container">
+      <div class="announcement-content">
+        <div class="welcome-text"><i class="fa-solid fa-bolt"></i> K9handler2024 — Premium Trainers &amp; Sneakers · Free UK Delivery</div>
+        <ul class="nav-links">
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024">Store Home</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales">All Listings</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback">Feedback</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024">Contact Us</a></li>
+        </ul>
+        <div class="mobile-menu">
+          <input type="checkbox" id="mobile-toggle">
+          <label for="mobile-toggle"><div class="menu-icon"><span></span><span></span><span></span></div></label>
+          <ul>
+            <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024">Store Home</a></li>
+            <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales">All Listings</a></li>
+            <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback">Feedback</a></li>
+            <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header-section">
+    <div class="container">
+      <div class="header-content">
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="trust-badge-text"><h4>eBay Top Rated</h4><p>100% Positive Feedback</p></div>
+        </div>
+        <div class="logo-wrapper">
+          <a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024"><img src="https://i.ebayimg.com/images/g/ugIAAeSw9lFp0r~J/s-l140.webp" alt="K9handler2024" /></a>
+          <span class="store-name">K9handler2024</span>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="trust-badge-text"><h4>100% Authentic</h4><p>Natural Light Verified</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT HERO -->
+  <div class="product-hero">
+    <div class="container">
+      <div class="product-title-box">
+        <span class="product-subtitle">K9handler2024 · Drop</span>
+        <!-- ✏️ EDIT: Title -->
+        <h1>Nike Air Max 95 Essentials<br><span style="color:var(--orange)">Midnight Navy</span> 2017 · UK 11</h1>
+        <div class="product-badges">
+          <span class="product-badge"><i class="fa-solid fa-star"></i> New Without Box</span>
+          <span class="product-badge cyan"><i class="fa-solid fa-calendar"></i> 2017 Release</span>
+          <span class="product-badge"><i class="fa-solid fa-fire"></i> Rare OG</span>
+          <span class="product-badge green"><i class="fa-solid fa-check"></i> Authentic</span>
+        </div>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-7">
+          <div class="gallery-main">
+            <div id="main_gallery">
+              <input id="img1" name="imgs" type="radio" checked><input id="img2" name="imgs" type="radio"><input id="img3" name="imgs" type="radio"><input id="img4" name="imgs" type="radio"><input id="img5" name="imgs" type="radio">
+              <div class="full_img_wapper">
+                <!-- ✏️ EDIT: Replace gallery-slot divs with <div class="imagsbox_w slideN"><div class="imagsbox"><img src="URL"></div></div> -->
+                <div class="imagsbox_w slide1"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Main Photo — Front View</span></div></div>
+                <div class="imagsbox_w slide2"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Side View</span></div></div>
+                <div class="imagsbox_w slide3"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Sole</span></div></div>
+                <div class="imagsbox_w slide4"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Interior</span></div></div>
+                <div class="imagsbox_w slide5"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Label</span></div></div>
+              </div>
+              <ul>
+                <li><label for="img1"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
+                <li><label for="img2"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
+                <li><label for="img3"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
+                <li><label for="img4"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
+                <li><label for="img5"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="product-description">
+            <h3><i class="fa-solid fa-tag me-2"></i>Item Specifics</h3>
+            <!-- ✏️ EDIT: Specs -->
+            <table class="spec-table">
+              <tr><td class="spec-label">Brand</td><td>Nike</td></tr>
+              <tr><td class="spec-label">Model</td><td>Air Max 95 Essentials</td></tr>
+              <tr><td class="spec-label">UK Size</td><td><strong style="color:var(--orange)">UK 11</strong></td></tr>
+              <tr><td class="spec-label">US Size</td><td>US 12</td></tr>
+              <tr><td class="spec-label">EU Size</td><td>EU 46</td></tr>
+              <tr><td class="spec-label">Colour</td><td>Midnight Navy</td></tr>
+              <tr><td class="spec-label">Year</td><td>2017</td></tr>
+              <tr><td class="spec-label">Condition</td><td><strong style="color:#4ade80">New Without Box</strong></td></tr>
+              <tr><td class="spec-label">Upper</td><td>Mesh / Fabric</td></tr>
+              <tr><td class="spec-label">Outsole</td><td>Rubber</td></tr>
+              <tr><td class="spec-label">Type</td><td>Retro OG · Lifestyle / Running</td></tr>
+            </table>
+            <p style="margin-top:20px;">Rare <strong style="color:var(--orange-lt)">2017 OG colourway</strong> in unworn new without-box condition. Midnight Navy Air Max 95 — a genuine collector's piece.</p>
+            <ul>
+              <li><i class="fa-solid fa-check-circle"></i> Natural light photos — no edits, no filters</li>
+              <li><i class="fa-solid fa-check-circle"></i> Unused — no wear, marks, or odour</li>
+              <li><i class="fa-solid fa-check-circle"></i> Free UK delivery · Fast dispatch</li>
+              <li><i class="fa-solid fa-check-circle"></i> 30-day returns accepted</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONDITION -->
+  <div class="condition-section">
+    <div class="container">
+      <div class="section-header"><span class="eyebrow"><i class="fa-solid fa-magnifying-glass me-2"></i>Condition Report</span><h2>Honest Assessment</h2></div>
+      <div class="row justify-content-center"><div class="col-lg-8">
+        <div class="condition-card">
+          <div class="condition-header-row"><span class="condition-label">Rating</span><span class="condition-rating"><i class="fa-solid fa-circle-check me-1"></i> Excellent — New Without Box</span></div>
+          <div class="meter-track"><div class="meter-fill"></div></div>
+          <div class="meter-labels"><span>Poor</span><span>Fair</span><span>Good</span><span>V.Good</span><span>Excellent</span></div>
+          <ul class="condition-items">
+            <li><i class="fa-solid fa-check-circle"></i><strong>Upper:</strong> Clean — no marks, staining, or creases. Original laces pristine.</li>
+            <li><i class="fa-solid fa-check-circle"></i><strong>Sole:</strong> Unused rubber — no yellowing, scuffs, or wear marks.</li>
+            <li><i class="fa-solid fa-check-circle"></i><strong>Interior:</strong> Fresh, no odour. Insoles clean and undamaged.</li>
+            <li><i class="fa-solid fa-triangle-exclamation"></i><strong>Box:</strong> Not included — stored unboxed in excellent condition.</li>
+            <li><i class="fa-solid fa-camera"></i><strong>Photography:</strong> All photos in natural light — what you see is what you get.</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features-section">
+    <div class="container">
+      <div class="section-header"><span class="eyebrow" style="color:var(--orange-lt)"><i class="fa-solid fa-sparkles me-2"></i>Key Features</span><h2>What Makes It Special</h2></div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-medal"></i></div><h4>Rare OG</h4><p>2017 Midnight Navy — increasingly scarce unworn.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-wind"></i></div><h4>Max Air</h4><p>Full-length visible Air unit for iconic Nike comfort.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-shirt"></i></div><h4>Premium Upper</h4><p>Breathable mesh with overlays for structure.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-shoe-prints"></i></div><h4>Collector Quality</h4><p>Unworn, carefully stored — a genuine collector's piece.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabsbottom">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:28px;"><span class="eyebrow"><i class="fa-solid fa-circle-info me-2"></i>Policies</span><h2>Shipping, Returns &amp; Payment</h2></div>
+      <input type="radio" name="stabs" id="stab1" checked><input type="radio" name="stabs" id="stab2"><input type="radio" name="stabs" id="stab3">
+      <div class="tabs-header">
+        <label for="stab1"><i class="fa-solid fa-truck-fast"></i> Shipping</label>
+        <label for="stab2"><i class="fa-solid fa-rotate-left"></i> Returns</label>
+        <label for="stab3"><i class="fa-solid fa-credit-card"></i> Payment</label>
+      </div>
+      <div class="tabs-content">
+        <div class="tab-panel" id="spanel1"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead><tbody><tr><td>Dispatch</td><td>1–2 business days of cleared payment</td></tr><tr><td>UK Postage</td><td>Royal Mail Tracked 48 · <strong style="color:#4ade80">Free UK Delivery</strong></td></tr><tr><td>International</td><td>Available — message for a quote first</td></tr><tr><td>Tracking</td><td>Full tracking provided on all UK orders</td></tr></tbody></table></div>
+        <div class="tab-panel" id="spanel2"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead><tbody><tr><td>Window</td><td>30 days from delivery</td></tr><tr><td>Condition</td><td>Returned in same condition as received</td></tr><tr><td>Return Postage</td><td>Buyer pays return postage</td></tr><tr><td>Refund</td><td>Full refund within 2 business days</td></tr></tbody></table></div>
+        <div class="tab-panel" id="spanel3"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead><tbody><tr><td>Accepted</td><td>PayPal · eBay Managed Payments · All major cards</td></tr><tr><td>Best Offer</td><td>Welcome — please send via eBay</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="trust-section">
+    <div class="container">
+      <div class="section-header"><span class="eyebrow" style="color:var(--orange-lt)"><i class="fa-solid fa-shield-halved me-2"></i>Why K9handler2024</span><h2>Our Promise</h2></div>
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-2"><div class="trust-card"><span class="t-icon">📸</span><h5>Natural Light</h5><p>Every photo in natural light — no filters.</p></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="trust-card"><span class="t-icon">🧼</span><h5>Washed &amp; Fresh</h5><p>Pre-loved pairs cleaned before listing.</p></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="trust-card"><span class="t-icon">📦</span><h5>Safe Packing</h5><p>Wrapped securely for safe delivery.</p></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="trust-card"><span class="t-icon">⚡</span><h5>Fast Replies</h5><p>Always happy to answer questions.</p></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="trust-card"><span class="t-icon">✅</span><h5>100% Genuine</h5><p>Every item authentic — no fakes.</p></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="trust-card"><span class="t-icon">🤝</span><h5>Best Offer</h5><p>Send an offer — we love a deal!</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="reviews-section">
+    <div class="container">
+      <div class="section-header"><span class="eyebrow"><i class="fa-solid fa-star me-2"></i>Buyer Feedback</span><h2>What Buyers Say</h2></div>
+      <div class="row g-4">
+        <div class="col-md-4"><div class="review-card"><div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="review-text">"Absolutely brilliant — exactly as described and even better in person. Arrived super fast."</p><div class="review-author">eBay Buyer · UK ⭐⭐⭐⭐⭐</div></div></div>
+        <div class="col-md-4"><div class="review-card"><div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="review-text">"Great seller — photos were accurate, trainers clean and fresh. Will buy again!"</p><div class="review-author">eBay Buyer · UK ⭐⭐⭐⭐⭐</div></div></div>
+        <div class="col-md-4"><div class="review-card"><div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="review-text">"Quick replies, honest description, arrived well wrapped. A+ seller — couldn't be happier."</p><div class="review-author">eBay Buyer · UK ⭐⭐⭐⭐⭐</div></div></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;"><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback" style="display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;padding:13px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:13.5px;"><i class="fa-solid fa-star"></i> View All Feedback on eBay</a></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-section">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-md-4 col-lg-3"><div class="footer-logo"><img src="https://i.ebayimg.com/images/g/ugIAAeSw9lFp0r~J/s-l140.webp" alt="K9handler2024" /><h3>K9handler2024</h3><p>Premium Footwear<br>for the K9 Community</p></div></div>
+        <div class="col-md-4 col-lg-3"><div class="footer-title">Quick Links</div><ul class="footer-list"><li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024"><i class="fa-solid fa-chevron-right"></i> Store Home</a></li><li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales"><i class="fa-solid fa-chevron-right"></i> All Listings</a></li><li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback"><i class="fa-solid fa-chevron-right"></i> Feedback</a></li><li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li></ul></div>
+        <div class="col-md-4 col-lg-3"><div class="footer-title">Our Policies</div><ul class="footer-list"><li><a href="#"><i class="fa-solid fa-truck-fast"></i> Free UK Delivery</a></li><li><a href="#"><i class="fa-solid fa-rotate-left"></i> 30-Day Returns</a></li><li><a href="#"><i class="fa-solid fa-credit-card"></i> Secure Payments</a></li><li><a href="#"><i class="fa-solid fa-shield-halved"></i> Buyer Protection</a></li></ul></div>
+        <div class="col-md-12 col-lg-3"><div class="footer-title">Disclaimer</div><p style="font-size:12px;color:var(--muted);line-height:1.7;">⚠️ All photos are of the actual item — no stock images. Please read the condition report carefully before purchasing. Check UK/US/EU size carefully and compare to a pair you already own.</p></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container"><div class="footer-bottom-content"><p class="copyright">&copy; 2024 <span>K9handler2024</span> · All rights reserved.</p><p class="made-by">Designed with <span>♥</span> by <span>3s-Soft</span></p></div></div>
+    </div>
+  </div>
+</body>
+</html>
