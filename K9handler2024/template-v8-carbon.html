@@ -205,6 +205,37 @@
     @media (max-width: 991px) { .nav-links, .trust-badge { display: none; } .mobile-menu { display: block; } .header-content { justify-content: center; } }
     @media (max-width: 767px) { .product-title-box h1, .section-header h2 { font-size: 28px; } .tabs-header { flex-wrap: wrap; } .footer-bottom-content { justify-content: center; flex-direction: column; text-align: center; } }
     @media (max-width: 480px) { .tabs-header { flex-direction: column; } .tabs-header label:first-of-type { border-radius: var(--radius) var(--radius) 0 0; } .tabs-header label:last-of-type { border-radius: 0; } }
+  
+    
+  
+    /* ─── GALLERY (eBay-safe, no JS) ──────────────────────── */
+    .eb-gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding:0 28px 20px; }
+    .eb-img-link { display:block; overflow:hidden; border-radius:var(--radius,10px); aspect-ratio:1; }
+    .eb-img-link.main { grid-column:1/span 2; grid-row:1/span 2; aspect-ratio:auto; min-height:200px; }
+    .eb-img-link img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
+    .eb-img-link:hover img { transform:scale(1.06); }
+
+    /* ─── :target LIGHTBOX (pure CSS, no JS) ─────────────── */
+    .lb {
+      display:none;
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.92);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+    .lb:target { display:flex; }
+    .lb img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.8); }
+    .lb-close {
+      position:absolute; top:16px; right:20px;
+      color:rgba(255,255,255,.8); font-size:36px;
+      text-decoration:none; line-height:1;
+      background:rgba(255,255,255,.1); border-radius:50%;
+      width:44px; height:44px; display:flex;
+      align-items:center; justify-content:center;
+    }
+    .lb-close:hover { background:rgba(255,255,255,.22); color:#fff; }
   </style>
 </head>
 <body>
@@ -224,11 +255,22 @@
 
   <!-- HERO -->
   <div class="product-hero"><div class="container">
-    <div class="product-title-box">
+    <!-- ╔══════════════════════════════════════════════════════════╗
+             ║  ✏️  1. PRODUCT TITLE  (Hero heading)                  ║
+             ║  Update the <h1> text and the <span> highlight.        ║
+             ║  Example: Nike Air Max 95 <span>Midnight Navy</span>   ║
+             ╚══════════════════════════════════════════════════════════╝ -->
+<div class="product-title-box">
       <span class="product-subtitle">K9handler2024 · Authentic Footwear</span>
-      <!-- ✏️ EDIT: Title -->
-      <h1>Nike Air Max 95 Essentials<br><em>Midnight Navy</em> 2017 · UK 11</h1>
-      <div class="product-badges">
+      <h1>Nike Air Flight 89 Cork – Black / Volt · UK 9 · Very Rare Limited Colourway</h1>
+      
+    <!-- ╔══════════════════════════════════════════════════════════╗
+         ║  ✏️  2. TAGS / BADGES                                  ║
+         ║  Add, remove, or edit the <span class="eb-tag"> or    ║
+         ║  <span class="product-badge"> items below.            ║
+         ║  Colour options: (no class) gold  |  .green  |  .blue ║
+         ╚══════════════════════════════════════════════════════════╝ -->
+<div class="product-badges">
         <span class="product-badge"><i class="fa-solid fa-star"></i> New Without Box</span>
         <span class="product-badge silver"><i class="fa-solid fa-calendar"></i> 2017 Release</span>
         <span class="product-badge"><i class="fa-solid fa-fire"></i> Rare OG</span>
@@ -239,24 +281,40 @@
       <div class="col-lg-7">
         <div class="gallery-main"><div id="main_gallery">
           <input id="img1" name="imgs" type="radio" checked><input id="img2" name="imgs" type="radio"><input id="img3" name="imgs" type="radio"><input id="img4" name="imgs" type="radio"><input id="img5" name="imgs" type="radio">
-          <div class="full_img_wapper">
-            <div class="imagsbox_w slide1"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Main Photo — Front View</span></div></div>
-            <div class="imagsbox_w slide2"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Side View</span></div></div>
-            <div class="imagsbox_w slide3"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Sole</span></div></div>
-            <div class="imagsbox_w slide4"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Interior</span></div></div>
-            <div class="imagsbox_w slide5"><div class="gallery-slot"><i class="fa-regular fa-image"></i><span>Label</span></div></div>
+          
+              <!-- ╔══════════════════════════════════════════════════════╗
+                   ║  ✏️  3. PRODUCT IMAGES  (Slideshow Gallery)        ║
+                   ║                                                    ║
+                   ║  For each slide, update src="./images/FILENAME"    ║
+                   ║  There are 5 slides (slide1 – slide5).             ║
+                   ║  Also update the 5 matching thumbnails in the      ║
+                   ║  <ul> section below with the same images.          ║
+                   ╚══════════════════════════════════════════════════════╝ -->
+<div class="full_img_wapper">
+            <div class="imagsbox_w slide1"><div class="imagsbox"><a href="#lb-1"><img src="./images/s-l1600 (3).webp" alt="Nike Air Flight 89 Cork – Front pair view" /></a></div></div>
+            <div class="imagsbox_w slide2"><div class="imagsbox"><a href="#lb-2"><img src="./images/s-l1600 (5).webp" alt="Nike Air Flight 89 Cork – Side profile" /></a></div></div>
+            <div class="imagsbox_w slide3"><div class="imagsbox"><a href="#lb-3"><img src="./images/s-l1600 (4).webp" alt="Nike Air Flight 89 Cork – Sole / bottom" /></a></div></div>
+            <div class="imagsbox_w slide4"><div class="imagsbox"><a href="#lb-4"><img src="./images/s-l1600 (2).webp" alt="Nike Air Flight 89 Cork – Top-down flatlay" /></a></div></div>
+            <div class="imagsbox_w slide5"><div class="imagsbox"><a href="#lb-5"><img src="./images/s-l1600 (6).webp" alt="Nike Air Flight 89 Cork – Detail shot" /></a></div></div>
           </div>
           <ul>
-            <li><label for="img1"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
-            <li><label for="img2"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
-            <li><label for="img3"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
-            <li><label for="img4"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
-            <li><label for="img5"><div class="gallery-thumb-slot"><i class="fa-regular fa-image"></i></div></label></li>
-          </ul>
+<li><label for="img1"><div class="thumb"><img src="./images/s-l1600 (3).webp" alt="Front pair view" /></div></label></li>
+<li><label for="img2"><div class="thumb"><img src="./images/s-l1600 (5).webp" alt="Side profile" /></div></label></li>
+<li><label for="img3"><div class="thumb"><img src="./images/s-l1600 (4).webp" alt="Sole / bottom" /></div></label></li>
+<li><label for="img4"><div class="thumb"><img src="./images/s-l1600 (2).webp" alt="Top-down flatlay" /></div></label></li>
+<li><label for="img5"><div class="thumb"><img src="./images/s-l1600 (6).webp" alt="Detail shot" /></div></label></li>
+</ul>
         </div></div>
       </div>
       <div class="col-lg-5">
-        <div class="product-description">
+        
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  4. ITEM SPECIFICS                                      ║
+       ║  Update the <span class="value"> text for each row.        ║
+       ║  Add more rows by copying a <div class="eb-spec-row">      ║
+       ║  block. Use class="eb-spec-row full" to span both columns. ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="product-description">
           <h3><i class="fa-solid fa-tag me-2"></i>Item Specifics</h3>
           <table class="spec-table">
             <tr><td class="spec-label">Brand</td><td>Nike</td></tr>
@@ -287,10 +345,32 @@
   <div class="condition-section"><div class="container">
     <div class="section-header"><span class="eyebrow"><i class="fa-solid fa-magnifying-glass me-2"></i>Condition Report</span><h2>Honest Assessment</h2></div>
     <div class="row justify-content-center"><div class="col-lg-8"><div class="condition-card">
-      <div class="condition-header-row"><span class="condition-label">Rating</span><span class="condition-rating"><i class="fa-solid fa-circle-check me-1"></i> Excellent — New Without Box</span></div>
+      
+      <!-- ╔══════════════════════════════════════════════════════════╗
+           ║  ✏️  5. CONDITION RATING & METER                       ║
+           ║                                                        ║
+           ║  A) Rating text — update the text after the emoji:    ║
+           ║     e.g. "⭐ Excellent" / "👟 Good – Pre-owned"       ║
+           ║                                                        ║
+           ║  B) Meter bar — change style="width:XX%"              ║
+           ║     Excellent = 90–95%   Good = 60–70%   Fair = 40%   ║
+           ║                                                        ║
+           ║  C) Meter colour:                                      ║
+           ║     Excellent → #6ee7b7 (green)                       ║
+           ║     Good      → var(--gold) (amber)                   ║
+           ║     Fair      → #fca5a5 (red)                         ║
+           ╚══════════════════════════════════════════════════════════╝ -->
+<div class="condition-header-row"><span class="condition-label">Rating</span><span class="condition-rating"><i class="fa-solid fa-circle-check me-1"></i> Excellent — New Without Box</span></div>
       <div class="meter-track"><div class="meter-fill"></div></div>
       <div class="meter-labels"><span>Poor</span><span>Fair</span><span>Good</span><span>V.Good</span><span>Excellent</span></div>
-      <ul class="condition-items">
+      
+      <!-- ╔══════════════════════════════════════════════════════════╗
+           ║  ✏️  6. CONDITION NOTES                                ║
+           ║  Describe the actual condition of YOUR item honestly.  ║
+           ║  ✅ = Good point   ⚠️ = Minor flaw   📸 = Photo note  ║
+           ║  Keep it factual — buyers trust honest sellers.        ║
+           ╚══════════════════════════════════════════════════════════╝ -->
+<ul class="condition-items">
         <li><i class="fa-solid fa-check-circle"></i><strong>Upper:</strong> Clean — no marks, staining, or creasing. Original laces pristine.</li>
         <li><i class="fa-solid fa-check-circle"></i><strong>Sole:</strong> Unused rubber — no yellowing, scuffs, or wear marks.</li>
         <li><i class="fa-solid fa-check-circle"></i><strong>Interior:</strong> Fresh, no odour. Insoles clean and undamaged.</li>
@@ -301,7 +381,14 @@
   </div></div>
 
   <!-- FEATURES -->
-  <div class="features-section"><div class="container">
+  
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  8. KEY FEATURES                                       ║
+       ║  List 4–6 standout features for this specific item.        ║
+       ║  Update the emoji icon, <strong> title, and <span> text.   ║
+       ║  Add or remove <div class="eb-feature-item"> blocks.       ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="features-section"><div class="container">
     <div class="section-header"><span class="eyebrow"><i class="fa-solid fa-sparkles me-2"></i>Key Features</span><h2>What Makes It Special</h2></div>
     <div class="row g-4">
       <div class="col-md-6 col-lg-3"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-medal"></i></div><h4>Rare OG Colourway</h4><p>2017 Midnight Navy — increasingly scarce unworn.</p></div></div>
@@ -321,7 +408,13 @@
       <label for="stab3"><i class="fa-solid fa-credit-card"></i> Payment</label>
     </div>
     <div class="tabs-content">
-      <div class="tab-panel" id="spanel1"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead><tbody><tr><td>Dispatch</td><td>1–2 business days of cleared payment</td></tr><tr><td>UK Postage</td><td>Royal Mail Tracked 48 · <strong style="color:#4ade80">Free UK Delivery</strong></td></tr><tr><td>International</td><td>Available — message first for a quote</td></tr><tr><td>Tracking</td><td>Full tracking on all UK orders</td></tr></tbody></table></div>
+      <div class="tab-panel" id="spanel1"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead>
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  ✏️  9. SHIPPING & PAYMENT                                 ║
+         ║  Update the <td> values to match your actual policies.    ║
+         ║  These are shared across all your listings — update once. ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+<tbody><tr><td>Dispatch</td><td>1–2 business days of cleared payment</td></tr><tr><td>UK Postage</td><td>Royal Mail Tracked 48 · <strong style="color:#4ade80">Free UK Delivery</strong></td></tr><tr><td>International</td><td>Available — message first for a quote</td></tr><tr><td>Tracking</td><td>Full tracking on all UK orders</td></tr></tbody></table></div>
       <div class="tab-panel" id="spanel2"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead><tbody><tr><td>Window</td><td>30 days from delivery</td></tr><tr><td>Condition</td><td>Returned in same condition as received</td></tr><tr><td>Return Postage</td><td>Buyer pays return postage</td></tr><tr><td>Refund</td><td>Full refund within 2 business days</td></tr></tbody></table></div>
       <div class="tab-panel" id="spanel3"><table><thead><tr><th>Detail</th><th>Information</th></tr></thead><tbody><tr><td>Accepted</td><td>PayPal · eBay Managed Payments · All major cards</td></tr><tr><td>Best Offer</td><td>Welcome — send via eBay Best Offer</td></tr></tbody></table></div>
     </div>
@@ -360,5 +453,49 @@
   </div></div>
   <div class="footer-bottom"><div class="container"><div class="footer-bottom-content"><p class="copyright">&copy; 2024 <span>K9handler2024</span> · All rights reserved.</p><p class="made-by">Designed with <span>♥</span> by <span>3s-Soft</span></p></div></div></div>
   </div>
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  LIGHTBOX OVERLAYS — keep in sync with gallery above   ║
+       ║  Each <a id="lb-N"> matches a <a href="#lb-N"> thumbnail.  ║
+       ║  Update src="./images/FILENAME.webp" to match your gallery.║
+       ║  Add/remove entries to match the number of photos.         ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<a id="lb-1" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (3).webp" alt="Nike Air Flight 89 Cork – Front pair view" />
+</a>
+<a id="lb-2" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (5).webp" alt="Nike Air Flight 89 Cork – Side profile" />
+</a>
+<a id="lb-3" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (4).webp" alt="Nike Air Flight 89 Cork – Sole / bottom" />
+</a>
+<a id="lb-4" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (2).webp" alt="Nike Air Flight 89 Cork – Top-down flatlay" />
+</a>
+<a id="lb-5" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (6).webp" alt="Nike Air Flight 89 Cork – Detail shot" />
+</a>
+<a id="lb-6" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (7).webp" alt="Nike Air Flight 89 Cork – Heel detail" />
+</a>
+<a id="lb-7" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (8).webp" alt="Nike Air Flight 89 Cork – Interior / tongue" />
+</a>
+<a id="lb-8" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (9).webp" alt="Nike Air Flight 89 Cork – Outsole closeup" />
+</a>
+<a id="lb-9" class="lb" href="#">
+  <span class="lb-close">&times;</span>
+  <img src="./images/s-l1600 (10).webp" alt="Nike Air Flight 89 Cork – Label / branding" />
+</a>
 </body>
 </html>

@@ -120,15 +120,9 @@
 
     /* ── GALLERY ── */
     .eb-gallery { padding: 0 30px 22px; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-    .eb-img-slot {
-      aspect-ratio: 1; border-radius: var(--radius);
-      border: 1px solid var(--border); background: var(--bg3);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 6px; color: var(--muted); font-size: 11px; text-align: center;
-    }
+    
     .eb-img-slot span.cam { font-size: 24px; opacity: 0.35; }
-    .eb-img-slot.main { grid-column: 1/span 2; grid-row: 1/span 2; aspect-ratio: auto; min-height: 210px; }
+    
     .eb-img-slot.main span.cam { font-size: 40px; }
 
     /* ── SPECS ── */
@@ -234,12 +228,43 @@
       .eb-specs, .eb-condition, .eb-description, .eb-features,
       .eb-pillars, .eb-info-table, .eb-footer { padding-left: 14px; padding-right: 14px; }
       .eb-gallery { grid-template-columns: 1fr 1fr; }
-      .eb-img-slot.main { grid-column: 1/span 2; }
+      
       .eb-specs { grid-template-columns: 1fr; background: transparent; gap: 4px; border: none; }
       .eb-spec-row.full { grid-column: 1; }
       .eb-spec-row { border: 1px solid var(--border); }
       .eb-pillars { grid-template-columns: 1fr 1fr; }
     }
+  
+    
+  
+    /* ─── GALLERY (eBay-safe, no JS) ──────────────────────── */
+    .eb-gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding:0 28px 20px; }
+    .eb-img-link { display:block; overflow:hidden; border-radius:var(--radius,10px); aspect-ratio:1; }
+    .eb-img-link.main { grid-column:1/span 2; grid-row:1/span 2; aspect-ratio:auto; min-height:200px; }
+    .eb-img-link img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
+    .eb-img-link:hover img { transform:scale(1.06); }
+
+    /* ─── :target LIGHTBOX (pure CSS, no JS) ─────────────── */
+    .lb {
+      display:none;
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.92);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+    .lb:target { display:flex; }
+    .lb img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.8); }
+    .lb-close {
+      position:absolute; top:16px; right:20px;
+      color:rgba(255,255,255,.8); font-size:36px;
+      text-decoration:none; line-height:1;
+      background:rgba(255,255,255,.1); border-radius:50%;
+      width:44px; height:44px; display:flex;
+      align-items:center; justify-content:center;
+    }
+    .lb-close:hover { background:rgba(255,255,255,.22); color:#fff; }
   </style>
 </head>
 <body>
@@ -269,10 +294,22 @@
 
   <!-- ITEM -->
   <div class="eb-section-title">Item Listed</div>
-  <div class="eb-product-title">
-    <!-- ✏️ EDIT -->
-    <h2>Nike Air Max 95 Essentials – Midnight Navy 2017 · UK 11 · Very Rare Retro OG Colourway</h2>
-    <div class="eb-subtitle">
+  
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  ✏️  1. PRODUCT TITLE                                  ║
+       ║  Update the <h2> text to match your listing title.     ║
+       ║  Keep it clear: Brand · Model · Size · Key Detail      ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+<div class="eb-product-title">
+    <h2>Nike Air Flight 89 Cork – Black / Volt · UK 9 · Very Rare Limited Colourway</h2>
+    
+    <!-- ╔══════════════════════════════════════════════════════════╗
+         ║  ✏️  2. TAGS / BADGES                                  ║
+         ║  Add, remove, or edit the <span class="eb-tag"> or    ║
+         ║  <span class="product-badge"> items below.            ║
+         ║  Colour options: (no class) gold  |  .green  |  .blue ║
+         ╚══════════════════════════════════════════════════════════╝ -->
+<div class="eb-subtitle">
       <span class="eb-tag">New Without Box</span>
       <span class="eb-tag cream">2017 Release</span>
       <span class="eb-tag red">Rare OG</span>
@@ -282,9 +319,36 @@
 
   <!-- PHOTOS -->
   <div class="eb-section-title">Item Photos</div>
-  <div class="eb-gallery">
-    <!-- ✏️ EDIT: Replace divs with <img> tags -->
-    <div class="eb-img-slot main"><span class="cam">📷</span><span>Main Photo · Front View</span></div>
+      
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  3. PRODUCT IMAGES  (Grid Gallery)                     ║
+       ║                                                            ║
+       ║  For each photo, update src="./images/FILENAME.webp"       ║
+       ║  ► First <a> (class="main") = large hero image            ║
+       ║  ► Remaining <a> tags = thumbnail grid                    ║
+       ║                                                            ║
+       ║  To add a new photo:                                       ║
+       ║     1. Copy a thumbnail line, increment the href #lb-N    ║
+       ║     2. Add a matching lightbox entry at the bottom         ║
+       ║        <a id="lb-N" class="lb" href="#">                  ║
+       ║           <span class="lb-close">&times;</span>           ║
+       ║           <img src="./images/YOUR_PHOTO.webp" />          ║
+       ║        </a>                                                ║
+       ║                                                            ║
+       ║  To remove a photo: delete the <a href="#lb-N"> line      ║
+       ║  and the matching <a id="lb-N"> lightbox entry below.     ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="eb-gallery" id="ebGallery">
+    <a href="#lb-1" class="eb-img-link main"><img src="./images/s-l1600 (3).webp" alt="Nike Air Flight 89 Cork – Front pair view" /></a>
+    <a href="#lb-2" class="eb-img-link"><img src="./images/s-l1600 (5).webp" alt="Nike Air Flight 89 Cork – Side profile" /></a>
+    <a href="#lb-3" class="eb-img-link"><img src="./images/s-l1600 (4).webp" alt="Nike Air Flight 89 Cork – Sole / bottom" /></a>
+    <a href="#lb-4" class="eb-img-link"><img src="./images/s-l1600 (2).webp" alt="Nike Air Flight 89 Cork – Top-down flatlay" /></a>
+    <a href="#lb-5" class="eb-img-link"><img src="./images/s-l1600 (6).webp" alt="Nike Air Flight 89 Cork – Detail shot" /></a>
+    <a href="#lb-6" class="eb-img-link"><img src="./images/s-l1600 (7).webp" alt="Nike Air Flight 89 Cork – Heel detail" /></a>
+    <a href="#lb-7" class="eb-img-link"><img src="./images/s-l1600 (8).webp" alt="Nike Air Flight 89 Cork – Interior / tongue" /></a>
+    <a href="#lb-8" class="eb-img-link"><img src="./images/s-l1600 (9).webp" alt="Nike Air Flight 89 Cork – Outsole closeup" /></a>
+    <a href="#lb-9" class="eb-img-link"><img src="./images/s-l1600 (10).webp" alt="Nike Air Flight 89 Cork – Label / branding" /></a>
+  </div>
     <div class="eb-img-slot"><span class="cam">📷</span><span>Side View</span></div>
     <div class="eb-img-slot"><span class="cam">📷</span><span>Sole</span></div>
     <div class="eb-img-slot"><span class="cam">📷</span><span>Interior</span></div>
@@ -293,8 +357,14 @@
 
   <!-- SPECS -->
   <div class="eb-section-title">Item Specifics</div>
-  <div class="eb-specs">
-    <!-- ✏️ EDIT -->
+  
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  4. ITEM SPECIFICS                                      ║
+       ║  Update the <span class="value"> text for each row.        ║
+       ║  Add more rows by copying a <div class="eb-spec-row">      ║
+       ║  block. Use class="eb-spec-row full" to span both columns. ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="eb-specs">
     <div class="eb-spec-row"><div class="label">Brand</div><div class="value">Nike</div></div>
     <div class="eb-spec-row"><div class="label">Model</div><div class="value">Air Max 95</div></div>
     <div class="eb-spec-row highlight"><div class="label">UK Size</div><div class="value">UK 11</div></div>
@@ -312,14 +382,35 @@
   <div class="eb-section-title">Condition Report</div>
   <div class="eb-condition">
     <div class="eb-condition-card">
-      <div class="eb-condition-header">
+      
+      <!-- ╔══════════════════════════════════════════════════════════╗
+           ║  ✏️  5. CONDITION RATING & METER                       ║
+           ║                                                        ║
+           ║  A) Rating text — update the text after the emoji:    ║
+           ║     e.g. "⭐ Excellent" / "👟 Good – Pre-owned"       ║
+           ║                                                        ║
+           ║  B) Meter bar — change style="width:XX%"              ║
+           ║     Excellent = 90–95%   Good = 60–70%   Fair = 40%   ║
+           ║                                                        ║
+           ║  C) Meter colour:                                      ║
+           ║     Excellent → #6ee7b7 (green)                       ║
+           ║     Good      → var(--gold) (amber)                   ║
+           ║     Fair      → #fca5a5 (red)                         ║
+           ╚══════════════════════════════════════════════════════════╝ -->
+<div class="eb-condition-header">
         <span class="label">Condition Rating</span>
         <span class="eb-condition-rating">"Excellent — New Without Box"</span>
       </div>
       <div class="eb-meter-track"><div class="eb-meter-fill" style="width:95%;"></div></div>
       <div class="eb-meter-labels"><span>Poor</span><span>Fair</span><span>Good</span><span>V.Good</span><span>Excellent</span></div>
-      <div class="eb-condition-notes">
-        <!-- ✏️ EDIT -->
+      
+      <!-- ╔══════════════════════════════════════════════════════════╗
+           ║  ✏️  6. CONDITION NOTES                                ║
+           ║  Describe the actual condition of YOUR item honestly.  ║
+           ║  ✅ = Good point   ⚠️ = Minor flaw   📸 = Photo note  ║
+           ║  Keep it factual — buyers trust honest sellers.        ║
+           ╚══════════════════════════════════════════════════════════╝ -->
+<div class="eb-condition-notes">
         <p>✅ <strong>Upper:</strong> Clean — no marks, staining, or creasing. Original laces included.</p>
         <p>✅ <strong>Sole:</strong> Unused rubber — no yellowing, scuffs, or wear marks.</p>
         <p>✅ <strong>Interior:</strong> Fresh, no odour. Insoles clean and undamaged.</p>
@@ -331,8 +422,16 @@
 
   <!-- DESCRIPTION -->
   <div class="eb-section-title">Item Description</div>
-  <div class="eb-description">
-    <!-- ✏️ EDIT -->
+  
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  7. ITEM DESCRIPTION                                   ║
+       ║  Write a compelling 3–5 sentence listing description.      ║
+       ║  • Para 1: What it is + why it's exciting                  ║
+       ║  • Quote block: A highlight / selling point                ║
+       ║  • Para 2: Product details / history                       ║
+       ║  • Para 3: Condition summary + call to action              ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="eb-description">
     <p>Up for sale is a pair of <strong>Nike Air Max 95 Essentials</strong> in the rare <strong>Midnight Navy</strong> OG colourway — a 2017 release in outstanding new without-box condition and a genuine collector's piece.</p>
     <div class="eb-highlight-box"><p>"A genuine piece of Nike history — the Midnight Navy Air Max 95 OG colourway is increasingly hard to find in unworn condition."</p></div>
     <p>The Air Max 95 Essentials boasts the iconic rippled upper inspired by the human anatomy — a design that redefined sneaker culture. Max Air cushioning, padded collar, breathable mesh — timeless style with unmatched comfort.</p>
@@ -340,8 +439,14 @@
 
   <!-- FEATURES -->
   <div class="eb-section-title">Key Features</div>
-  <div class="eb-features">
-    <!-- ✏️ EDIT -->
+  
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  8. KEY FEATURES                                       ║
+       ║  List 4–6 standout features for this specific item.        ║
+       ║  Update the emoji icon, <strong> title, and <span> text.   ║
+       ║  Add or remove <div class="eb-feature-item"> blocks.       ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="eb-features">
     <div class="eb-feature-item"><div class="eb-feature-icon">🏅</div><div class="eb-feature-text"><strong>Rare OG Colourway</strong><span>2017 Midnight Navy — increasingly scarce in unworn condition.</span></div></div>
     <div class="eb-feature-item"><div class="eb-feature-icon">💨</div><div class="eb-feature-text"><strong>Max Air Cushioning</strong><span>Full-length visible Air unit, iconic Nike comfort.</span></div></div>
     <div class="eb-feature-item"><div class="eb-feature-icon">🧵</div><div class="eb-feature-text"><strong>Premium Upper</strong><span>Breathable mesh with overlays for structure and support.</span></div></div>
@@ -362,10 +467,15 @@
   <!-- SHIPPING -->
   <div class="eb-section-title">Shipping &amp; Payment</div>
   <div class="eb-info-table">
-    <!-- ✏️ EDIT -->
     <table class="eb-table">
       <thead><tr><th>Detail</th><th>Information</th></tr></thead>
-      <tbody>
+      
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  ✏️  9. SHIPPING & PAYMENT                                 ║
+         ║  Update the <td> values to match your actual policies.    ║
+         ║  These are shared across all your listings — update once. ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+<tbody>
         <tr><td>Dispatch</td><td>1–2 business days of cleared payment</td></tr>
         <tr><td>UK Postage</td><td>Royal Mail Tracked 48 · Free UK Delivery</td></tr>
         <tr><td>International</td><td>Message for a quote before purchasing</td></tr>
@@ -416,5 +526,48 @@
   </footer>
 
 </div>
+  
+  <!-- ╔══════════════════════════════════════════════════════════════╗
+       ║  ✏️  LIGHTBOX OVERLAYS — keep in sync with gallery above   ║
+       ║  Each <a id="lb-N"> matches a <a href="#lb-N"> thumbnail.  ║
+       ║  Update src="./images/FILENAME.webp" to match your gallery.║
+       ║  Add/remove entries to match the number of photos.         ║
+       ╚══════════════════════════════════════════════════════════════╝ -->
+<a id="lb-1" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (3).webp" alt="Nike Air Flight 89 Cork – Front pair view" />
+  </a>
+  <a id="lb-2" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (5).webp" alt="Nike Air Flight 89 Cork – Side profile" />
+  </a>
+  <a id="lb-3" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (4).webp" alt="Nike Air Flight 89 Cork – Sole / bottom" />
+  </a>
+  <a id="lb-4" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (2).webp" alt="Nike Air Flight 89 Cork – Top-down flatlay" />
+  </a>
+  <a id="lb-5" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (6).webp" alt="Nike Air Flight 89 Cork – Detail shot" />
+  </a>
+  <a id="lb-6" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (7).webp" alt="Nike Air Flight 89 Cork – Heel detail" />
+  </a>
+  <a id="lb-7" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (8).webp" alt="Nike Air Flight 89 Cork – Interior / tongue" />
+  </a>
+  <a id="lb-8" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (9).webp" alt="Nike Air Flight 89 Cork – Outsole closeup" />
+  </a>
+  <a id="lb-9" class="lb" href="#">
+    <span class="lb-close">&times;</span>
+    <img src="./images/s-l1600 (10).webp" alt="Nike Air Flight 89 Cork – Label / branding" />
+  </a>
 </body>
 </html>
