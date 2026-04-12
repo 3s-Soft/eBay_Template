@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>eBay Template Portfolio | 3s-Soft</title>
+  <meta name="description" content="Professional eBay listing templates crafted by 3s-Soft. Browse, preview, and use premium HTML templates for your eBay store." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -19,301 +19,656 @@
     :root {
       --primary: #6366f1;
       --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
       --secondary: #06b6d4;
+      --secondary-dark: #0891b2;
       --accent: #10b981;
-      --dark: #0f172a;
-      --dark-light: #1e293b;
-      --dark-lighter: #334155;
+      --accent-warm: #f59e0b;
+      --rose: #f43f5e;
+      --purple: #a855f7;
+      --dark: #0a0f1e;
+      --dark-2: #0f172a;
+      --dark-3: #1e293b;
+      --dark-4: #334155;
       --text: #f1f5f9;
       --text-muted: #94a3b8;
-      --card-bg: rgba(30, 41, 59, 0.8);
-      --glass: rgba(255, 255, 255, 0.05);
-      --border: rgba(255, 255, 255, 0.1);
+      --text-dim: #64748b;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-hover: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.5);
+      --shadow-primary: rgba(99, 102, 241, 0.3);
+      --shadow-secondary: rgba(6, 182, 212, 0.3);
+      --glow: 0 0 40px rgba(99, 102, 241, 0.2);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --radius-xs: 8px;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      background: var(--dark);
       min-height: 100vh;
       color: var(--text);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Background Animation */
-    .bg-animation {
+    /* ========================
+       BACKGROUND + NOISE
+    ======================== */
+    .bg-wrapper {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 60% at 0% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 70%),
+        linear-gradient(180deg, #0a0f1e 0%, #0d1526 50%, #0a0f1e 100%);
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
       pointer-events: none;
       z-index: -1;
-      overflow: hidden;
     }
 
-    .bg-animation::before,
-    .bg-animation::after {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.3;
-      animation: float 20s ease-in-out infinite;
+    .bg-orb-1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+      top: -20%;
+      left: -15%;
+      animation: orbFloat1 25s ease-in-out infinite;
     }
 
-    .bg-animation::before {
-      background: var(--primary);
-      top: -200px;
-      left: -200px;
+    .bg-orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+      bottom: 10%;
+      right: -10%;
+      animation: orbFloat2 30s ease-in-out infinite;
     }
 
-    .bg-animation::after {
-      background: var(--secondary);
-      bottom: -200px;
-      right: -200px;
-      animation-delay: -10s;
+    .bg-orb-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbFloat3 20s ease-in-out infinite;
     }
 
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translate(0, 0) scale(1);
-      }
-
-      33% {
-        transform: translate(100px, 50px) scale(1.1);
-      }
-
-      66% {
-        transform: translate(-50px, 100px) scale(0.9);
-      }
+    @keyframes orbFloat1 {
+      0%, 100% { transform: translate(0, 0); }
+      33%       { transform: translate(80px, 60px); }
+      66%       { transform: translate(-40px, 100px); }
+    }
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translate(0, 0); }
+      33%       { transform: translate(-60px, -80px); }
+      66%       { transform: translate(40px, -50px); }
+    }
+    @keyframes orbFloat3 {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50%       { transform: translate(-50%, -50%) scale(1.2); }
     }
 
-    /* Header */
-    header {
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-      z-index: 10;
+    /* Grid pattern overlay */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
     }
 
-    .logo {
+    /* ========================
+       NAVBAR
+    ======================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: var(--radius-xs);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .logo-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+      font-family: 'Outfit', sans-serif;
       font-weight: 800;
+      font-size: 0.9rem;
       color: white;
-      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
-      animation: pulse-glow 3s ease-in-out infinite;
+      letter-spacing: -0.05em;
+      box-shadow: 0 4px 20px var(--shadow-primary);
+      flex-shrink: 0;
     }
 
-    @keyframes pulse-glow {
-
-      0%,
-      100% {
-        box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
-      }
-
-      50% {
-        box-shadow: 0 10px 60px rgba(99, 102, 241, 0.6);
-      }
+    .nav-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
     }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, #fff 0%, var(--secondary) 50%, var(--accent) 100%);
+    .nav-name span {
+      color: var(--primary-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.9rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+
+    .nav-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(0.8); }
+    }
+
+    /* ========================
+       HERO SECTION
+    ======================== */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-eyebrow .icon {
+      font-size: 1rem;
+    }
+
+    h1.hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    h1.hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 50%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
     }
 
-    .subtitle {
-      font-size: 1.1rem;
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--text-muted);
-      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
     }
 
-    /* Search and Filter */
-    .controls {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    /* Stats Bar */
+    .stats-bar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      align-items: center;
       justify-content: center;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 1rem 1rem 1rem 3rem;
+      flex-wrap: wrap;
+      gap: 1px;
+      margin: 2.5rem auto;
+      max-width: 720px;
+      background: var(--border);
+      border-radius: var(--radius);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+      padding: 1.25rem 1.5rem;
       background: var(--glass);
       backdrop-filter: blur(10px);
-      color: var(--text);
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      text-align: center;
+      transition: var(--transition);
     }
 
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    .stat-item:hover {
+      background: var(--glass-hover);
     }
 
-    .search-box::before {
-      content: '🔍';
+    .stat-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ========================
+       CONTROLS
+    ======================== */
+    .controls-wrapper {
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+    }
+
+    .search-row {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .search-icon {
       position: absolute;
-      left: 1rem;
+      left: 1.25rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.1rem;
+      color: var(--text-dim);
+      pointer-events: none;
+      font-size: 1rem;
     }
 
-    .filter-buttons {
+    #searchInput {
+      width: 100%;
+      padding: 1rem 1.25rem 1rem 3.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      color: var(--text);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+
+    #searchInput::placeholder {
+      color: var(--text-dim);
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--glass-hover);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+    }
+
+    .filter-row {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
 
     .filter-btn {
-      padding: 0.75rem 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
-      border-color: transparent;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-    }
-
-    /* Template Counter */
-    .counter {
-      text-align: center;
-      margin: 1rem 0 2rem;
-      padding: 0 1rem;
-    }
-
-    .counter span {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.1rem;
       border: 1px solid var(--border);
       border-radius: 50px;
-      font-size: 0.9rem;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
       color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
     }
 
-    .counter strong {
-      color: var(--secondary);
+    .filter-btn .count {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.75rem;
       font-weight: 600;
     }
 
-    /* Template Grid */
+    .filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 6px 20px var(--shadow-primary);
+    }
+
+    .filter-btn.active .count {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Results info */
+    .results-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1800px;
+      margin: 0 auto 1.5rem;
+      padding: 0 2rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .results-count {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .results-count strong {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    /* Refresh button */
+    .refresh-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: var(--glass);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .refresh-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(16,185,129,0.08);
+    }
+
+    .refresh-btn.spinning .refresh-icon {
+      display: inline-block;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Sync indicator */
+    .sync-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-left: 0.35rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .sync-dot.stale {
+      background: var(--accent-warm);
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .view-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      background: var(--glass);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .view-btn.active, .view-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary-light);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    /* ========================
+       SECTION HEADERS
+    ======================== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1800px;
+      margin: 3rem auto 1.5rem;
+      padding: 0 2rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .section-header .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-header .section-badge {
+      padding: 0.3rem 0.8rem;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+
+    .section-icon {
+      font-size: 1.3rem;
+    }
+
+    /* ========================
+       TEMPLATE GRID
+    ======================== */
     .template-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: 2rem;
-      padding: 1rem 2rem 4rem;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.75rem;
+      padding: 0 2rem 5rem;
       max-width: 1800px;
       margin: 0 auto;
     }
 
-    @media (max-width: 480px) {
-      .template-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-      }
+    .template-grid.list-view {
+      grid-template-columns: 1fr;
     }
 
-    /* Template Card */
+    .template-grid.list-view .template-card {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .template-grid.list-view .preview-container {
+      width: 300px;
+      height: 160px;
+      flex-shrink: 0;
+    }
+
+    .template-grid.list-view .card-info {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .template-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem 4rem;
+      }
+      .template-grid.list-view .template-card {
+        flex-direction: column;
+      }
+      .template-grid.list-view .preview-container {
+        width: 100%;
+        height: 220px;
+      }
+      .stats-bar { border-radius: var(--radius-sm); }
+    }
+
+    /* ========================
+       TEMPLATE CARD
+    ======================== */
     .template-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius);
       overflow: hidden;
       backdrop-filter: blur(20px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-backdrop-filter: blur(20px);
+      transition: var(--transition);
       position: relative;
+      cursor: default;
     }
 
     .template-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       opacity: 0;
       transition: opacity 0.4s ease;
-      z-index: -1;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .template-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 25px 80px rgba(99, 102, 241, 0.3);
-      border-color: var(--primary);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.4), var(--glow);
+      border-color: rgba(99, 102, 241, 0.4);
     }
 
     .template-card:hover::before {
-      opacity: 0.1;
+      opacity: 0.08;
     }
 
-    /* Preview Container */
+    /* ========================
+       PREVIEW CONTAINER
+    ======================== */
     .preview-container {
       position: relative;
-      height: 300px;
+      height: 280px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+      background: linear-gradient(135deg, #0a0f1e 0%, #131d35 100%);
     }
 
     .preview-container::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 60%, rgba(15, 23, 42, 0.8) 100%);
+      background: linear-gradient(180deg, transparent 50%, rgba(10, 15, 30, 0.9) 100%);
       pointer-events: none;
+      z-index: 1;
     }
 
     .preview-frame {
-      width: 100%;
-      height: 100%;
       border: none;
       transform: scale(0.5);
       transform-origin: top left;
@@ -321,18 +676,44 @@
       height: 200%;
       pointer-events: none;
       background: white;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
+    /* Preview placeholder when iframe is loading */
+    .preview-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      z-index: 0;
+    }
+
+    .preview-placeholder .placeholder-icon {
+      font-size: 2.5rem;
+      opacity: 0.4;
+    }
+
+    /* Hover overlay */
     .preview-overlay {
       position: absolute;
       inset: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(5px);
+      gap: 0.75rem;
+      background: rgba(10, 15, 30, 0.75);
+      backdrop-filter: blur(8px);
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.35s ease;
+      z-index: 10;
     }
 
     .template-card:hover .preview-overlay {
@@ -340,147 +721,342 @@
     }
 
     .preview-btn {
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: all 0.3s ease;
+      padding: 0.85rem 1.75rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
       text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 8px 30px var(--shadow-primary);
+      font-family: 'Inter', sans-serif;
     }
 
     .preview-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.5);
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px var(--shadow-primary);
     }
 
-    /* Card Info */
+    .preview-btn-secondary {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .preview-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--text);
+    }
+
+    /* ========================
+       CARD INFO
+    ======================== */
     .card-info {
-      padding: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .card-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 0.75rem;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.3;
     }
 
-    .card-category {
-      padding: 0.4rem 0.8rem;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .card-path {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-family: 'Consolas', 'Monaco', monospace;
-      opacity: 0.7;
-      word-break: break-all;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-
-    footer p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-    }
-
-    /* Loading Animation */
-    .loading {
+    .card-tag {
       display: flex;
       align-items: center;
-      justify-content: center;
-      height: 100%;
+      gap: 0.3rem;
+      flex-shrink: 0;
+      padding: 0.3rem 0.7rem;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* Category-specific tag colors */
+    .card-tag.tag-benradnor  { background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.25); color: var(--primary-light); }
+    .card-tag.tag-lanasabir  { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.25); color: #c084fc; }
+    .card-tag.tag-k9handler  { background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.25); color: #6ee7b7; }
+    .card-tag.tag-roundlab   { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.25); color: #fcd34d; }
+    .card-tag.tag-vector     { background: rgba(244,63,94,0.12);  border-color: rgba(244,63,94,0.25);  color: #fda4af; }
+
+    .card-path {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-family: 'Consolas', 'Monaco', monospace;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .card-meta-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.73rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .card-meta-badge .badge-icon {
       font-size: 0.9rem;
-      color: var(--text-muted);
     }
 
-    .loading::before {
-      content: '';
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--border);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      margin-right: 0.75rem;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* No Results */
+    /* ========================
+       NO RESULTS
+    ======================== */
     .no-results {
       grid-column: 1 / -1;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       color: var(--text-muted);
+    }
+
+    .no-results .nr-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
     }
 
     .no-results h3 {
       font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
       margin-bottom: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer {
+      border-top: 1px solid var(--border);
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: blur(16px);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .footer-brand .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      text-decoration: none;
+    }
+
+    .footer-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: white;
+    }
+
+    .footer-logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--text);
     }
 
-    /* Scroll to top */
+    .footer-logo-text span {
+      color: var(--primary-light);
+    }
+
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      background: var(--glass);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary-light);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .footer-col h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--primary-light);
+      transform: translateX(3px);
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .footer-copyright a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .footer-copyright a:hover { color: var(--accent); }
+
+    .footer-policy-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer-policy-links a {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-policy-links a:hover { color: var(--text-muted); }
+
+    /* ========================
+       SCROLL TO TOP
+    ======================== */
     .scroll-top {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       border: none;
       border-radius: 50%;
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-      z-index: 100;
+      transition: var(--transition);
+      box-shadow: 0 8px 30px var(--shadow-primary);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .scroll-top.visible {
@@ -489,172 +1065,560 @@
     }
 
     .scroll-top:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px var(--shadow-primary);
+    }
+
+    /* ========================
+       ANIMATIONS
+    ======================== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    /* Loading skeleton */
+    .skeleton {
+      background: linear-gradient(90deg, var(--dark-3) 25%, var(--dark-4) 50%, var(--dark-3) 75%);
+      background-size: 200% auto;
+      animation: shimmer 2s linear infinite;
+      border-radius: 8px;
+    }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 768px) {
+      header { padding: 0.75rem 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.25rem 2rem; }
+      .controls-wrapper { padding: 0 1rem; }
+      .results-info { padding: 0 1rem; }
+      .section-header { padding: 0 1rem; }
+    }
+
+    /* Tooltip */
+    [data-tooltip] {
+      position: relative;
+    }
+
+    [data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.4rem 0.75rem;
+      background: var(--dark-3);
+      color: var(--text);
+      font-size: 0.75rem;
+      border-radius: var(--radius-xs);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      border: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    [data-tooltip]:hover::after {
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
-  <div class="bg-animation"></div>
 
-  <header>
-    <div class="logo">
-      <div class="logo-icon">3S</div>
+  <!-- Backgrounds -->
+  <div class="bg-wrapper"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+
+  <!-- ========================
+       NAVBAR
+  ======================== -->
+  <nav class="navbar">
+    <a href="#" class="nav-brand">
+      <div class="nav-logo">3S</div>
+      <span class="nav-name">3s<span>-Soft</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#templates" class="nav-link">Templates</a>
+      <a href="https://3s-soft.com/" target="_blank" class="nav-link">Website</a>
+      <a href="https://github.com/3s-Soft/eBay_Template" target="_blank" class="nav-link">GitHub</a>
+      <div class="nav-badge">
+        <span class="dot"></span>
+        <span id="navCount">Loading...</span>
+      </div>
     </div>
-    <h1>eBay Template Portfolio</h1>
-    <p class="subtitle">Professional eBay listing templates with live preview</p>
+  </nav>
+
+  <!-- ========================
+       HERO
+  ======================== -->
+  <header class="hero" id="home">
+    <div class="hero-eyebrow">
+      <span class="icon">🎨</span>
+      Professional eBay Template Library
+    </div>
+    <h1 class="hero-title">
+      Premium eBay Listing<br>
+      <span class="gradient-text">Templates Portfolio</span>
+    </h1>
+    <p class="hero-desc">
+      Professionally crafted HTML templates for eBay listings — browse, filter, and preview live templates used in real stores.
+    </p>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value" id="statTotal">0</div>
+        <div class="stat-label">Total Templates</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Client Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Custom HTML</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">⚡</div>
+        <div class="stat-label">Live Preview</div>
+      </div>
+    </div>
   </header>
 
-  <div class="controls">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search templates...">
+  <!-- ========================
+       CONTROLS
+  ======================== -->
+  <div class="controls-wrapper" id="templates">
+    <div class="search-row">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search templates by name, category, or path…" autocomplete="off" />
     </div>
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-category="all">All Templates</button>
-      <button class="filter-btn" data-category="Ben Radnor">Ben Radnor</button>
-      <button class="filter-btn" data-category="Lana_sabir">Lana Sabir</button>
-      <button class="filter-btn" data-category="template">Template</button>
-      <button class="filter-btn" data-category="other">Other</button>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-category="all" id="btn-all">
+        All <span class="count" id="cnt-all">0</span>
+      </button>
+      <button class="filter-btn" data-category="Ben Radnor" id="btn-benradnor">
+        🐕 Ben Radnor <span class="count" id="cnt-benradnor">0</span>
+      </button>
+      <button class="filter-btn" data-category="Lana Sabir" id="btn-lanasabir">
+        💎 Lana Sabir <span class="count" id="cnt-lanasabir">0</span>
+      </button>
+      <button class="filter-btn" data-category="K9 Handler" id="btn-k9handler">
+        🐾 K9 Handler <span class="count" id="cnt-k9handler">0</span>
+      </button>
+      <button class="filter-btn" data-category="ROUND LAB" id="btn-roundlab">
+        🧪 ROUND LAB <span class="count" id="cnt-roundlab">0</span>
+      </button>
+      <button class="filter-btn" data-category="Vector" id="btn-vector">
+        📐 Vector <span class="count" id="cnt-vector">0</span>
+      </button>
     </div>
   </div>
 
-  <div class="counter">
-    <span>Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> templates</span>
+  <!-- Results info -->
+  <div class="results-info">
+    <div class="results-count">
+      Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> templates
+      <span class="sync-dot" id="syncDot" data-tooltip="Auto-syncing with filesystem"></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="refresh-btn" id="refreshBtn" onclick="manualRefresh()" data-tooltip="Reload templates.json">
+        <span class="refresh-icon">↻</span> Refresh
+      </button>
+      <div class="view-toggle">
+        <button class="view-btn active" id="gridViewBtn" data-tooltip="Grid view" onclick="setView('grid')">⊞</button>
+        <button class="view-btn" id="listViewBtn" data-tooltip="List view" onclick="setView('list')">☰</button>
+      </div>
+    </div>
   </div>
 
-  <div class="template-grid" id="templateGrid">
-    <!-- Templates will be dynamically loaded here -->
-  </div>
+  <!-- ========================
+       TEMPLATE GRID
+  ======================== -->
+  <main class="template-grid" id="templateGrid" aria-live="polite">
+    <!-- Populated by JS -->
+  </main>
 
+  <!-- ========================
+       FOOTER
+  ======================== -->
   <footer>
-    <p>&copy; <span id="year"></span> <a href="https://3s-soft.com/" target="_blank">3s-Soft</a>. All Rights Reserved.
-    </p>
+    <div class="footer-inner">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="https://3s-soft.com/" target="_blank" class="footer-logo">
+          <div class="footer-logo-icon">3S</div>
+          <span class="footer-logo-text">3s<span>-Soft</span></span>
+        </a>
+        <p class="footer-tagline">
+          Professionally crafted eBay listing templates and digital solutions. Helping sellers stand out with premium HTML designs.
+        </p>
+        <div class="footer-socials">
+          <a href="https://github.com/3s-Soft/eBay_Template" target="_blank" class="social-btn" data-tooltip="GitHub">🐙</a>
+          <a href="https://3s-soft.com/" target="_blank" class="social-btn" data-tooltip="Website">🌐</a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#templates">Templates</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank">3s-Soft Website</a></li>
+          <li><a href="https://github.com/3s-Soft/eBay_Template" target="_blank">GitHub Repo</a></li>
+        </ul>
+      </div>
+
+      <!-- Store Policies -->
+      <div class="footer-col">
+        <h3>Store Policies</h3>
+        <ul>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Payment Methods</a></li>
+          <li><a href="#">Buyer Protection</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="https://3s-soft.com/" target="_blank">Request Template</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank">Custom Design</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank">Support</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; <span id="year"></span> <a href="https://3s-soft.com/" target="_blank">3s-Soft</a>. All rights reserved. Designed &amp; developed with ❤️ by 3s-Soft.
+      </p>
+      <div class="footer-policy-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop">↑</button>
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
+  <!-- ========================
+       JAVASCRIPT
+  ======================== -->
   <script>
-    // Template data - all templates with their paths and categories
-    const templates = [
-      // Ben Radnor Templates
-      { name: "Template 123956830199", path: "./Ben Radnor/123956830199.html", category: "Ben Radnor" },
-      { name: "Template 123975832702", path: "./Ben Radnor/123975832702.html", category: "Ben Radnor" },
-      { name: "Template 123975838219", path: "./Ben Radnor/123975838219.html", category: "Ben Radnor" },
-      { name: "Template 125099980409", path: "./Ben Radnor/125099980409.html", category: "Ben Radnor" },
-      { name: "Template 125472166101", path: "./Ben Radnor/125472166101.html", category: "Ben Radnor" },
-      { name: "Template 125623562742", path: "./Ben Radnor/125623562742.html", category: "Ben Radnor" },
-      { name: "Template 125623571253", path: "./Ben Radnor/125623571253.html", category: "Ben Radnor" },
-      { name: "Template 125623581848", path: "./Ben Radnor/125623581848.html", category: "Ben Radnor" },
-      { name: "Template 125623609914", path: "./Ben Radnor/125623609914.html", category: "Ben Radnor" },
-      { name: "Template 125623618437", path: "./Ben Radnor/125623618437.html", category: "Ben Radnor" },
-      { name: "Template 125626704830", path: "./Ben Radnor/125626704830.html", category: "Ben Radnor" },
-      { name: "Template 125626770554", path: "./Ben Radnor/125626770554.html", category: "Ben Radnor" },
-      { name: "Template 125626820160", path: "./Ben Radnor/125626820160.html", category: "Ben Radnor" },
-      { name: "Template 125626833533", path: "./Ben Radnor/125626833533.html", category: "Ben Radnor" },
-      { name: "Template 125626850277", path: "./Ben Radnor/125626850277.html", category: "Ben Radnor" },
-      { name: "Template 125941346521", path: "./Ben Radnor/125941346521.html", category: "Ben Radnor" },
-      { name: "Template 126161893042", path: "./Ben Radnor/126161893042.html", category: "Ben Radnor" },
-      { name: "Template 126401892074", path: "./Ben Radnor/126401892074.html", category: "Ben Radnor" },
-      { name: "Template 126480693384", path: "./Ben Radnor/126480693384.html", category: "Ben Radnor" },
-      { name: "Template 126627025677", path: "./Ben Radnor/126627025677.html", category: "Ben Radnor" },
-      { name: "Template 126627097553", path: "./Ben Radnor/126627097553.html", category: "Ben Radnor" },
-      { name: "Template 126627150951", path: "./Ben Radnor/126627150951.html", category: "Ben Radnor" },
-      { name: "Template 126627175569", path: "./Ben Radnor/126627175569.html", category: "Ben Radnor" },
-      { name: "Template 126727184853", path: "./Ben Radnor/126727184853.html", category: "Ben Radnor" },
-      { name: "Template 126737357878", path: "./Ben Radnor/126737357878.html", category: "Ben Radnor" },
-      { name: "Template 126746671333", path: "./Ben Radnor/126746671333.html", category: "Ben Radnor" },
-      { name: "Template 126747478303", path: "./Ben Radnor/126747478303.html", category: "Ben Radnor" },
-      { name: "Template 126747481665", path: "./Ben Radnor/126747481665.html", category: "Ben Radnor" },
-      { name: "Template 126749102320", path: "./Ben Radnor/126749102320.html", category: "Ben Radnor" },
-      { name: "Template 127375857393", path: "./Ben Radnor/127375857393.html", category: "Ben Radnor" },
-      { name: "Online Listing", path: "./Ben Radnor/Onlinelisting.html", category: "Ben Radnor" },
+    // ─── Dynamic Template Registry ───────────────────────────────────────────────
+    // Templates are loaded from templates.json (generated by scan.py / dev-server.py)
+    // The page polls every POLL_INTERVAL ms so additions/deletions appear automatically.
 
-      // Lana Sabir Templates
-      { name: "Project 1", path: "./Lana_sabir/Project 1/index.html", category: "Lana_sabir" },
-      { name: "Project 2", path: "./Lana_sabir/Project 2/index.html", category: "Lana_sabir" },
-      { name: "Project 3", path: "./Lana_sabir/Project 3/index.html", category: "Lana_sabir" },
-      { name: "Final", path: "./Lana_sabir/final/index.html", category: "Lana_sabir" },
+    const POLL_INTERVAL = 5000; // ms — how often to check for manifest changes
+    const MANIFEST_URL  = './templates.json';
 
+    let templates       = [];       // current live list
+    let lastGenerated   = null;     // ISO timestamp of last manifest
+    let pollTimer       = null;
 
-      // Other Templates
-      { name: "Template 276547846061", path: "./S/276547846061.html", category: "other" },
-      { name: "U Template", path: "./U/index.html", category: "other" },
-      { name: "Template 1", path: "./template/1.html", category: "template" },
-      { name: "Template 2", path: "./template 2/index.html", category: "template" },
+    // ── Fetch & merge manifest ────────────────────────────────────────────────
+    async function loadManifest(silent = false) {
+      try {
+        const res = await fetch(MANIFEST_URL + '?_=' + Date.now());
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Only re-render if the manifest actually changed
+        if (data.generated === lastGenerated) return;
+
+        lastGenerated = data.generated;
+        templates     = data.templates || [];
+
+        updateCounts();
+        renderTemplates();
+
+        if (!silent) {
+          setSyncState('ok');
+        }
+        console.log(`[manifest] Loaded ${templates.length} templates (${data.generated})`);
+      } catch (err) {
+        console.warn('[manifest] Failed to load templates.json:', err.message);
+        setSyncState('stale');
+        // Fallback: try to keep whatever we had
+      }
+    }
+
+    function setSyncState(state) {
+      const dot = document.getElementById('syncDot');
+      if (!dot) return;
+      dot.classList.toggle('stale', state === 'stale');
+      dot.title = state === 'ok'
+        ? `Last sync: ${new Date().toLocaleTimeString()}`
+        : 'Manifest unavailable — run scan.py or dev-server.py';
+    }
+
+    async function manualRefresh() {
+      const btn = document.getElementById('refreshBtn');
+      btn.classList.add('spinning');
+      await loadManifest(false);
+      setTimeout(() => btn.classList.remove('spinning'), 600);
+    }
+
+    function startPolling() {
+      if (pollTimer) clearInterval(pollTimer);
+      pollTimer = setInterval(() => loadManifest(true), POLL_INTERVAL);
+    }
+
+    // ─── Template Registry (legacy fallback — replaced at runtime) ────────────
+    const _templatesFallback = [
+
+      // ── Ben Radnor ─────────────────────────────────────────────────────────
+      { name: "BR – 123956830199",   path: "./Ben Radnor/123956830199.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 123975832702",   path: "./Ben Radnor/123975832702.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 123975838219",   path: "./Ben Radnor/123975838219.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125099980409",   path: "./Ben Radnor/125099980409.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125472166101",   path: "./Ben Radnor/125472166101.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125623562742",   path: "./Ben Radnor/125623562742.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125623571253",   path: "./Ben Radnor/125623571253.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125623581848",   path: "./Ben Radnor/125623581848.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125623609914",   path: "./Ben Radnor/125623609914.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125623618437",   path: "./Ben Radnor/125623618437.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125626704830",   path: "./Ben Radnor/125626704830.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125626770554",   path: "./Ben Radnor/125626770554.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125626820160",   path: "./Ben Radnor/125626820160.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125626833533",   path: "./Ben Radnor/125626833533.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125626850277",   path: "./Ben Radnor/125626850277.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 125941346521",   path: "./Ben Radnor/125941346521.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126161893042",   path: "./Ben Radnor/126161893042.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126401892074",   path: "./Ben Radnor/126401892074.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126480693384",   path: "./Ben Radnor/126480693384.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126627025677",   path: "./Ben Radnor/126627025677.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126627097553",   path: "./Ben Radnor/126627097553.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126627150951",   path: "./Ben Radnor/126627150951.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126627175569",   path: "./Ben Radnor/126627175569.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126727184853",   path: "./Ben Radnor/126727184853.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126737357878",   path: "./Ben Radnor/126737357878.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126746671333",   path: "./Ben Radnor/126746671333.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126747478303",   path: "./Ben Radnor/126747478303.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126747481665",   path: "./Ben Radnor/126747481665.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 126749102320",   path: "./Ben Radnor/126749102320.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – 127375857393",   path: "./Ben Radnor/127375857393.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
+      { name: "BR – Online Listing", path: "./Ben Radnor/Onlinelisting.html", category: "Ben Radnor", tagClass: "tag-benradnor" },
+
+      // ── Lana Sabir ─────────────────────────────────────────────────────────
+      { name: "LS – Project 1",    path: "./Lana_sabir/Project 1/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Project 2",    path: "./Lana_sabir/Project 2/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Project 3",    path: "./Lana_sabir/Project 3/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Project 4",    path: "./Lana_sabir/Project 4/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Project 5",    path: "./Lana_sabir/Project 5/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Project 6",    path: "./Lana_sabir/Project 6/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Final",        path: "./Lana_sabir/final/index.html",     category: "Lana Sabir", tagClass: "tag-lanasabir" },
+      { name: "LS – Test",         path: "./Lana_sabir/test/index.html",      category: "Lana Sabir", tagClass: "tag-lanasabir" },
+
+      // ── K9 Handler 2024 ────────────────────────────────────────────────────
+      { name: "K9 – Main Template",    path: "./K9handler2024/index.html",               category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Street (V2)",      path: "./K9handler2024/template-v2-street.html",  category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Minimal (V3)",     path: "./K9handler2024/template-v3-minimal.html", category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Luxury (V4)",      path: "./K9handler2024/template-v4-luxury.html",  category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Pro (V5)",         path: "./K9handler2024/template-v5-pro.html",     category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Cyber (V6)",       path: "./K9handler2024/template-v6-cyber.html",   category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Coastal (V7)",     path: "./K9handler2024/template-v7-coastal.html", category: "K9 Handler", tagClass: "tag-k9handler" },
+      { name: "K9 – Carbon (V8)",      path: "./K9handler2024/template-v8-carbon.html",  category: "K9 Handler", tagClass: "tag-k9handler" },
+
+      // ── ROUND LAB ──────────────────────────────────────────────────────────
+      { name: "ROUND LAB – Main", path: "./ROUND LAB/index.html", category: "ROUND LAB", tagClass: "tag-roundlab" },
+
+      // ── Vector ─────────────────────────────────────────────────────────────
+      { name: "Vector – Main",    path: "./Vector/index.html",    category: "Vector", tagClass: "tag-vector" },
     ];
 
+    // ─── State ──────────────────────────────────────────────────────────────────
     let currentCategory = 'all';
-    let searchQuery = '';
+    let searchQuery     = '';
+    let currentView     = 'grid';
 
-    // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-      renderTemplates();
-      setupEventListeners();
+    // ─── Init ────────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', async () => {
       document.getElementById('year').textContent = new Date().getFullYear();
+      setupListeners();
+
+      // Try to load from manifest; fall back to hardcoded list if not available
+      await loadManifest(false).catch(() => {
+        console.warn('[init] Falling back to built-in template list');
+        templates = _templatesFallback;
+        updateCounts();
+        renderTemplates();
+        setSyncState('stale');
+      });
+
+      // If manifest loaded but templates empty, try fallback
+      if (templates.length === 0) {
+        templates = _templatesFallback;
+        updateCounts();
+        renderTemplates();
+      }
+
+      startPolling();
     });
 
+    // ─── Count badges ────────────────────────────────────────────────────────────
+    function updateCounts() {
+      document.getElementById('cnt-all').textContent      = templates.length;
+      document.getElementById('cnt-benradnor').textContent = templates.filter(t => t.category === 'Ben Radnor').length;
+      document.getElementById('cnt-lanasabir').textContent = templates.filter(t => t.category === 'Lana Sabir').length;
+      document.getElementById('cnt-k9handler').textContent = templates.filter(t => t.category === 'K9 Handler').length;
+      document.getElementById('cnt-roundlab').textContent  = templates.filter(t => t.category === 'ROUND LAB').length;
+      document.getElementById('cnt-vector').textContent    = templates.filter(t => t.category === 'Vector').length;
+      document.getElementById('statTotal').textContent    = templates.length;
+      document.getElementById('navCount').textContent     = templates.length + ' templates';
+      document.getElementById('totalCount').textContent   = templates.length;
+    }
+
+    // ─── Render ──────────────────────────────────────────────────────────────────
     function renderTemplates() {
       const grid = document.getElementById('templateGrid');
       grid.innerHTML = '';
 
-      const filtered = templates.filter(template => {
-        const matchesCategory = currentCategory === 'all' || template.category === currentCategory;
-        const matchesSearch = template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          template.path.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCategory && matchesSearch;
+      // Apply list/grid class
+      if (currentView === 'list') {
+        grid.classList.add('list-view');
+      } else {
+        grid.classList.remove('list-view');
+      }
+
+      const filtered = templates.filter(t => {
+        const catMatch    = currentCategory === 'all' || t.category === currentCategory;
+        const q           = searchQuery.toLowerCase();
+        const searchMatch = !q ||
+          t.name.toLowerCase().includes(q) ||
+          t.category.toLowerCase().includes(q) ||
+          t.path.toLowerCase().includes(q);
+        return catMatch && searchMatch;
       });
 
       document.getElementById('visibleCount').textContent = filtered.length;
-      document.getElementById('totalCount').textContent = templates.length;
 
       if (filtered.length === 0) {
         grid.innerHTML = `
-          <div class="no-results">
+          <div class="no-results fade-in">
+            <div class="nr-icon">🔍</div>
             <h3>No templates found</h3>
-            <p>Try adjusting your search or filter criteria</p>
-          </div>
-        `;
+            <p>Try a different search or filter category.</p>
+          </div>`;
         return;
       }
 
-      filtered.forEach((template, index) => {
+      const fragment = document.createDocumentFragment();
+
+      filtered.forEach((tpl, idx) => {
         const card = document.createElement('div');
-        card.className = 'template-card';
-        card.style.animationDelay = `${index * 0.05}s`;
+        card.className = 'template-card fade-in';
+        card.style.animationDelay = `${Math.min(idx * 0.04, 0.8)}s`;
 
         card.innerHTML = `
           <div class="preview-container">
-            <iframe 
-              class="preview-frame" 
-              src="${template.path}" 
+            <div class="preview-placeholder">
+              <span class="placeholder-icon">🖼️</span>
+              <span>Loading preview…</span>
+            </div>
+            <iframe
+              class="preview-frame"
+              data-src="${tpl.path}"
               loading="lazy"
               sandbox="allow-same-origin"
-              title="${template.name} Preview"
+              title="${tpl.name} Preview"
+              aria-label="${tpl.name}"
             ></iframe>
             <div class="preview-overlay">
-              <a href="${template.path}" target="_blank" class="preview-btn">
+              <a href="${tpl.path}" target="_blank" rel="noopener" class="preview-btn">
                 <span>🔗</span> Open Full View
+              </a>
+              <a href="${tpl.path}" target="_blank" rel="noopener" class="preview-btn-secondary">
+                <span>🖥️</span> New Tab
               </a>
             </div>
           </div>
           <div class="card-info">
             <div class="card-header">
-              <h3 class="card-title">${template.name}</h3>
-              <span class="card-category">${template.category}</span>
+              <h3 class="card-title">${tpl.name}</h3>
+              <span class="card-tag ${tpl.tagClass}">${tpl.category}</span>
             </div>
-            <p class="card-path">${template.path}</p>
-          </div>
-        `;
+            <p class="card-path">${tpl.path}</p>
+            <div class="card-meta">
+              <span class="card-meta-badge">
+                <span class="badge-icon">📄</span> HTML Template
+              </span>
+              <span class="card-meta-badge">
+                <span class="badge-icon">👁️</span> Live Preview
+              </span>
+            </div>
+          </div>`;
 
-        grid.appendChild(card);
+        fragment.appendChild(card);
       });
+
+      grid.appendChild(fragment);
+
+      // Lazy-load iframes using IntersectionObserver
+      lazyLoadIframes();
     }
 
-    function setupEventListeners() {
-      // Search input
-      document.getElementById('searchInput').addEventListener('input', (e) => {
-        searchQuery = e.target.value;
+    // ─── Lazy iframe loading ─────────────────────────────────────────────────────
+    function lazyLoadIframes() {
+      const iframes = document.querySelectorAll('iframe[data-src]');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const iframe = entry.target;
+              iframe.src = iframe.dataset.src;
+              delete iframe.dataset.src;
+              observer.unobserve(iframe);
+            }
+          });
+        }, { rootMargin: '200px' });
+
+        iframes.forEach(iframe => observer.observe(iframe));
+      } else {
+        // Fallback: load all
+        iframes.forEach(iframe => {
+          iframe.src = iframe.dataset.src;
+          delete iframe.dataset.src;
+        });
+      }
+    }
+
+    // ─── View toggle ─────────────────────────────────────────────────────────────
+    function setView(v) {
+      currentView = v;
+      document.getElementById('gridViewBtn').classList.toggle('active', v === 'grid');
+      document.getElementById('listViewBtn').classList.toggle('active', v === 'list');
+      renderTemplates();
+    }
+
+    // ─── Event Listeners ─────────────────────────────────────────────────────────
+    function setupListeners() {
+      // Search
+      document.getElementById('searchInput').addEventListener('input', e => {
+        searchQuery = e.target.value.trim();
         renderTemplates();
       });
 
@@ -668,21 +1632,14 @@
         });
       });
 
-      // Scroll to top button
+      // Scroll to top
       const scrollBtn = document.getElementById('scrollTop');
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-          scrollBtn.classList.add('visible');
-        } else {
-          scrollBtn.classList.remove('visible');
-        }
-      });
-
-      scrollBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
   </script>
-</body>
 
+</body>
 </html>
