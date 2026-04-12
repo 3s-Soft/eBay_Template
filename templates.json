@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-12T22:07:31Z",
-  "count": 42,
+  "generated": "2026-04-12T22:18:31Z",
+  "count": 52,
   "templates": [
     {
       "name": "BE – 123956830199",
@@ -259,12 +259,52 @@
       "sizeKb": 48.2
     },
     {
+      "name": "LA – final",
+      "path": "./Lana_sabir/final/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 54.0
+    },
+    {
+      "name": "LA – Project 1",
+      "path": "./Lana_sabir/Project 1/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 84.3
+    },
+    {
+      "name": "LA – Project 2",
+      "path": "./Lana_sabir/Project 2/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 74.3
+    },
+    {
+      "name": "LA – Project 3",
+      "path": "./Lana_sabir/Project 3/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 53.5
+    },
+    {
       "name": "LA – Index (2)",
       "path": "./Lana_sabir/Project 5/index (2).html",
       "category": "Lana Sabir",
       "tagClass": "tag-lanasabir",
       "icon": "💎",
       "sizeKb": 54.4
+    },
+    {
+      "name": "LA – Project 5",
+      "path": "./Lana_sabir/Project 5/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 53.6
     },
     {
       "name": "LA – Index 2",
@@ -281,6 +321,30 @@
       "tagClass": "tag-lanasabir",
       "icon": "💎",
       "sizeKb": 54.4
+    },
+    {
+      "name": "LA – Project 6",
+      "path": "./Lana_sabir/Project 6/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 54.1
+    },
+    {
+      "name": "LA – test",
+      "path": "./Lana_sabir/test/index.html",
+      "category": "Lana Sabir",
+      "tagClass": "tag-lanasabir",
+      "icon": "💎",
+      "sizeKb": 8.2
+    },
+    {
+      "name": "K9 – Main",
+      "path": "./K9handler2024/index.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 32.3
     },
     {
       "name": "K9 – Template V2 Street",
@@ -337,6 +401,22 @@
       "tagClass": "tag-k9handler",
       "icon": "🐾",
       "sizeKb": 34.1
+    },
+    {
+      "name": "RO – Main",
+      "path": "./ROUND LAB/index.html",
+      "category": "ROUND LAB",
+      "tagClass": "tag-roundlab",
+      "icon": "🧪",
+      "sizeKb": 7.5
+    },
+    {
+      "name": "VE – Main",
+      "path": "./Vector/index.html",
+      "category": "Vector",
+      "tagClass": "tag-vector",
+      "icon": "📐",
+      "sizeKb": 32.5
     }
   ]
 }

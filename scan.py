@@ -37,12 +37,10 @@ CATEGORY_MAP = {
 }
 
 # Directories / files to always ignore
-IGNORE_DIRS  = {".git", ".vscode", "node_modules", "__pycache__"}
-IGNORE_FILES = {
-    "index.html",   # the portfolio page itself
-    "scan.py",
-    "dev-server.py",
-}
+IGNORE_DIRS = {".git", ".vscode", "node_modules", "__pycache__"}
+
+# Files ignored only when they live directly in ROOT (the portfolio page itself)
+ROOT_ONLY_IGNORE = {"index.html", "scan.py", "dev-server.py"}
 IGNORE_SUFFIXES = {".txt", ".md", ".json", ".py", ".css", ".js", ".png",
                    ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".woff",
                    ".woff2", ".ttf", ".eot"}
@@ -78,8 +76,8 @@ def scan() -> list[dict]:
             continue
 
         for html_file in sorted(base.rglob("*.html")):
-            # Skip ignored filenames
-            if html_file.name in IGNORE_FILES:
+            # Skip root-level portfolio/script files (but not same-named files in subdirs)
+            if html_file.parent == ROOT and html_file.name in ROOT_ONLY_IGNORE:
                 continue
             # Skip files inside ignored dirs
             if any(part in IGNORE_DIRS for part in html_file.parts):
@@ -123,7 +121,7 @@ def dir_hash() -> str:
         if not base.exists():
             continue
         for f in sorted(base.rglob("*.html")):
-            if f.name in IGNORE_FILES:
+            if f.parent == ROOT and f.name in ROOT_ONLY_IGNORE:
                 continue
             parts.append(f"{f}:{f.stat().st_mtime:.0f}")
     return hashlib.md5("\n".join(parts).encode()).hexdigest()

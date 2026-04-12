@@ -1,1368 +1,637 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>eBay Template Portfolio | 3s-Soft</title>
-  <meta name="description" content="Professional eBay listing templates crafted by 3s-Soft. Browse, preview, and use premium HTML templates for your eBay store." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <meta name="description" content="Professional eBay listing templates crafted by 3s-Soft. Browse, filter and live-preview premium HTML templates for your eBay store." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v4 Browser CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: 'Inter', sans-serif;
+      --font-display: 'Outfit', sans-serif;
+
+      --color-dark:        #08111f;
+      --color-dark-2:      #0d1a2d;
+      --color-dark-3:      #112240;
+      --color-dark-4:      #1e3a5f;
+
+      --color-primary:     #6366f1;
+      --color-primary-lt:  #818cf8;
+      --color-primary-dk:  #4f46e5;
+
+      --color-cyan:        #06b6d4;
+      --color-cyan-dk:     #0891b2;
+
+      --color-emerald:     #10b981;
+      --color-amber:       #f59e0b;
+      --color-rose:        #f43f5e;
+      --color-purple:      #a855f7;
+
+      --color-slate-text:  #f1f5f9;
+      --color-slate-muted: #94a3b8;
+      --color-slate-dim:   #64748b;
+
+      --color-glass:       rgba(255,255,255,0.04);
+      --color-glass-md:    rgba(255,255,255,0.08);
+      --color-border:      rgba(255,255,255,0.08);
+      --color-border-hi:   rgba(99,102,241,0.45);
+
+      --radius-card: 1.25rem;
     }
 
-    :root {
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --primary-light: #818cf8;
-      --secondary: #06b6d4;
-      --secondary-dark: #0891b2;
-      --accent: #10b981;
-      --accent-warm: #f59e0b;
-      --rose: #f43f5e;
-      --purple: #a855f7;
-      --dark: #0a0f1e;
-      --dark-2: #0f172a;
-      --dark-3: #1e293b;
-      --dark-4: #334155;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --card-bg: rgba(15, 23, 42, 0.75);
-      --glass: rgba(255, 255, 255, 0.04);
-      --glass-hover: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(99, 102, 241, 0.5);
-      --shadow-primary: rgba(99, 102, 241, 0.3);
-      --shadow-secondary: rgba(6, 182, 212, 0.3);
-      --glow: 0 0 40px rgba(99, 102, 241, 0.2);
-      --radius: 20px;
-      --radius-sm: 12px;
-      --radius-xs: 8px;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* ── Base ── */
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      min-height: 100vh;
-      color: var(--text);
+      font-family: var(--font-sans);
+      background-color: var(--color-dark);
+      color: var(--color-slate-text);
       overflow-x: hidden;
-      line-height: 1.6;
     }
 
-    /* ========================
-       BACKGROUND + NOISE
-    ======================== */
-    .bg-wrapper {
+    /* ── Animated orbs ── */
+    .orb {
       position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(ellipse 80% 60% at 0% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 70%),
-        linear-gradient(180deg, #0a0f1e 0%, #0d1526 50%, #0a0f1e 100%);
-    }
-
-    .bg-orb {
-      position: fixed;
-      border-radius: 50%;
+      border-radius: 9999px;
       filter: blur(100px);
       pointer-events: none;
       z-index: -1;
     }
-
-    .bg-orb-1 {
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
-      top: -20%;
-      left: -15%;
-      animation: orbFloat1 25s ease-in-out infinite;
+    .orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,.22) 0%, transparent 70%);
+      top: -15%; left: -10%;
+      animation: orbFloat1 28s ease-in-out infinite;
     }
-
-    .bg-orb-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
-      bottom: 10%;
-      right: -10%;
-      animation: orbFloat2 30s ease-in-out infinite;
+    .orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(6,182,212,.18) 0%, transparent 70%);
+      bottom: 8%; right: -8%;
+      animation: orbFloat2 34s ease-in-out infinite;
     }
-
-    .bg-orb-3 {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: orbFloat3 20s ease-in-out infinite;
+    .orb-3 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(168,85,247,.14) 0%, transparent 70%);
+      top: 45%; left: 55%;
+      transform: translate(-50%,-50%);
+      animation: orbFloat3 22s ease-in-out infinite;
     }
 
     @keyframes orbFloat1 {
-      0%, 100% { transform: translate(0, 0); }
-      33%       { transform: translate(80px, 60px); }
-      66%       { transform: translate(-40px, 100px); }
+      0%,100% { transform: translate(0,0); }
+      33%      { transform: translate(80px,60px); }
+      66%      { transform: translate(-40px,100px); }
     }
     @keyframes orbFloat2 {
-      0%, 100% { transform: translate(0, 0); }
-      33%       { transform: translate(-60px, -80px); }
-      66%       { transform: translate(40px, -50px); }
+      0%,100% { transform: translate(0,0); }
+      33%      { transform: translate(-60px,-80px); }
+      66%      { transform: translate(40px,-50px); }
     }
     @keyframes orbFloat3 {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); }
-      50%       { transform: translate(-50%, -50%) scale(1.2); }
+      0%,100% { transform: translate(-50%,-50%) scale(1); }
+      50%      { transform: translate(-50%,-50%) scale(1.2); }
     }
 
-    /* Grid pattern overlay */
+    /* Grid dots overlay */
     .bg-grid {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
+      position: fixed; inset: 0; z-index: -1;
       background-image:
-        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(99,102,241,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,.03) 1px, transparent 1px);
       background-size: 60px 60px;
     }
 
-    /* ========================
-       NAVBAR
-    ======================== */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(10, 15, 30, 0.85);
-      backdrop-filter: blur(24px) saturate(1.5);
-      -webkit-backdrop-filter: blur(24px) saturate(1.5);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .nav-logo {
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: var(--radius-xs);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      color: white;
-      letter-spacing: -0.05em;
-      box-shadow: 0 4px 20px var(--shadow-primary);
-      flex-shrink: 0;
-    }
-
-    .nav-name {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text);
-    }
-
-    .nav-name span {
-      color: var(--primary-light);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .nav-link {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .nav-link:hover {
-      color: var(--text);
-    }
-
-    .nav-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.9rem;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--primary-light);
-    }
-
-    .nav-badge .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.6; transform: scale(0.8); }
-    }
-
-    /* ========================
-       HERO SECTION
-    ======================== */
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem 3rem;
-      position: relative;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1.25rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--primary-light);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-eyebrow .icon {
-      font-size: 1rem;
-    }
-
-    h1.hero-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-      color: var(--text);
-    }
-
-    h1.hero-title .gradient-text {
-      background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 50%, var(--accent) 100%);
+    /* ── Gradient heading ── */
+    .gradient-text {
+      background: linear-gradient(135deg, #818cf8 0%, #06b6d4 50%, #10b981 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .hero-desc {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-
-    /* Stats Bar */
-    .stats-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1px;
-      margin: 2.5rem auto;
-      max-width: 720px;
-      background: var(--border);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .stat-item {
-      flex: 1;
-      min-width: 140px;
-      padding: 1.25rem 1.5rem;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .stat-item:hover {
-      background: var(--glass-hover);
-    }
-
-    .stat-value {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.3rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    /* ========================
-       CONTROLS
-    ======================== */
-    .controls-wrapper {
-      max-width: 1000px;
-      margin: 0 auto 2rem;
-      padding: 0 2rem;
-    }
-
-    .search-row {
-      position: relative;
-      margin-bottom: 1rem;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1.25rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-dim);
-      pointer-events: none;
-      font-size: 1rem;
-    }
-
-    #searchInput {
-      width: 100%;
-      padding: 1rem 1.25rem 1rem 3.25rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--glass);
-      backdrop-filter: blur(16px);
-      color: var(--text);
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      transition: var(--transition);
-    }
-
-    #searchInput::placeholder {
-      color: var(--text-dim);
-    }
-
-    #searchInput:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: var(--glass-hover);
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
-    }
-
-    .filter-row {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.1rem;
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: 'Inter', sans-serif;
-      white-space: nowrap;
-    }
-
-    .filter-btn .count {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      padding: 0.1rem 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .filter-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary-light);
-      transform: translateY(-1px);
-    }
-
-    .filter-btn.active {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      border-color: transparent;
-      box-shadow: 0 6px 20px var(--shadow-primary);
-    }
-
-    .filter-btn.active .count {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    /* Results info */
-    .results-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1800px;
-      margin: 0 auto 1.5rem;
-      padding: 0 2rem;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .results-count {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    .results-count strong {
-      color: var(--secondary);
-      font-weight: 700;
-    }
-
-    /* Refresh button */
-    .refresh-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      background: var(--glass);
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: 'Inter', sans-serif;
-    }
-
-    .refresh-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(16,185,129,0.08);
-    }
-
-    .refresh-btn.spinning .refresh-icon {
-      display: inline-block;
-      animation: spin 0.7s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Sync indicator */
-    .sync-dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-left: 0.35rem;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    .sync-dot.stale {
-      background: var(--accent-warm);
-    }
-
-    .view-toggle {
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .view-btn {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xs);
-      background: var(--glass);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-
-    .view-btn.active, .view-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary-light);
-      background: rgba(99, 102, 241, 0.1);
-    }
-
-    /* ========================
-       SECTION HEADERS
-    ======================== */
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      max-width: 1800px;
-      margin: 3rem auto 1.5rem;
-      padding: 0 2rem;
-    }
-
-    .section-header h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .section-header .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .section-header .section-badge {
-      padding: 0.3rem 0.8rem;
-      background: rgba(99, 102, 241, 0.12);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--primary-light);
-    }
-
-    .section-icon {
-      font-size: 1.3rem;
-    }
-
-    /* ========================
-       TEMPLATE GRID
-    ======================== */
-    .template-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 1.75rem;
-      padding: 0 2rem 5rem;
-      max-width: 1800px;
-      margin: 0 auto;
-    }
-
-    .template-grid.list-view {
-      grid-template-columns: 1fr;
-    }
-
-    .template-grid.list-view .template-card {
-      display: flex;
-      align-items: stretch;
-    }
-
-    .template-grid.list-view .preview-container {
-      width: 300px;
-      height: 160px;
-      flex-shrink: 0;
-    }
-
-    .template-grid.list-view .card-info {
-      flex: 1;
-    }
-
-    @media (max-width: 768px) {
-      .template-grid {
-        grid-template-columns: 1fr;
-        padding: 0 1rem 4rem;
-      }
-      .template-grid.list-view .template-card {
-        flex-direction: column;
-      }
-      .template-grid.list-view .preview-container {
-        width: 100%;
-        height: 220px;
-      }
-      .stats-bar { border-radius: var(--radius-sm); }
-    }
-
-    /* ========================
-       TEMPLATE CARD
-    ======================== */
-    .template-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+    /* ── Glassmorphism card ── */
+    .glass-card {
+      background: rgba(13,26,45,0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      transition: var(--transition);
-      position: relative;
-      cursor: default;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
     }
 
-    .template-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    /* ── Template card hover ── */
+    .tpl-card {
+      transition: transform .35s cubic-bezier(.4,0,.2,1),
+                  box-shadow .35s cubic-bezier(.4,0,.2,1),
+                  border-color .35s ease;
+    }
+    .tpl-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 30px 70px rgba(0,0,0,.45), 0 0 0 1px rgba(99,102,241,.4);
+      border-color: rgba(99,102,241,.4);
+    }
+    .tpl-card:hover .preview-overlay { opacity: 1; }
+
+    /* ── Preview overlay ── */
+    .preview-overlay {
       opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 0;
-      pointer-events: none;
+      transition: opacity .3s ease;
     }
 
-    .template-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.4), var(--glow);
-      border-color: rgba(99, 102, 241, 0.4);
-    }
-
-    .template-card:hover::before {
-      opacity: 0.08;
-    }
-
-    /* ========================
-       PREVIEW CONTAINER
-    ======================== */
-    .preview-container {
-      position: relative;
-      height: 280px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0a0f1e 0%, #131d35 100%);
-    }
-
-    .preview-container::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(10, 15, 30, 0.9) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
+    /* ── iframe scaled preview ── */
     .preview-frame {
       border: none;
       transform: scale(0.5);
       transform-origin: top left;
-      width: 200%;
-      height: 200%;
+      width: 200%; height: 200%;
       pointer-events: none;
       background: white;
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: absolute; top: 0; left: 0;
     }
 
-    /* Preview placeholder when iframe is loading */
-    .preview-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      z-index: 0;
+    /* ── Filter button ── */
+    .filter-btn {
+      transition: all .3s cubic-bezier(.4,0,.2,1);
     }
-
-    .preview-placeholder .placeholder-icon {
-      font-size: 2.5rem;
-      opacity: 0.4;
-    }
-
-    /* Hover overlay */
-    .preview-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background: rgba(10, 15, 30, 0.75);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      z-index: 10;
-    }
-
-    .template-card:hover .preview-overlay {
-      opacity: 1;
-    }
-
-    .preview-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.75rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    .filter-btn.active {
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
       color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: var(--transition);
-      box-shadow: 0 8px 30px var(--shadow-primary);
-      font-family: 'Inter', sans-serif;
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(99,102,241,.35);
+    }
+    .filter-btn:not(.active):hover {
+      border-color: rgba(99,102,241,.5);
+      color: #818cf8;
     }
 
-    .preview-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 40px var(--shadow-primary);
-    }
+    /* ── Spinning refresh icon ── */
+    .spin-icon { display: inline-block; }
+    .spinning .spin-icon { animation: spinAnim .65s linear infinite; }
+    @keyframes spinAnim { to { transform: rotate(360deg); } }
 
-    .preview-btn-secondary {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.25rem;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 50px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: var(--transition);
-      font-family: 'Inter', sans-serif;
-    }
-
-    .preview-btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.18);
-      color: var(--text);
-    }
-
-    /* ========================
-       CARD INFO
-    ======================== */
-    .card-info {
-      padding: 1.25rem 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      font-family: 'Outfit', sans-serif;
-      line-height: 1.3;
-    }
-
-    .card-tag {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      flex-shrink: 0;
-      padding: 0.3rem 0.7rem;
-      background: rgba(99, 102, 241, 0.12);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--primary-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-
-    /* Category-specific tag colors */
-    .card-tag.tag-benradnor  { background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.25); color: var(--primary-light); }
-    .card-tag.tag-lanasabir  { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.25); color: #c084fc; }
-    .card-tag.tag-k9handler  { background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.25); color: #6ee7b7; }
-    .card-tag.tag-roundlab   { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.25); color: #fcd34d; }
-    .card-tag.tag-vector     { background: rgba(244,63,94,0.12);  border-color: rgba(244,63,94,0.25);  color: #fda4af; }
-
-    .card-path {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      font-family: 'Consolas', 'Monaco', monospace;
-      word-break: break-all;
-      line-height: 1.5;
-    }
-
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .card-meta-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.73rem;
-      color: var(--text-dim);
-      font-weight: 500;
-    }
-
-    .card-meta-badge .badge-icon {
-      font-size: 0.9rem;
-    }
-
-    /* ========================
-       NO RESULTS
-    ======================== */
-    .no-results {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 6rem 2rem;
-      color: var(--text-muted);
-    }
-
-    .no-results .nr-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      opacity: 0.5;
-    }
-
-    .no-results h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* ========================
-       FOOTER
-    ======================== */
-    footer {
-      border-top: 1px solid var(--border);
-      background: rgba(10, 15, 30, 0.6);
-      backdrop-filter: blur(16px);
-      padding: 3rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem;
-    }
-
-    @media (max-width: 900px) {
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
-    }
-    @media (max-width: 560px) {
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-    }
-
-    .footer-brand .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      text-decoration: none;
-    }
-
-    .footer-logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 0.85rem;
-      color: white;
-    }
-
-    .footer-logo-text {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .footer-logo-text span {
-      color: var(--primary-light);
-    }
-
-    .footer-tagline {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .social-btn {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xs);
-      background: var(--glass);
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .social-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary-light);
-      background: rgba(99, 102, 241, 0.1);
-    }
-
-    .footer-col h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .footer-col a {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .footer-col a:hover {
-      color: var(--primary-light);
-      transform: translateX(3px);
+    /* ── Sync dot ── */
+    .sync-dot {
       display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 9999px;
+      background: #10b981;
+      animation: syncPulse 2s ease-in-out infinite;
+    }
+    .sync-dot.stale { background: #f59e0b; }
+    @keyframes syncPulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.55; transform:scale(.75); }
     }
 
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 2rem auto 0;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+    /* ── Pulse glow on logo ── */
+    @keyframes logoGlow {
+      0%,100% { box-shadow: 0 0 20px rgba(99,102,241,.4); }
+      50%      { box-shadow: 0 0 40px rgba(99,102,241,.7); }
     }
+    .logo-glow { animation: logoGlow 3s ease-in-out infinite; }
 
-    .footer-copyright {
-      font-size: 0.82rem;
-      color: var(--text-dim);
+    /* ── Nav badge live dot ── */
+    @keyframes livePulse {
+      0%,100% { opacity:1; }
+      50%      { opacity:.45; }
     }
+    .live-dot { animation: livePulse 2s ease-in-out infinite; }
 
-    .footer-copyright a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    .footer-copyright a:hover { color: var(--accent); }
-
-    .footer-policy-links {
-      display: flex;
-      gap: 1.25rem;
-    }
-
-    .footer-policy-links a {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .footer-policy-links a:hover { color: var(--text-muted); }
-
-    /* ========================
-       SCROLL TO TOP
-    ======================== */
+    /* ── Scroll-to-top ── */
     .scroll-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border: none;
-      border-radius: 50%;
-      color: white;
-      font-size: 1.25rem;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      box-shadow: 0 8px 30px var(--shadow-primary);
-      z-index: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      transition: all .3s ease;
+      opacity: 0; visibility: hidden;
     }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-4px); }
 
-    .scroll-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .scroll-top:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 40px var(--shadow-primary);
-    }
-
-    /* ========================
-       ANIMATIONS
-    ======================== */
+    /* ── Fade-in-up animation for cards ── */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .fade-up { animation: fadeInUp .45s ease forwards; }
+
+    /* ── List view ── */
+    .list-view .tpl-card { flex-direction: row !important; }
+    .list-view .preview-container { width: 280px !important; height: 160px !important; flex-shrink: 0; }
+
+    /* ── View button ── */
+    .view-btn { transition: all .2s ease; }
+    .view-btn.active, .view-btn:hover {
+      border-color: rgba(99,102,241,.5);
+      color: #818cf8;
+      background: rgba(99,102,241,.1);
     }
 
-    @keyframes shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
+    /* ── Stat item ── */
+    .stat-item { transition: background .3s ease; }
+    .stat-item:hover { background: rgba(255,255,255,.07); }
 
-    .fade-in {
-      animation: fadeInUp 0.5s ease forwards;
-    }
+    /* ── Footer link ── */
+    .footer-link { transition: all .25s ease; }
+    .footer-link:hover { color: #818cf8; transform: translateX(3px); display: inline-block; }
 
-    /* Loading skeleton */
-    .skeleton {
-      background: linear-gradient(90deg, var(--dark-3) 25%, var(--dark-4) 50%, var(--dark-3) 75%);
-      background-size: 200% auto;
-      animation: shimmer 2s linear infinite;
-      border-radius: 8px;
-    }
+    /* ── Tag variants ── */
+    .tag-benradnor { background:rgba(99,102,241,.12); border:1px solid rgba(99,102,241,.25); color:#818cf8; }
+    .tag-lanasabir { background:rgba(168,85,247,.12); border:1px solid rgba(168,85,247,.25); color:#c084fc; }
+    .tag-k9handler { background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.25); color:#6ee7b7; }
+    .tag-roundlab  { background:rgba(245,158,11,.12);  border:1px solid rgba(245,158,11,.25);  color:#fcd34d; }
+    .tag-vector    { background:rgba(244,63,94,.12);   border:1px solid rgba(244,63,94,.25);   color:#fda4af; }
 
-    /* ========================
-       RESPONSIVE
-    ======================== */
-    @media (max-width: 768px) {
-      header { padding: 0.75rem 1rem; }
-      .nav-links { display: none; }
-      .hero { padding: 3rem 1.25rem 2rem; }
-      .controls-wrapper { padding: 0 1rem; }
-      .results-info { padding: 0 1rem; }
-      .section-header { padding: 0 1rem; }
-    }
-
-    /* Tooltip */
-    [data-tooltip] {
-      position: relative;
-    }
-
-    [data-tooltip]::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: calc(100% + 8px);
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 0.4rem 0.75rem;
-      background: var(--dark-3);
-      color: var(--text);
-      font-size: 0.75rem;
-      border-radius: var(--radius-xs);
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      border: 1px solid var(--border);
-      z-index: 100;
-    }
-
-    [data-tooltip]:hover::after {
-      opacity: 1;
+    /* ── Responsive ── */
+    @media (max-width:640px) {
+      .list-view .tpl-card { flex-direction: column !important; }
+      .list-view .preview-container { width:100% !important; height:200px !important; }
     }
   </style>
 </head>
 
-<body>
+<body class="min-h-screen antialiased">
 
-  <!-- Backgrounds -->
-  <div class="bg-wrapper"></div>
+  <!-- ─── Backgrounds ─────────────────────────────────────────── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
   <div class="bg-grid"></div>
-  <div class="bg-orb bg-orb-1"></div>
-  <div class="bg-orb bg-orb-2"></div>
-  <div class="bg-orb bg-orb-3"></div>
 
-  <!-- ========================
-       NAVBAR
-  ======================== -->
-  <nav class="navbar">
-    <a href="#" class="nav-brand">
-      <div class="nav-logo">3S</div>
-      <span class="nav-name">3s<span>-Soft</span></span>
+  <!-- ─── NAVBAR ──────────────────────────────────────────────── -->
+  <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-3
+              bg-[rgba(8,17,31,0.82)] backdrop-blur-2xl
+              border-b border-[rgba(255,255,255,0.07)]">
+
+    <!-- Brand -->
+    <a href="#" class="flex items-center gap-3 no-underline">
+      <div class="logo-glow w-10 h-10 rounded-xl flex items-center justify-center
+                  bg-gradient-to-br from-primary to-cyan text-white
+                  font-display font-black text-sm tracking-tight select-none">
+        3S
+      </div>
+      <span class="font-display font-bold text-lg text-slate-text">
+        3s<span class="text-primary-lt">-Soft</span>
+      </span>
     </a>
-    <div class="nav-links">
-      <a href="#templates" class="nav-link">Templates</a>
-      <a href="https://3s-soft.com/" target="_blank" class="nav-link">Website</a>
-      <a href="https://github.com/3s-Soft/eBay_Template" target="_blank" class="nav-link">GitHub</a>
-      <div class="nav-badge">
-        <span class="dot"></span>
-        <span id="navCount">Loading...</span>
+
+    <!-- Links + badge -->
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#templates" class="text-sm font-medium text-slate-muted hover:text-slate-text transition-colors">Templates</a>
+      <a href="https://3s-soft.com/" target="_blank" class="text-sm font-medium text-slate-muted hover:text-slate-text transition-colors">Website</a>
+      <a href="https://github.com/3s-Soft/eBay_Template" target="_blank" class="text-sm font-medium text-slate-muted hover:text-slate-text transition-colors">GitHub</a>
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-primary-lt
+                  bg-[rgba(99,102,241,0.12)] border border-[rgba(99,102,241,0.25)]">
+        <span class="live-dot w-1.5 h-1.5 rounded-full bg-emerald"></span>
+        <span id="navCount">Loading…</span>
       </div>
     </div>
   </nav>
 
-  <!-- ========================
-       HERO
-  ======================== -->
-  <header class="hero" id="home">
-    <div class="hero-eyebrow">
-      <span class="icon">🎨</span>
-      Professional eBay Template Library
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <header class="text-center px-4 pt-20 pb-10" id="home">
+
+    <!-- Eyebrow -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-7 rounded-full text-xs font-bold
+                uppercase tracking-widest text-primary-lt
+                bg-[rgba(99,102,241,0.1)] border border-[rgba(99,102,241,0.22)]">
+      <span>🎨</span> Professional eBay Template Library
     </div>
-    <h1 class="hero-title">
+
+    <!-- Heading -->
+    <h1 class="font-display font-black leading-[1.08] tracking-tight mb-5
+               text-[clamp(2.4rem,6vw,4.4rem)] text-slate-text">
       Premium eBay Listing<br>
       <span class="gradient-text">Templates Portfolio</span>
     </h1>
-    <p class="hero-desc">
+
+    <!-- Subtitle -->
+    <p class="max-w-xl mx-auto mb-10 text-[clamp(1rem,2vw,1.15rem)]
+              text-slate-muted leading-relaxed">
       Professionally crafted HTML templates for eBay listings — browse, filter, and preview live templates used in real stores.
     </p>
 
-    <!-- Stats -->
-    <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-value" id="statTotal">0</div>
-        <div class="stat-label">Total Templates</div>
+    <!-- Stats bar -->
+    <div class="inline-grid grid-cols-4 max-w-2xl w-full mx-auto
+                border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden">
+      <div class="stat-item px-6 py-5 text-center border-r border-[rgba(255,255,255,0.06)]
+                  bg-[rgba(255,255,255,0.03)]">
+        <div id="statTotal" class="font-display font-black text-3xl gradient-text">0</div>
+        <div class="text-xs text-slate-muted font-semibold uppercase tracking-widest mt-1">Templates</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-value">5</div>
-        <div class="stat-label">Client Projects</div>
+      <div class="stat-item px-6 py-5 text-center border-r border-[rgba(255,255,255,0.06)]
+                  bg-[rgba(255,255,255,0.03)]">
+        <div class="font-display font-black text-3xl gradient-text">5</div>
+        <div class="text-xs text-slate-muted font-semibold uppercase tracking-widest mt-1">Clients</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">Custom HTML</div>
+      <div class="stat-item px-6 py-5 text-center border-r border-[rgba(255,255,255,0.06)]
+                  bg-[rgba(255,255,255,0.03)]">
+        <div class="font-display font-black text-3xl gradient-text">100%</div>
+        <div class="text-xs text-slate-muted font-semibold uppercase tracking-widest mt-1">Custom HTML</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-value">⚡</div>
-        <div class="stat-label">Live Preview</div>
+      <div class="stat-item px-6 py-5 text-center bg-[rgba(255,255,255,0.03)]">
+        <div class="font-display font-black text-3xl">⚡</div>
+        <div class="text-xs text-slate-muted font-semibold uppercase tracking-widest mt-1">Live Preview</div>
       </div>
     </div>
   </header>
 
-  <!-- ========================
-       CONTROLS
-  ======================== -->
-  <div class="controls-wrapper" id="templates">
-    <div class="search-row">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search templates by name, category, or path…" autocomplete="off" />
+  <!-- ─── CONTROLS ─────────────────────────────────────────────── -->
+  <div class="max-w-4xl mx-auto px-4 mb-6" id="templates">
+
+    <!-- Search -->
+    <div class="relative mb-3">
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-dim pointer-events-none select-none">🔍</span>
+      <input id="searchInput" type="text" autocomplete="off"
+             placeholder="Search templates by name, category, or path…"
+             class="w-full pl-11 pr-4 py-3.5 rounded-xl text-sm text-slate-text
+                    bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]
+                    placeholder:text-slate-dim backdrop-blur-md
+                    focus:outline-none focus:border-primary focus:bg-[rgba(255,255,255,0.07)]
+                    focus:ring-4 focus:ring-[rgba(99,102,241,0.12)]
+                    transition-all duration-300" />
     </div>
-    <div class="filter-row" id="filterRow">
-      <button class="filter-btn active" data-category="all" id="btn-all">
-        All <span class="count" id="cnt-all">0</span>
+
+    <!-- Filter buttons -->
+    <div id="filterRow" class="flex flex-wrap gap-2">
+      <button class="filter-btn active flex items-center gap-1.5 px-4 py-2 rounded-full
+                     text-sm font-semibold text-slate-muted
+                     bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]"
+              data-category="all">
+        All <span class="ml-1 px-2 py-0.5 rounded-full text-xs font-bold
+                         bg-[rgba(255,255,255,0.08)]" id="cnt-all">0</span>
       </button>
-      <button class="filter-btn" data-category="Ben Radnor" id="btn-benradnor">
-        🐕 Ben Radnor <span class="count" id="cnt-benradnor">0</span>
+      <button class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full
+                     text-sm font-semibold text-slate-muted
+                     bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]"
+              data-category="Ben Radnor">
+        🐕 Ben Radnor <span class="ml-1 px-2 py-0.5 rounded-full text-xs font-bold
+                                   bg-[rgba(255,255,255,0.08)]" id="cnt-benradnor">0</span>
       </button>
-      <button class="filter-btn" data-category="Lana Sabir" id="btn-lanasabir">
-        💎 Lana Sabir <span class="count" id="cnt-lanasabir">0</span>
+      <button class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full
+                     text-sm font-semibold text-slate-muted
+                     bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]"
+              data-category="Lana Sabir">
+        💎 Lana Sabir <span class="ml-1 px-2 py-0.5 rounded-full text-xs font-bold
+                                   bg-[rgba(255,255,255,0.08)]" id="cnt-lanasabir">0</span>
       </button>
-      <button class="filter-btn" data-category="K9 Handler" id="btn-k9handler">
-        🐾 K9 Handler <span class="count" id="cnt-k9handler">0</span>
+      <button class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full
+                     text-sm font-semibold text-slate-muted
+                     bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]"
+              data-category="K9 Handler">
+        🐾 K9 Handler <span class="ml-1 px-2 py-0.5 rounded-full text-xs font-bold
+                                   bg-[rgba(255,255,255,0.08)]" id="cnt-k9handler">0</span>
       </button>
-      <button class="filter-btn" data-category="ROUND LAB" id="btn-roundlab">
-        🧪 ROUND LAB <span class="count" id="cnt-roundlab">0</span>
+      <button class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full
+                     text-sm font-semibold text-slate-muted
+                     bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]"
+              data-category="ROUND LAB">
+        🧪 ROUND LAB <span class="ml-1 px-2 py-0.5 rounded-full text-xs font-bold
+                                  bg-[rgba(255,255,255,0.08)]" id="cnt-roundlab">0</span>
       </button>
-      <button class="filter-btn" data-category="Vector" id="btn-vector">
-        📐 Vector <span class="count" id="cnt-vector">0</span>
+      <button class="filter-btn flex items-center gap-1.5 px-4 py-2 rounded-full
+                     text-sm font-semibold text-slate-muted
+                     bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]"
+              data-category="Vector">
+        📐 Vector <span class="ml-1 px-2 py-0.5 rounded-full text-xs font-bold
+                               bg-[rgba(255,255,255,0.08)]" id="cnt-vector">0</span>
       </button>
     </div>
   </div>
 
-  <!-- Results info -->
-  <div class="results-info">
-    <div class="results-count">
-      Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> templates
-      <span class="sync-dot" id="syncDot" data-tooltip="Auto-syncing with filesystem"></span>
-    </div>
-    <div style="display:flex;align-items:center;gap:0.75rem;">
-      <button class="refresh-btn" id="refreshBtn" onclick="manualRefresh()" data-tooltip="Reload templates.json">
-        <span class="refresh-icon">↻</span> Refresh
+  <!-- ─── RESULTS BAR ──────────────────────────────────────────── -->
+  <div class="max-w-[1800px] mx-auto px-4 mb-5 flex items-center justify-between flex-wrap gap-3">
+    <p class="text-sm text-slate-muted">
+      Showing <strong class="text-cyan font-bold" id="visibleCount">0</strong>
+      of <strong class="text-cyan font-bold" id="totalCount">0</strong> templates
+      <span class="sync-dot ml-1.5" id="syncDot" title="Auto-syncing"></span>
+    </p>
+    <div class="flex items-center gap-3">
+      <!-- Refresh -->
+      <button id="refreshBtn" onclick="manualRefresh()"
+              class="spinning-wrapper flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs
+                     font-semibold text-slate-muted border border-[rgba(255,255,255,0.08)]
+                     bg-[rgba(255,255,255,0.04)] hover:border-emerald hover:text-emerald
+                     hover:bg-[rgba(16,185,129,0.07)] transition-all duration-300">
+        <span class="spin-icon">↻</span> Refresh
       </button>
-      <div class="view-toggle">
-        <button class="view-btn active" id="gridViewBtn" data-tooltip="Grid view" onclick="setView('grid')">⊞</button>
-        <button class="view-btn" id="listViewBtn" data-tooltip="List view" onclick="setView('list')">☰</button>
+      <!-- View toggle -->
+      <div class="flex gap-1">
+        <button class="view-btn active w-9 h-9 flex items-center justify-center rounded-lg text-sm
+                       border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] text-slate-muted"
+                id="gridViewBtn" onclick="setView('grid')" title="Grid view">⊞</button>
+        <button class="view-btn w-9 h-9 flex items-center justify-center rounded-lg text-sm
+                       border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] text-slate-muted"
+                id="listViewBtn" onclick="setView('list')" title="List view">☰</button>
       </div>
     </div>
   </div>
 
-  <!-- ========================
-       TEMPLATE GRID
-  ======================== -->
-  <main class="template-grid" id="templateGrid" aria-live="polite">
-    <!-- Populated by JS -->
+  <!-- ─── TEMPLATE GRID ────────────────────────────────────────── -->
+  <main id="templateGrid"
+        class="max-w-[1800px] mx-auto px-4 pb-24
+               grid gap-6"
+        style="grid-template-columns: repeat(auto-fill, minmax(360px,1fr));"
+        aria-live="polite">
+    <!-- Cards injected by JS -->
   </main>
 
-  <!-- ========================
-       FOOTER
-  ======================== -->
-  <footer>
-    <div class="footer-inner">
-      <!-- Brand -->
-      <div class="footer-brand">
-        <a href="https://3s-soft.com/" target="_blank" class="footer-logo">
-          <div class="footer-logo-icon">3S</div>
-          <span class="footer-logo-text">3s<span>-Soft</span></span>
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="border-t border-[rgba(255,255,255,0.07)]
+                 bg-[rgba(8,17,31,0.6)] backdrop-blur-xl py-14 px-6 mt-4">
+    <div class="max-w-6xl mx-auto grid gap-10
+                grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Brand col -->
+      <div>
+        <a href="https://3s-soft.com/" target="_blank"
+           class="inline-flex items-center gap-3 no-underline mb-4">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0
+                      bg-gradient-to-br from-primary to-cyan
+                      font-display font-black text-sm text-white">3S</div>
+          <span class="font-display font-bold text-lg text-slate-text">
+            3s<span class="text-primary-lt">-Soft</span>
+          </span>
         </a>
-        <p class="footer-tagline">
-          Professionally crafted eBay listing templates and digital solutions. Helping sellers stand out with premium HTML designs.
+        <p class="text-sm text-slate-muted leading-relaxed mb-5">
+          Professionally crafted eBay listing templates &amp; digital solutions. Helping sellers stand out with premium HTML designs.
         </p>
-        <div class="footer-socials">
-          <a href="https://github.com/3s-Soft/eBay_Template" target="_blank" class="social-btn" data-tooltip="GitHub">🐙</a>
-          <a href="https://3s-soft.com/" target="_blank" class="social-btn" data-tooltip="Website">🌐</a>
+        <div class="flex gap-2">
+          <a href="https://github.com/3s-Soft/eBay_Template" target="_blank"
+             class="w-9 h-9 flex items-center justify-center rounded-lg border
+                    border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)]
+                    text-slate-muted hover:border-primary hover:text-primary-lt
+                    hover:bg-[rgba(99,102,241,0.1)] transition-all duration-300"
+             title="GitHub">🐙</a>
+          <a href="https://3s-soft.com/" target="_blank"
+             class="w-9 h-9 flex items-center justify-center rounded-lg border
+                    border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)]
+                    text-slate-muted hover:border-primary hover:text-primary-lt
+                    hover:bg-[rgba(99,102,241,0.1)] transition-all duration-300"
+             title="Website">🌐</a>
         </div>
       </div>
 
       <!-- Quick Links -->
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#templates">Templates</a></li>
-          <li><a href="https://3s-soft.com/" target="_blank">3s-Soft Website</a></li>
-          <li><a href="https://github.com/3s-Soft/eBay_Template" target="_blank">GitHub Repo</a></li>
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-slate-text mb-4">Quick Links</h3>
+        <ul class="space-y-2.5">
+          <li><a href="#home"                class="footer-link text-sm text-slate-muted">Home</a></li>
+          <li><a href="#templates"            class="footer-link text-sm text-slate-muted">Templates</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank" class="footer-link text-sm text-slate-muted">3s-Soft Website</a></li>
+          <li><a href="https://github.com/3s-Soft/eBay_Template" target="_blank" class="footer-link text-sm text-slate-muted">GitHub Repo</a></li>
         </ul>
       </div>
 
       <!-- Store Policies -->
-      <div class="footer-col">
-        <h3>Store Policies</h3>
-        <ul>
-          <li><a href="#">Returns Policy</a></li>
-          <li><a href="#">Shipping Info</a></li>
-          <li><a href="#">Payment Methods</a></li>
-          <li><a href="#">Buyer Protection</a></li>
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-slate-text mb-4">Store Policies</h3>
+        <ul class="space-y-2.5">
+          <li><a href="#" class="footer-link text-sm text-slate-muted">Returns Policy</a></li>
+          <li><a href="#" class="footer-link text-sm text-slate-muted">Shipping Info</a></li>
+          <li><a href="#" class="footer-link text-sm text-slate-muted">Payment Methods</a></li>
+          <li><a href="#" class="footer-link text-sm text-slate-muted">Buyer Protection</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="https://3s-soft.com/" target="_blank">Request Template</a></li>
-          <li><a href="https://3s-soft.com/" target="_blank">Custom Design</a></li>
-          <li><a href="https://3s-soft.com/" target="_blank">Support</a></li>
-          <li><a href="https://3s-soft.com/" target="_blank">Feedback</a></li>
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-slate-text mb-4">Contact</h3>
+        <ul class="space-y-2.5">
+          <li><a href="https://3s-soft.com/" target="_blank" class="footer-link text-sm text-slate-muted">Request Template</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank" class="footer-link text-sm text-slate-muted">Custom Design</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank" class="footer-link text-sm text-slate-muted">Support</a></li>
+          <li><a href="https://3s-soft.com/" target="_blank" class="footer-link text-sm text-slate-muted">Feedback</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">
-        &copy; <span id="year"></span> <a href="https://3s-soft.com/" target="_blank">3s-Soft</a>. All rights reserved. Designed &amp; developed with ❤️ by 3s-Soft.
+    <!-- Bottom bar -->
+    <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-[rgba(255,255,255,0.07)]
+                flex flex-wrap items-center justify-between gap-4">
+      <p class="text-xs text-slate-dim">
+        &copy; <span id="year"></span>
+        <a href="https://3s-soft.com/" target="_blank"
+           class="text-cyan font-semibold hover:text-emerald transition-colors">3s-Soft</a>.
+        All rights reserved. Designed &amp; developed with ❤️ by 3s-Soft.
       </p>
-      <div class="footer-policy-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Disclaimer</a>
+      <div class="flex gap-5">
+        <a href="#" class="text-xs text-slate-dim hover:text-slate-muted transition-colors">Privacy Policy</a>
+        <a href="#" class="text-xs text-slate-dim hover:text-slate-muted transition-colors">Terms of Use</a>
+        <a href="#" class="text-xs text-slate-dim hover:text-slate-muted transition-colors">Disclaimer</a>
       </div>
     </div>
   </footer>
 
-  <!-- Scroll to Top -->
-  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <!-- ─── SCROLL TO TOP ────────────────────────────────────────── -->
+  <button id="scrollTop" aria-label="Scroll to top"
+          class="scroll-top fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full
+                 flex items-center justify-center text-xl text-white
+                 bg-gradient-to-br from-primary to-cyan
+                 shadow-[0_8px_30px_rgba(99,102,241,0.4)]">↑</button>
 
-  <!-- ========================
-       JAVASCRIPT
-  ======================== -->
+  <!-- ─── JAVASCRIPT ───────────────────────────────────────────── -->
   <script>
-    // ─── Dynamic Template Registry ───────────────────────────────────────────────
-    // Templates are loaded from templates.json (generated by scan.py / dev-server.py)
-    // The page polls every POLL_INTERVAL ms so additions/deletions appear automatically.
-
-    const POLL_INTERVAL = 5000; // ms — how often to check for manifest changes
+    // ─── Config ─────────────────────────────────────────────────────────────────
+    const POLL_INTERVAL = 5000;
     const MANIFEST_URL  = './templates.json';
 
-    let templates       = [];       // current live list
-    let lastGenerated   = null;     // ISO timestamp of last manifest
+    // ─── State ──────────────────────────────────────────────────────────────────
+    let templates       = [];
+    let lastGenerated   = null;
     let pollTimer       = null;
+    let currentCategory = 'all';
+    let searchQuery     = '';
+    let currentView     = 'grid';
 
-    // ── Fetch & merge manifest ────────────────────────────────────────────────
+    // ─── Fallback hardcoded list (used if templates.json not available) ─────────
+    const FALLBACK = [
+      // Ben Radnor
+      { name:"BR – 123956830199",   path:"./Ben Radnor/123956830199.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 123975832702",   path:"./Ben Radnor/123975832702.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 123975838219",   path:"./Ben Radnor/123975838219.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125099980409",   path:"./Ben Radnor/125099980409.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125472166101",   path:"./Ben Radnor/125472166101.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125623562742",   path:"./Ben Radnor/125623562742.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125623571253",   path:"./Ben Radnor/125623571253.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125623581848",   path:"./Ben Radnor/125623581848.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125623609914",   path:"./Ben Radnor/125623609914.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125623618437",   path:"./Ben Radnor/125623618437.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125626704830",   path:"./Ben Radnor/125626704830.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125626770554",   path:"./Ben Radnor/125626770554.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125626820160",   path:"./Ben Radnor/125626820160.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125626833533",   path:"./Ben Radnor/125626833533.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125626850277",   path:"./Ben Radnor/125626850277.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 125941346521",   path:"./Ben Radnor/125941346521.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126161893042",   path:"./Ben Radnor/126161893042.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126401892074",   path:"./Ben Radnor/126401892074.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126480693384",   path:"./Ben Radnor/126480693384.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126627025677",   path:"./Ben Radnor/126627025677.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126627097553",   path:"./Ben Radnor/126627097553.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126627150951",   path:"./Ben Radnor/126627150951.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126627175569",   path:"./Ben Radnor/126627175569.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126727184853",   path:"./Ben Radnor/126727184853.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126737357878",   path:"./Ben Radnor/126737357878.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126746671333",   path:"./Ben Radnor/126746671333.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126747478303",   path:"./Ben Radnor/126747478303.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126747481665",   path:"./Ben Radnor/126747481665.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 126749102320",   path:"./Ben Radnor/126749102320.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – 127375857393",   path:"./Ben Radnor/127375857393.html",   category:"Ben Radnor", tagClass:"tag-benradnor" },
+      { name:"BR – Online Listing", path:"./Ben Radnor/Onlinelisting.html", category:"Ben Radnor", tagClass:"tag-benradnor" },
+      // Lana Sabir
+      { name:"LS – Project 1", path:"./Lana_sabir/Project 1/index.html", category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Project 2", path:"./Lana_sabir/Project 2/index.html", category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Project 3", path:"./Lana_sabir/Project 3/index.html", category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Project 4", path:"./Lana_sabir/Project 4/index.html", category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Project 5", path:"./Lana_sabir/Project 5/index.html", category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Project 6", path:"./Lana_sabir/Project 6/index.html", category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Final",     path:"./Lana_sabir/final/index.html",     category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      { name:"LS – Test",      path:"./Lana_sabir/test/index.html",      category:"Lana Sabir", tagClass:"tag-lanasabir" },
+      // K9 Handler
+      { name:"K9 – Main",         path:"./K9handler2024/index.html",               category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Street (V2)",  path:"./K9handler2024/template-v2-street.html",  category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Minimal (V3)", path:"./K9handler2024/template-v3-minimal.html", category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Luxury (V4)",  path:"./K9handler2024/template-v4-luxury.html",  category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Pro (V5)",     path:"./K9handler2024/template-v5-pro.html",     category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Cyber (V6)",   path:"./K9handler2024/template-v6-cyber.html",   category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Coastal (V7)", path:"./K9handler2024/template-v7-coastal.html", category:"K9 Handler", tagClass:"tag-k9handler" },
+      { name:"K9 – Carbon (V8)",  path:"./K9handler2024/template-v8-carbon.html",  category:"K9 Handler", tagClass:"tag-k9handler" },
+      // ROUND LAB
+      { name:"ROUND LAB – Main",  path:"./ROUND LAB/index.html", category:"ROUND LAB", tagClass:"tag-roundlab" },
+      // Vector
+      { name:"Vector – Main",     path:"./Vector/index.html",    category:"Vector",    tagClass:"tag-vector" },
+    ];
+
+    // ─── Manifest loading ────────────────────────────────────────────────────────
     async function loadManifest(silent = false) {
       try {
-        const res = await fetch(MANIFEST_URL + '?_=' + Date.now());
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const res  = await fetch(MANIFEST_URL + '?_=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
 
-        // Only re-render if the manifest actually changed
-        if (data.generated === lastGenerated) return;
-
+        if (data.generated === lastGenerated) return; // no change
         lastGenerated = data.generated;
-        templates     = data.templates || [];
+
+        // Merge tagClass from FALLBACK by path if missing in manifest
+        templates = (data.templates || []).map(t => {
+          if (!t.tagClass) {
+            const fb = FALLBACK.find(f => f.path === t.path);
+            t.tagClass = fb ? fb.tagClass : 'tag-benradnor';
+          }
+          return t;
+        });
 
         updateCounts();
         renderTemplates();
-
-        if (!silent) {
-          setSyncState('ok');
-        }
-        console.log(`[manifest] Loaded ${templates.length} templates (${data.generated})`);
+        setSyncState('ok');
+        console.log('[manifest] Loaded', templates.length, 'templates —', data.generated);
       } catch (err) {
-        console.warn('[manifest] Failed to load templates.json:', err.message);
+        console.warn('[manifest]', err.message);
         setSyncState('stale');
-        // Fallback: try to keep whatever we had
       }
     }
 
@@ -1371,15 +640,16 @@
       if (!dot) return;
       dot.classList.toggle('stale', state === 'stale');
       dot.title = state === 'ok'
-        ? `Last sync: ${new Date().toLocaleTimeString()}`
-        : 'Manifest unavailable — run scan.py or dev-server.py';
+        ? 'Last sync: ' + new Date().toLocaleTimeString()
+        : 'Run dev-server.py or scan.py to enable auto-sync';
     }
 
     async function manualRefresh() {
       const btn = document.getElementById('refreshBtn');
       btn.classList.add('spinning');
-      await loadManifest(false);
-      setTimeout(() => btn.classList.remove('spinning'), 600);
+      lastGenerated = null; // force re-render even if timestamp same
+      await loadManifest(false).catch(() => {});
+      setTimeout(() => btn.classList.remove('spinning'), 700);
     }
 
     function startPolling() {
@@ -1387,223 +657,137 @@
       pollTimer = setInterval(() => loadManifest(true), POLL_INTERVAL);
     }
 
-    // ─── Template Registry (legacy fallback — replaced at runtime) ────────────
-    const _templatesFallback = [
-
-      // ── Ben Radnor ─────────────────────────────────────────────────────────
-      { name: "BR – 123956830199",   path: "./Ben Radnor/123956830199.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 123975832702",   path: "./Ben Radnor/123975832702.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 123975838219",   path: "./Ben Radnor/123975838219.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125099980409",   path: "./Ben Radnor/125099980409.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125472166101",   path: "./Ben Radnor/125472166101.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125623562742",   path: "./Ben Radnor/125623562742.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125623571253",   path: "./Ben Radnor/125623571253.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125623581848",   path: "./Ben Radnor/125623581848.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125623609914",   path: "./Ben Radnor/125623609914.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125623618437",   path: "./Ben Radnor/125623618437.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125626704830",   path: "./Ben Radnor/125626704830.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125626770554",   path: "./Ben Radnor/125626770554.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125626820160",   path: "./Ben Radnor/125626820160.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125626833533",   path: "./Ben Radnor/125626833533.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125626850277",   path: "./Ben Radnor/125626850277.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 125941346521",   path: "./Ben Radnor/125941346521.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126161893042",   path: "./Ben Radnor/126161893042.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126401892074",   path: "./Ben Radnor/126401892074.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126480693384",   path: "./Ben Radnor/126480693384.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126627025677",   path: "./Ben Radnor/126627025677.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126627097553",   path: "./Ben Radnor/126627097553.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126627150951",   path: "./Ben Radnor/126627150951.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126627175569",   path: "./Ben Radnor/126627175569.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126727184853",   path: "./Ben Radnor/126727184853.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126737357878",   path: "./Ben Radnor/126737357878.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126746671333",   path: "./Ben Radnor/126746671333.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126747478303",   path: "./Ben Radnor/126747478303.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126747481665",   path: "./Ben Radnor/126747481665.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 126749102320",   path: "./Ben Radnor/126749102320.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – 127375857393",   path: "./Ben Radnor/127375857393.html",   category: "Ben Radnor", tagClass: "tag-benradnor" },
-      { name: "BR – Online Listing", path: "./Ben Radnor/Onlinelisting.html", category: "Ben Radnor", tagClass: "tag-benradnor" },
-
-      // ── Lana Sabir ─────────────────────────────────────────────────────────
-      { name: "LS – Project 1",    path: "./Lana_sabir/Project 1/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Project 2",    path: "./Lana_sabir/Project 2/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Project 3",    path: "./Lana_sabir/Project 3/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Project 4",    path: "./Lana_sabir/Project 4/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Project 5",    path: "./Lana_sabir/Project 5/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Project 6",    path: "./Lana_sabir/Project 6/index.html", category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Final",        path: "./Lana_sabir/final/index.html",     category: "Lana Sabir", tagClass: "tag-lanasabir" },
-      { name: "LS – Test",         path: "./Lana_sabir/test/index.html",      category: "Lana Sabir", tagClass: "tag-lanasabir" },
-
-      // ── K9 Handler 2024 ────────────────────────────────────────────────────
-      { name: "K9 – Main Template",    path: "./K9handler2024/index.html",               category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Street (V2)",      path: "./K9handler2024/template-v2-street.html",  category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Minimal (V3)",     path: "./K9handler2024/template-v3-minimal.html", category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Luxury (V4)",      path: "./K9handler2024/template-v4-luxury.html",  category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Pro (V5)",         path: "./K9handler2024/template-v5-pro.html",     category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Cyber (V6)",       path: "./K9handler2024/template-v6-cyber.html",   category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Coastal (V7)",     path: "./K9handler2024/template-v7-coastal.html", category: "K9 Handler", tagClass: "tag-k9handler" },
-      { name: "K9 – Carbon (V8)",      path: "./K9handler2024/template-v8-carbon.html",  category: "K9 Handler", tagClass: "tag-k9handler" },
-
-      // ── ROUND LAB ──────────────────────────────────────────────────────────
-      { name: "ROUND LAB – Main", path: "./ROUND LAB/index.html", category: "ROUND LAB", tagClass: "tag-roundlab" },
-
-      // ── Vector ─────────────────────────────────────────────────────────────
-      { name: "Vector – Main",    path: "./Vector/index.html",    category: "Vector", tagClass: "tag-vector" },
-    ];
-
-    // ─── State ──────────────────────────────────────────────────────────────────
-    let currentCategory = 'all';
-    let searchQuery     = '';
-    let currentView     = 'grid';
-
-    // ─── Init ────────────────────────────────────────────────────────────────────
-    document.addEventListener('DOMContentLoaded', async () => {
-      document.getElementById('year').textContent = new Date().getFullYear();
-      setupListeners();
-
-      // Try to load from manifest; fall back to hardcoded list if not available
-      await loadManifest(false).catch(() => {
-        console.warn('[init] Falling back to built-in template list');
-        templates = _templatesFallback;
-        updateCounts();
-        renderTemplates();
-        setSyncState('stale');
-      });
-
-      // If manifest loaded but templates empty, try fallback
-      if (templates.length === 0) {
-        templates = _templatesFallback;
-        updateCounts();
-        renderTemplates();
-      }
-
-      startPolling();
-    });
-
     // ─── Count badges ────────────────────────────────────────────────────────────
     function updateCounts() {
-      document.getElementById('cnt-all').textContent      = templates.length;
+      const total = templates.length;
+      document.getElementById('cnt-all').textContent       = total;
       document.getElementById('cnt-benradnor').textContent = templates.filter(t => t.category === 'Ben Radnor').length;
       document.getElementById('cnt-lanasabir').textContent = templates.filter(t => t.category === 'Lana Sabir').length;
       document.getElementById('cnt-k9handler').textContent = templates.filter(t => t.category === 'K9 Handler').length;
       document.getElementById('cnt-roundlab').textContent  = templates.filter(t => t.category === 'ROUND LAB').length;
       document.getElementById('cnt-vector').textContent    = templates.filter(t => t.category === 'Vector').length;
-      document.getElementById('statTotal').textContent    = templates.length;
-      document.getElementById('navCount').textContent     = templates.length + ' templates';
-      document.getElementById('totalCount').textContent   = templates.length;
+      document.getElementById('statTotal').textContent     = total;
+      document.getElementById('navCount').textContent      = total + ' templates';
+      document.getElementById('totalCount').textContent    = total;
     }
 
     // ─── Render ──────────────────────────────────────────────────────────────────
     function renderTemplates() {
       const grid = document.getElementById('templateGrid');
-      grid.innerHTML = '';
 
-      // Apply list/grid class
+      // List vs grid layout
       if (currentView === 'list') {
         grid.classList.add('list-view');
+        grid.style.gridTemplateColumns = '1fr';
       } else {
         grid.classList.remove('list-view');
+        grid.style.gridTemplateColumns = 'repeat(auto-fill,minmax(360px,1fr))';
       }
 
+      const q = searchQuery.toLowerCase();
       const filtered = templates.filter(t => {
-        const catMatch    = currentCategory === 'all' || t.category === currentCategory;
-        const q           = searchQuery.toLowerCase();
-        const searchMatch = !q ||
+        const catOk    = currentCategory === 'all' || t.category === currentCategory;
+        const searchOk = !q ||
           t.name.toLowerCase().includes(q) ||
           t.category.toLowerCase().includes(q) ||
           t.path.toLowerCase().includes(q);
-        return catMatch && searchMatch;
+        return catOk && searchOk;
       });
 
       document.getElementById('visibleCount').textContent = filtered.length;
 
       if (filtered.length === 0) {
         grid.innerHTML = `
-          <div class="no-results fade-in">
-            <div class="nr-icon">🔍</div>
-            <h3>No templates found</h3>
-            <p>Try a different search or filter category.</p>
+          <div class="col-span-full text-center py-24 text-slate-muted">
+            <div class="text-6xl mb-4 opacity-40">🔍</div>
+            <h3 class="font-display font-bold text-xl text-slate-text mb-2">No templates found</h3>
+            <p class="text-sm">Try a different search term or filter.</p>
           </div>`;
         return;
       }
 
-      const fragment = document.createDocumentFragment();
+      const frag = document.createDocumentFragment();
 
       filtered.forEach((tpl, idx) => {
         const card = document.createElement('div');
-        card.className = 'template-card fade-in';
-        card.style.animationDelay = `${Math.min(idx * 0.04, 0.8)}s`;
+        card.className = 'tpl-card glass-card overflow-hidden flex flex-col fade-up';
+        card.style.animationDelay = Math.min(idx * 0.04, 0.7) + 's';
+        card.style.opacity = '0';
 
         card.innerHTML = `
-          <div class="preview-container">
-            <div class="preview-placeholder">
-              <span class="placeholder-icon">🖼️</span>
-              <span>Loading preview…</span>
-            </div>
-            <iframe
-              class="preview-frame"
-              data-src="${tpl.path}"
-              loading="lazy"
-              sandbox="allow-same-origin"
-              title="${tpl.name} Preview"
-              aria-label="${tpl.name}"
-            ></iframe>
-            <div class="preview-overlay">
-              <a href="${tpl.path}" target="_blank" rel="noopener" class="preview-btn">
-                <span>🔗</span> Open Full View
+          <!-- Preview -->
+          <div class="preview-container relative overflow-hidden bg-gradient-to-br from-[#08111f] to-[#112240]"
+               style="height:270px;">
+            <!-- fade bottom gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(8,17,31,0.85)] z-[1] pointer-events-none"></div>
+            <!-- iframe -->
+            <iframe class="preview-frame"
+                    data-src="${tpl.path}"
+                    sandbox="allow-same-origin"
+                    loading="lazy"
+                    title="${tpl.name}"></iframe>
+            <!-- Hover overlay -->
+            <div class="preview-overlay absolute inset-0 z-10 flex flex-col items-center justify-center gap-3
+                        bg-[rgba(8,17,31,0.72)] backdrop-blur-sm">
+              <a href="${tpl.path}" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold
+                        text-white bg-gradient-to-r from-primary to-cyan no-underline
+                        shadow-[0_8px_28px_rgba(99,102,241,0.4)]
+                        hover:scale-105 transition-transform duration-200">
+                🔗 Open Full View
               </a>
-              <a href="${tpl.path}" target="_blank" rel="noopener" class="preview-btn-secondary">
-                <span>🖥️</span> New Tab
+              <a href="${tpl.path}" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium
+                        text-slate-muted border border-[rgba(255,255,255,0.14)]
+                        bg-[rgba(255,255,255,0.08)] no-underline
+                        hover:text-slate-text hover:bg-[rgba(255,255,255,0.14)] transition-all duration-200">
+                🖥️ New Tab
               </a>
             </div>
           </div>
-          <div class="card-info">
-            <div class="card-header">
-              <h3 class="card-title">${tpl.name}</h3>
-              <span class="card-tag ${tpl.tagClass}">${tpl.category}</span>
+
+          <!-- Info -->
+          <div class="p-5 flex flex-col gap-2">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display font-bold text-base text-slate-text leading-snug">${tpl.name}</h3>
+              <span class="shrink-0 text-[0.68rem] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${tpl.tagClass}">${tpl.category}</span>
             </div>
-            <p class="card-path">${tpl.path}</p>
-            <div class="card-meta">
-              <span class="card-meta-badge">
-                <span class="badge-icon">📄</span> HTML Template
-              </span>
-              <span class="card-meta-badge">
-                <span class="badge-icon">👁️</span> Live Preview
-              </span>
+            <p class="text-xs text-slate-dim font-mono break-all leading-relaxed">${tpl.path}</p>
+            <div class="flex items-center gap-3 mt-1">
+              <span class="text-xs text-slate-dim">📄 HTML Template</span>
+              <span class="text-xs text-slate-dim">👁️ Live Preview</span>
+              ${tpl.sizeKb ? `<span class="text-xs text-slate-dim">💾 ${tpl.sizeKb} KB</span>` : ''}
             </div>
           </div>`;
 
-        fragment.appendChild(card);
+        frag.appendChild(card);
       });
 
-      grid.appendChild(fragment);
+      grid.innerHTML = '';
+      grid.appendChild(frag);
 
-      // Lazy-load iframes using IntersectionObserver
+      // Lazy-load iframes with IntersectionObserver
       lazyLoadIframes();
     }
 
-    // ─── Lazy iframe loading ─────────────────────────────────────────────────────
+    // ─── Lazy iframe loader ───────────────────────────────────────────────────────
     function lazyLoadIframes() {
       const iframes = document.querySelectorAll('iframe[data-src]');
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const iframe = entry.target;
-              iframe.src = iframe.dataset.src;
-              delete iframe.dataset.src;
-              observer.unobserve(iframe);
-            }
-          });
-        }, { rootMargin: '200px' });
-
-        iframes.forEach(iframe => observer.observe(iframe));
-      } else {
-        // Fallback: load all
-        iframes.forEach(iframe => {
-          iframe.src = iframe.dataset.src;
-          delete iframe.dataset.src;
-        });
+      if (!('IntersectionObserver' in window)) {
+        iframes.forEach(f => { f.src = f.dataset.src; delete f.dataset.src; });
+        return;
       }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const f = e.target;
+            f.src = f.dataset.src;
+            delete f.dataset.src;
+            io.unobserve(f);
+          }
+        });
+      }, { rootMargin: '220px' });
+      iframes.forEach(f => io.observe(f));
     }
 
     // ─── View toggle ─────────────────────────────────────────────────────────────
@@ -1614,15 +798,13 @@
       renderTemplates();
     }
 
-    // ─── Event Listeners ─────────────────────────────────────────────────────────
+    // ─── Event listeners ─────────────────────────────────────────────────────────
     function setupListeners() {
-      // Search
       document.getElementById('searchInput').addEventListener('input', e => {
         searchQuery = e.target.value.trim();
         renderTemplates();
       });
 
-      // Filter buttons
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1632,13 +814,32 @@
         });
       });
 
-      // Scroll to top
       const scrollBtn = document.getElementById('scrollTop');
       window.addEventListener('scroll', () => {
         scrollBtn.classList.toggle('visible', window.scrollY > 400);
       }, { passive: true });
       scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
+
+    // ─── Init ─────────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', async () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      setupListeners();
+
+      // Load manifest; fall back to hardcoded list if unavailable
+      try {
+        await loadManifest(false);
+      } catch (_) {}
+
+      if (templates.length === 0) {
+        templates = FALLBACK;
+        updateCounts();
+        renderTemplates();
+        setSyncState('stale');
+      }
+
+      startPolling();
+    });
   </script>
 
 </body>
