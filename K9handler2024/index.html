@@ -442,41 +442,25 @@
     .eb-footer {
       background: linear-gradient(135deg, var(--purple-dark) 0%, #0d0d14 100%);
       border-top: 2px solid var(--gold);
-      padding: 22px 28px;
-      text-align: center;
+      padding: 52px 28px 0;
     }
-    .eb-footer-logo {
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    .eb-footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 28px; max-width: 860px; margin: 0 auto; }
+    .eb-footer-logo-box { text-align: center; }
+    .eb-footer-logo-box img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; margin-bottom: 10px; box-shadow: 0 0 16px rgba(245,200,66,0.2); }
+    .eb-footer-logo { font-size: 16px; font-weight: 900; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
     .eb-footer-logo span { color: var(--text-muted); font-weight: 400; }
-    .eb-footer p {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 560px;
-      margin: 0 auto 12px;
-    }
-    .eb-footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .eb-footer-links a {
-      color: var(--gold-light);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: color var(--transition);
-    }
-    .eb-footer-links a:hover { color: var(--white); }
+    .eb-footer-logo-box p { font-size: 11px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+    .eb-footer-title { color: var(--gold); font-size: 10.5px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(245,200,66,0.2); text-transform: uppercase; letter-spacing: 2px; }
+    .eb-footer-list { list-style: none; padding: 0; margin: 0; }
+    .eb-footer-list li { margin-bottom: 8px; }
+    .eb-footer-list a { color: var(--text-muted); text-decoration: none; font-size: 12.5px; transition: color 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+    .eb-footer-list a:hover { color: var(--gold-light); }
+    .eb-footer-disclaimer { font-size: 11.5px; color: var(--text-muted); line-height: 1.7; }
+    .eb-footer-bottom { background: rgba(0,0,0,0.4); margin: 40px -28px 0; padding: 14px 28px; border-top: 1px solid rgba(245,200,66,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .eb-footer-copyright { color: var(--text-muted); font-size: 11.5px; }
+    .eb-footer-copyright span, .eb-footer-by span { color: var(--gold-light); }
+    .eb-footer-by { color: var(--text-muted); font-size: 11.5px; }
+    .eb-footer-links { display: none; }
 
     /* ─── DIVIDER ────────────────────────────────────────── */
     .eb-divider {
@@ -834,19 +818,40 @@
   <!-- ══════════════════════════════════════════
        FOOTER
        ══════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="eb-footer">
-    <div class="eb-footer-logo">K9handler<span>2024</span></div>
-    <p>
-      Premium Footwear for the K9 Community — specialists in new &amp; preloved trainers, sourced and presented with care. Every listing photographed in natural light for complete transparency.
-    </p>
-    <p style="color:rgba(245,200,66,0.6); font-size:11px;">
-      ⚠️ All photos are of the actual item — no stock images used. Please read the condition report carefully and feel free to ask any questions before purchasing.
-    </p>
-    <div class="eb-footer-links">
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">🏪 Visit Our Store</a>
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">📦 View All Listings</a>
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">💬 Ask a Question</a>
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">❤️ Add to Watchlist</a>
+    <div class="eb-footer-inner">
+      <div class="eb-footer-logo-box">
+        <img src="https://i.ebayimg.com/images/g/ugIAAeSw9lFp0r~J/s-l140.webp" alt="K9handler2024" />
+        <div class="eb-footer-logo">K9handler<span>2024</span></div>
+        <p>Premium Footwear<br>for the K9 Community</p>
+      </div>
+      <div>
+        <div class="eb-footer-title">Quick Links</div>
+        <ul class="eb-footer-list">
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024">🏪 Store Home</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales">📦 All Listings</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback">⭐ Feedback</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024">💬 Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eb-footer-title">Our Policies</div>
+        <ul class="eb-footer-list">
+          <li><a href="#">🚀 Free UK Delivery</a></li>
+          <li><a href="#">🔄 30-Day Returns</a></li>
+          <li><a href="#">💳 Secure Payments</a></li>
+          <li><a href="#">🛡️ Buyer Protection</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eb-footer-title">Disclaimer</div>
+        <p class="eb-footer-disclaimer">⚠️ All photos are of the actual item — no stock images used. Please read the condition report carefully and feel free to ask any questions before purchasing. Check UK/US/EU size carefully.</p>
+      </div>
+    </div>
+    <div class="eb-footer-bottom">
+      <p class="eb-footer-copyright">&copy; 2024 <span>K9handler2024</span> · All rights reserved.</p>
+      <p class="eb-footer-by">Designed with ♥ by <span>3s-Soft</span></p>
     </div>
   </footer>
 

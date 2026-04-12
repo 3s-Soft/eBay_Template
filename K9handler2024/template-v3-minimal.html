@@ -179,12 +179,24 @@
     .eb-table td:first-child { font-weight: 600; color: var(--muted); width: 36%; font-size: 12px; }
 
     /* ── FOOTER ── */
-    .eb-footer { background: var(--dark); padding: 24px 28px; text-align: center; }
-    .eb-footer-logo { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .eb-footer { background: var(--dark); padding: 48px 28px 0; border-top: 3px solid var(--blue); }
+    .eb-footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 28px; max-width: 860px; margin: 0 auto; }
+    .eb-footer-logo-box { text-align: center; }
+    .eb-footer-logo-box img { width: 68px; height: 68px; border-radius: 50%; border: 2px solid var(--blue); object-fit: cover; margin-bottom: 10px; box-shadow: 0 0 0 4px rgba(37,99,235,0.12); }
+    .eb-footer-logo { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
     .eb-footer-logo span { color: var(--blue-lt); }
-    .eb-footer p { font-size: 12px; color: #9ca3af; line-height: 1.7; max-width: 540px; margin: 0 auto 8px; }
-    .eb-footer-links { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 12px; }
-    .eb-footer-links a { color: var(--blue-lt); text-decoration: none; font-size: 12px; font-weight: 600; }
+    .eb-footer-logo-box p { font-size: 11px; color: #9ca3af; line-height: 1.6; margin: 0; }
+    .eb-footer-title { color: var(--blue-lt); font-size: 11px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(59,130,246,0.2); text-transform: uppercase; letter-spacing: 1.5px; }
+    .eb-footer-list { list-style: none; padding: 0; margin: 0; }
+    .eb-footer-list li { margin-bottom: 8px; }
+    .eb-footer-list a { color: #9ca3af; text-decoration: none; font-size: 12.5px; transition: color 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+    .eb-footer-list a:hover { color: var(--blue-lt); }
+    .eb-footer-disclaimer { font-size: 11.5px; color: #6b7280; line-height: 1.7; }
+    .eb-footer-bottom { background: rgba(0,0,0,0.4); margin: 40px -28px 0; padding: 14px 28px; border-top: 1px solid rgba(59,130,246,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .eb-footer-copyright { color: #6b7280; font-size: 11.5px; }
+    .eb-footer-copyright span, .eb-footer-by span { color: var(--blue-lt); }
+    .eb-footer-by { color: #6b7280; font-size: 11.5px; }
+    .eb-footer-links { display: none; }
 
     @media (max-width: 600px) {
       .eb-header, .eb-section-title, .eb-product-title, .eb-gallery,
@@ -334,13 +346,38 @@
 
   <!-- FOOTER -->
   <footer class="eb-footer">
-    <div class="eb-footer-logo">K9handler<span>2024</span></div>
-    <p>Premium Footwear for the K9 Community — new &amp; preloved trainers, photographed in natural light, washed &amp; refreshed before every listing.</p>
-    <p style="font-size:11px;color:#6b7280;">⚠️ All photos are of the actual item — no stock images. Please read condition report carefully.</p>
-    <div class="eb-footer-links">
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">🏪 Visit Our Store</a>
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">📦 All Listings</a>
-      <a href="https://www.ebay.co.uk/str/k9handler2024" target="_blank">💬 Ask a Question</a>
+    <div class="eb-footer-inner">
+      <div class="eb-footer-logo-box">
+        <img src="https://i.ebayimg.com/images/g/ugIAAeSw9lFp0r~J/s-l140.webp" alt="K9handler2024" />
+        <div class="eb-footer-logo">K9handler<span>2024</span></div>
+        <p>Premium Footwear<br>for the K9 Community</p>
+      </div>
+      <div>
+        <div class="eb-footer-title">Quick Links</div>
+        <ul class="eb-footer-list">
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024">🏪 Store Home</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales">📦 All Listings</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback">⭐ Feedback</a></li>
+          <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024">💬 Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eb-footer-title">Our Policies</div>
+        <ul class="eb-footer-list">
+          <li><a href="#">🚀 Free UK Delivery</a></li>
+          <li><a href="#">🔄 30-Day Returns</a></li>
+          <li><a href="#">💳 Secure Payments</a></li>
+          <li><a href="#">🛡️ Buyer Protection</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eb-footer-title">Disclaimer</div>
+        <p class="eb-footer-disclaimer">⚠️ All photos are of the actual item — no stock images. Read the condition report carefully. Check UK/US/EU size before purchasing.</p>
+      </div>
+    </div>
+    <div class="eb-footer-bottom">
+      <p class="eb-footer-copyright">&copy; 2024 <span>K9handler2024</span> · All rights reserved.</p>
+      <p class="eb-footer-by">Designed with ♥ by <span>3s-Soft</span></p>
     </div>
   </footer>
 
