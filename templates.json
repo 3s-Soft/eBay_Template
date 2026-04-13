@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-12T22:18:31Z",
-  "count": 52,
+  "generated": "2026-04-13T12:51:18Z",
+  "count": 53,
   "templates": [
     {
       "name": "BE – 123956830199",
@@ -344,7 +344,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 32.3
+      "sizeKb": 41.8
     },
     {
       "name": "K9 – Template V2 Street",
@@ -352,7 +352,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 21.4
+      "sizeKb": 33.2
     },
     {
       "name": "K9 – Template V3 Minimal",
@@ -360,7 +360,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 20.5
+      "sizeKb": 32.3
     },
     {
       "name": "K9 – Template V4 Luxury",
@@ -368,7 +368,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 22.0
+      "sizeKb": 33.9
     },
     {
       "name": "K9 – Template V5 Pro",
@@ -376,7 +376,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 49.6
+      "sizeKb": 59.8
     },
     {
       "name": "K9 – Template V6 Cyber",
@@ -384,7 +384,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 35.0
+      "sizeKb": 45.3
     },
     {
       "name": "K9 – Template V7 Coastal",
@@ -392,7 +392,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 34.5
+      "sizeKb": 54.4
     },
     {
       "name": "K9 – Template V8 Carbon",
@@ -400,7 +400,15 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 34.1
+      "sizeKb": 44.5
+    },
+    {
+      "name": "K9 – Template V9 Purple",
+      "path": "./K9handler2024/template-v9-purple.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 48.3
     },
     {
       "name": "RO – Main",
