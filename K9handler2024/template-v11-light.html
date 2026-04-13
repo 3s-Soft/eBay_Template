@@ -166,8 +166,18 @@
     .copyright, .made-by { color: rgba(255,255,255,0.5); font-size: 12px; }
     .copyright span, .made-by span { color: #fde98a; }
 
+    #ham-toggle { display: none; }
+    .ham-btn { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; padding: 4px; border-radius: 6px; transition: background 0.2s; }
+    .ham-btn:hover { background: rgba(255,255,255,0.12); }
+    .ham-btn span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mob-nav { display: none; background: #3a1e6e; border-top: 1px solid rgba(255,255,255,0.12); }
+    .mob-nav ul { list-style: none; margin: 0; padding: 8px 0; }
+    .mob-nav ul li a { display: block; padding: 11px 20px; color: rgba(255,255,255,0.82); font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .mob-nav ul li a:hover { background: rgba(255,255,255,0.08); color: #fde98a; }
+    #ham-toggle:checked ~ .mob-nav { display: block; }
+
     /* RESPONSIVE */
-    @media (max-width: 991px) { .nav-links, .trust-badge { display: none; } .header-content { justify-content: center; } }
+    @media (max-width: 991px) { .nav-links, .trust-badge { display: none; } .header-content { justify-content: center; } .ham-btn { display: flex; } }
     @media (max-width: 767px) { .product-title-box h1, .section-header h2 { font-size: 24px; } .tabs-header { flex-wrap: wrap; } .footer-bottom-content { justify-content: center; flex-direction: column; text-align: center; } }
     @media (max-width: 480px) { .tabs-header { flex-direction: column; } .tabs-header label:first-of-type { border-radius: 10px 10px 0 0; } .tabs-header label:last-of-type { border-radius: 0; } }
   </style>
@@ -175,15 +185,29 @@
 <body>
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar"><div class="container"><div class="announcement-content">
-  <div class="welcome-text"><i class="fa-solid fa-shoe-prints"></i> K9handler2024 &mdash; Premium Trainers &amp; Sneakers &middot; <span>Free UK Delivery</span></div>
-  <ul class="nav-links">
-    <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024">Store Home</a></li>
-    <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales">All Listings</a></li>
-    <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback">Feedback</a></li>
-    <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024">Contact Us</a></li>
-  </ul>
-</div></div></div>
+<div class="announcement-bar">
+  <input type="checkbox" id="ham-toggle">
+  <div class="container"><div class="announcement-content">
+    <div class="welcome-text"><i class="fa-solid fa-shoe-prints"></i> K9handler2024 &mdash; Premium Trainers &amp; Sneakers &middot; <span>Free UK Delivery</span></div>
+    <ul class="nav-links">
+      <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024">Store Home</a></li>
+      <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales">All Listings</a></li>
+      <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback">Feedback</a></li>
+      <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024">Contact Us</a></li>
+    </ul>
+    <label class="ham-btn" for="ham-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </label>
+  </div></div>
+  <nav class="mob-nav">
+    <ul>
+      <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024"><i class="fa-solid fa-house me-2"></i>Store Home</a></li>
+      <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=sales"><i class="fa-solid fa-list me-2"></i>All Listings</a></li>
+      <li><a target="_blank" href="https://www.ebay.co.uk/str/k9handler2024?_tab=feedback"><i class="fa-solid fa-star me-2"></i>Feedback</a></li>
+      <li><a target="_blank" href="https://www.ebay.co.uk/cnt/intermediatedFAQ?requested=k9handler2024"><i class="fa-solid fa-envelope me-2"></i>Contact Us</a></li>
+    </ul>
+  </nav>
+</div>
 
 <!-- HEADER -->
 <div class="header-section"><div class="container"><div class="header-content">
