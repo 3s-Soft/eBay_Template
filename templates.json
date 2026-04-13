@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-13T12:51:18Z",
-  "count": 53,
+  "generated": "2026-04-13T13:01:03Z",
+  "count": 54,
   "templates": [
     {
       "name": "BE – 123956830199",
@@ -345,6 +345,14 @@
       "tagClass": "tag-k9handler",
       "icon": "🐾",
       "sizeKb": 41.8
+    },
+    {
+      "name": "K9 – Template V10 Light",
+      "path": "./K9handler2024/template-v10-light.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 48.5
     },
     {
       "name": "K9 – Template V2 Street",
