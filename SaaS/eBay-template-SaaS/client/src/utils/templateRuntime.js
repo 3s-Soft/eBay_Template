@@ -144,6 +144,84 @@ const renderBlock = (block) => {
     `;
   }
 
+  if (block.type === "rating") {
+    const rating = block.content?.rating || "5";
+    const reviewCount = block.content?.reviewCount || "0";
+    const style = styleToInline(block.style);
+    const stars = "⭐".repeat(parseInt(rating || 5));
+
+    return `
+      <section style="${style}">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="font-size:24px;">${stars}</div>
+          <div>
+            <p style="margin:0;font-size:16px;font-weight:700;color:#f5ede3;">Highly Rated</p>
+            <p style="margin:4px 0 0 0;font-size:12px;color:#d4a853;">${rating} out of 5 stars (${reviewCount} reviews)</p>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  if (block.type === "socialProof") {
+    const items = Array.isArray(block.content?.items) ? block.content.items : [];
+    const style = styleToInline(block.style);
+
+    return `
+      <section style="${style}">
+        <div style="display:grid;grid-template-columns:repeat(${Math.min(3, items.length)},1fr);gap:12px;">
+          ${items.map(item => `
+            <div style="border:1px solid rgba(212,168,83,0.14);padding:12px;border-radius:4px;text-align:center;">
+              <p style="margin:0;font-size:18px;font-weight:700;color:#f0c878;">${item.stat || "0"}</p>
+              <p style="margin:4px 0 0 0;font-size:11px;color:#8b7068;text-transform:uppercase;letter-spacing:1px;">${item.label || "Metric"}</p>
+            </div>
+          `).join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  if (block.type === "testimonial") {
+    const quote = block.content?.quote || "Great product!";
+    const author = block.content?.author || "Happy Customer";
+    const style = styleToInline(block.style);
+
+    return `
+      <section style="${style}">
+        <blockquote style="margin:0;padding-left:16px;border-left:3px solid #d4a853;font-style:italic;color:#8b7068;">
+          <p style="margin:0 0 8px 0;">\"${quote}\"</p>
+          <p style="margin:0;font-size:12px;font-weight:600;color:#d4a853;">— ${author}</p>
+        </blockquote>
+      </section>
+    `;
+  }
+
+  if (block.type === "cta") {
+    const text = block.content?.text || "Click Here";
+    const buttonText = block.content?.buttonText || "Learn More";
+    const style = styleToInline(block.style);
+
+    return `
+      <section style="${style}">
+        <div style="text-align:center;">
+          <p style="margin:0 0 12px 0;font-size:14px;color:#8b7068;">${text}</p>
+          <button style="background:linear-gradient(135deg,#d4a853,#c9a200);color:#1f2937;border:none;padding:12px 24px;border-radius:4px;font-size:14px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">
+            ${buttonText}
+          </button>
+        </div>
+      </section>
+    `;
+  }
+
+  if (block.type === "divider") {
+    const style = block.style?.height || "2px";
+    const color = block.style?.backgroundColor || "rgba(212,168,83,0.2)";
+
+    return `
+      <div style="height:${style};background:${color};margin:${block.style?.margin || "16px 0"};border-radius:1px;"></div>
+    `;
+  }
+
   return "";
 };
 

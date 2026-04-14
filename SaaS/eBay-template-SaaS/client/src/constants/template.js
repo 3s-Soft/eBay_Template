@@ -6,7 +6,24 @@ export const TEMPLATE_VARIABLES = [
   "{{condition}}",
   "{{brand}}",
   "{{size}}",
-  "{{color}}"
+  "{{color}}",
+  "{{model}}",
+  "{{year}}",
+  "{{rating}}",
+  "{{reviewCount}}"
+];
+
+export const BLOCK_TYPES = [
+  { id: "title", name: "Title Block", icon: "📝" },
+  { id: "imageGallery", name: "Image Gallery", icon: "📸" },
+  { id: "description", name: "Description", icon: "📋" },
+  { id: "specsTable", name: "Specifications", icon: "📊" },
+  { id: "shippingReturns", name: "Shipping & Returns", icon: "📦" },
+  { id: "rating", name: "Rating", icon: "⭐" },
+  { id: "socialProof", name: "Social Proof", icon: "👥" },
+  { id: "testimonial", name: "Testimonial", icon: "💬" },
+  { id: "cta", name: "Call to Action", icon: "🔔" },
+  { id: "divider", name: "Divider", icon: "━" }
 ];
 
 export const BLOCK_DEFAULTS = {
@@ -45,6 +62,41 @@ export const BLOCK_DEFAULTS = {
       shipping: "Ships in 1 business day with tracking.",
       returns: "30-day returns accepted."
     }
+  },
+  rating: {
+    type: "rating",
+    content: {
+      rating: "5",
+      reviewCount: "100"
+    }
+  },
+  socialProof: {
+    type: "socialProof",
+    content: {
+      items: [
+        { stat: "1000+", label: "Sold" },
+        { stat: "99%", label: "Positive" },
+        { stat: "24hr", label: "Response" }
+      ]
+    }
+  },
+  testimonial: {
+    type: "testimonial",
+    content: {
+      quote: "Excellent product and fast shipping!",
+      author: "Satisfied Customer"
+    }
+  },
+  cta: {
+    type: "cta",
+    content: {
+      text: "Ready to buy?",
+      buttonText: "Purchase Now"
+    }
+  },
+  divider: {
+    type: "divider",
+    content: {}
   }
 };
 

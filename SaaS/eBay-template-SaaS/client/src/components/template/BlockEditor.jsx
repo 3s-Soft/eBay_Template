@@ -61,6 +61,23 @@ export const BlockEditor = ({ block, onUpdateBlock, onFocusField }) => {
   };
 
   const rows = Array.isArray(block.content?.rows) ? block.content.rows : [];
+  const selectField = (label, value, onChange, options) => (
+    <label className="space-y-1">
+      <span className="text-xs font-medium text-slate-500">{label}</span>
+      <select
+        className="field"
+        value={value || ""}
+        onChange={(event) => onChange(event.target.value)}
+      >
+        <option value="">Select an option</option>
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
 
   return (
     <div className="space-y-3">
@@ -184,6 +201,106 @@ export const BlockEditor = ({ block, onUpdateBlock, onFocusField }) => {
               </button>
             </div>
           )}
+
+          {block.type === "rating" && (
+            <>
+              {textField(
+                "Rating (1-5)",
+                block.content?.rating,
+                (value) => updateContent("rating", value),
+                () => onFocusField(block.id, "rating")
+              )}
+              {textField(
+                "Review Count",
+                block.content?.reviewCount,
+                (value) => updateContent("reviewCount", value),
+                () => onFocusField(block.id, "reviewCount")
+              )}
+            </>
+          )}
+
+          {block.type === "socialProof" && (
+            <div className="space-y-2">
+              {(block.content?.items || []).map((item, index) => (
+                <div key={`${block.id}-item-${index}`} className="rounded border p-2">
+                  <input
+                    className="field mb-2"
+                    placeholder="Stat (e.g., 1000+)"
+                    value={item.stat || ""}
+                    onChange={(event) => {
+                      const items = [...(block.content?.items || [])];
+                      items[index] = { ...items[index], stat: event.target.value };
+                      updateContent("items", items);
+                    }}
+                  />
+                  <input
+                    className="field"
+                    placeholder="Label (e.g., Sold)"
+                    value={item.label || ""}
+                    onChange={(event) => {
+                      const items = [...(block.content?.items || [])];
+                      items[index] = { ...items[index], label: event.target.value };
+                      updateContent("items", items);
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="mt-2 text-xs text-red-600"
+                    onClick={() => {
+                      const items = (block.content?.items || []).filter((_, i) => i !== index);
+                      updateContent("items", items);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                className="btn-secondary w-full"
+                onClick={() => {
+                  updateContent("items", [...(block.content?.items || []), { stat: "", label: "" }]);
+                }}
+              >
+                Add proof item
+              </button>
+            </div>
+          )}
+
+          {block.type === "testimonial" && (
+            <>
+              {textField(
+                "Quote",
+                block.content?.quote,
+                (value) => updateContent("quote", value),
+                () => onFocusField(block.id, "quote"),
+                true
+              )}
+              {textField(
+                "Author",
+                block.content?.author,
+                (value) => updateContent("author", value),
+                () => onFocusField(block.id, "author")
+              )}
+            </>
+          )}
+
+          {block.type === "cta" && (
+            <>
+              {textField(
+                "Heading",
+                block.content?.text,
+                (value) => updateContent("text", value),
+                () => onFocusField(block.id, "text")
+              )}
+              {textField(
+                "Button Text",
+                block.content?.buttonText,
+                (value) => updateContent("buttonText", value),
+                () => onFocusField(block.id, "buttonText")
+              )}
+            </>
+          )}
         </div>
       </div>
 
@@ -213,6 +330,50 @@ export const BlockEditor = ({ block, onUpdateBlock, onFocusField }) => {
           )}
           {styleField("Border Radius", block.style?.borderRadius, (value) =>
             updateStyle("borderRadius", value)
+          )}
+          
+          {/* Advanced styling options */}
+          {selectField(
+            "Font Weight",
+            block.style?.fontWeight,
+            (value) => updateStyle("fontWeight", value),
+            [
+              { value: "normal", label: "Normal" },
+              { value: "bold", label: "Bold" },
+              { value: "300", label: "Light" },
+              { value: "600", label: "Semi-bold" }
+            ]
+          )}
+          
+          {styleField("Line Height", block.style?.lineHeight, (value) =>
+            updateStyle("lineHeight", value)
+          )}
+          
+          {selectField(
+            "Text Align",
+            block.style?.textAlign,
+            (value) => updateStyle("textAlign", value),
+            [
+              { value: "left", label: "Left" },
+              { value: "center", label: "Center" },
+              { value: "right", label: "Right" }
+            ]
+          )}
+          
+          {styleField("Box Shadow", block.style?.boxShadow, (value) =>
+            updateStyle("boxShadow", value)
+          )}
+          
+          {styleField("Opacity", block.style?.opacity, (value) =>
+            updateStyle("opacity", value)
+          )}
+          
+          {styleField("Transform", block.style?.transform, (value) =>
+            updateStyle("transform", value)
+          )}
+          
+          {styleField("Transition", block.style?.transition, (value) =>
+            updateStyle("transition", value)
           )}
         </div>
       </div>
