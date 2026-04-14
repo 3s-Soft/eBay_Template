@@ -32,12 +32,14 @@ const createHandlebarsRuntime = () => {
 
     const markup = normalized
       .map(
-        (imageUrl) => `
-      <img
-        src="${imageUrl}"
-        alt="Product Image"
-        style="width:120px;height:120px;object-fit:cover;border:1px solid #d1d5db;border-radius:6px;"
-      />
+        (imageUrl, index) => `
+      <div style="width:${index === 0 && normalized.length > 2 ? "100%" : "calc(50% - 5px)"};min-width:190px;box-sizing:border-box;">
+        <img
+          src="${imageUrl}"
+          alt="Product Image"
+          style="width:100%;height:${index === 0 && normalized.length > 2 ? "300px" : "190px"};object-fit:cover;border:1px solid #d1d5db;border-radius:8px;display:block;"
+        />
+      </div>
     `
       )
       .join("");

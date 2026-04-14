@@ -14,7 +14,7 @@ export const BLOCK_DEFAULTS = {
     type: "title",
     content: {
       text: "{{title}}",
-      subtitle: "Condition: {{condition}} | Price: ${{price}}"
+      subtitle: "Condition: {{condition}} • Price: ${{price}} • Fast Dispatch"
     }
   },
   imageGallery: {
@@ -51,7 +51,7 @@ export const BLOCK_DEFAULTS = {
 export const DEFAULT_GLOBAL_STYLES = {
   fontFamily: "Arial, sans-serif",
   textColor: "#111827",
-  backgroundColor: "#ffffff",
+  backgroundColor: "#f1f5f9",
   maxWidth: "900px"
 };
 

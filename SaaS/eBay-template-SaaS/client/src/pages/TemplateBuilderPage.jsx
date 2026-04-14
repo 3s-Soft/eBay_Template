@@ -68,6 +68,8 @@ export const TemplateBuilderPage = () => {
   const [serverHtml, setServerHtml] = useState("");
   const [notice, setNotice] = useState("");
   const [saving, setSaving] = useState(false);
+  const [generatingAi, setGeneratingAi] = useState(false);
+  const [uploadingImages, setUploadingImages] = useState(false);
 
   const selectedBlock = useMemo(
     () => blocks.find((block) => block.id === selectedBlockId),
@@ -83,6 +85,10 @@ export const TemplateBuilderPage = () => {
   }, [blocks, globalStyles, sampleData]);
 
   const effectiveHtml = serverHtml || livePreviewHtml;
+  const previewImages = (sampleData.images || "")
+    .split(/[|,]/)
+    .map((value) => value.trim())
+    .filter(Boolean);
 
   useEffect(() => {
     setTemplateId(id || "");
@@ -238,6 +244,70 @@ export const TemplateBuilderPage = () => {
     setNotice("HTML copied.");
   };
 
+  const generateAiDescription = async () => {
+    setGeneratingAi(true);
+    setNotice("");
+    try {
+      const response = await http.post("/ai/description", sampleData);
+      const nextDescription = response.data.description || "";
+      setSampleData((prev) => ({ ...prev, description: nextDescription }));
+      setBlocks((prev) =>
+        prev.map((block) =>
+          block.type === "description"
+            ? {
+                ...block,
+                content: {
+                  ...block.content,
+                  body: nextDescription
+                }
+              }
+            : block
+        )
+      );
+      setNotice("AI description generated.");
+    } catch (error) {
+      setNotice(error.response?.data?.message || "AI generation failed.");
+    } finally {
+      setGeneratingAi(false);
+    }
+  };
+
+  const uploadImageFiles = async (files) => {
+    if (!files?.length) {
+      return;
+    }
+
+    setUploadingImages(true);
+    setNotice("");
+    const formData = new FormData();
+    Array.from(files).forEach((file) => formData.append("images", file));
+
+    try {
+      const response = await http.post("/uploads/images", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+
+      const uploadedUrls = response.data.imageUrls || [];
+      setSampleData((prev) => {
+        const existing = (prev.images || "")
+          .split(/[|,]/)
+          .map((value) => value.trim())
+          .filter(Boolean);
+        return {
+          ...prev,
+          images: [...existing, ...uploadedUrls].join("|")
+        };
+      });
+      setNotice("Images uploaded.");
+    } catch (error) {
+      setNotice(error.response?.data?.message || "Image upload failed.");
+    } finally {
+      setUploadingImages(false);
+    }
+  };
+
   return (
     <div className="space-y-4">
       <section className="panel p-4">
@@ -289,6 +359,27 @@ export const TemplateBuilderPage = () => {
           <GlobalStyleEditor globalStyles={globalStyles} onChange={setGlobalStyles} />
           <div className="panel p-4">
             <h3 className="mb-3 text-sm font-semibold">Sample Product Data</h3>
+            <div className="mb-3 flex flex-wrap gap-2">
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={generateAiDescription}
+                disabled={generatingAi}
+              >
+                {generatingAi ? "Generating..." : "AI Description"}
+              </button>
+              <label className="btn-secondary cursor-pointer">
+                {uploadingImages ? "Uploading..." : "Upload Images"}
+                <input
+                  className="hidden"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(event) => uploadImageFiles(event.target.files)}
+                  disabled={uploadingImages}
+                />
+              </label>
+            </div>
             <div className="space-y-2">
               {Object.entries(sampleData).map(([key, value]) => (
                 <label key={key} className="space-y-1">
@@ -313,6 +404,23 @@ export const TemplateBuilderPage = () => {
                 </label>
               ))}
             </div>
+            {!!previewImages.length && (
+              <div className="mt-3">
+                <h4 className="mb-2 text-xs font-semibold text-slate-500">
+                  Uploaded/Linked Images
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {previewImages.map((url) => (
+                    <img
+                      key={url}
+                      src={url}
+                      alt="Uploaded product"
+                      className="h-14 w-14 rounded border border-slate-300 object-cover dark:border-slate-700"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

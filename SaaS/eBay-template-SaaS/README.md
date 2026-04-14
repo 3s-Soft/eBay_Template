@@ -56,6 +56,8 @@ eBay-template-SaaS/
 8. **SaaS dashboard pages** (Dashboard, Builder, My Templates, Bulk, Settings)
 9. **Dark/light mode**
 10. **Branding settings per user** (logo/colors/font)
+11. **AI-style description generator endpoint**
+12. **Image upload manager** (upload + reusable image URLs)
 
 ## API Routes
 
@@ -80,6 +82,12 @@ eBay-template-SaaS/
 
 ### Bulk
 - `POST /api/bulk/generate` (multipart form with `csv`, `templateId`, `mapping`)
+
+### AI
+- `POST /api/ai/description`
+
+### Uploads
+- `POST /api/uploads/images`
 
 ## MongoDB Schemas
 
@@ -163,3 +171,14 @@ cp client/.env.example client/.env
 npm install
 npm run dev
 ```
+
+## Seed Dummy Data
+
+```bash
+npm run seed:dummy --workspace server
+```
+
+This seeds:
+- 2 demo users (`demo1@example.com`, `demo2@example.com`, password: `Password123!`)
+- prebuilt library templates
+- 2 custom user templates

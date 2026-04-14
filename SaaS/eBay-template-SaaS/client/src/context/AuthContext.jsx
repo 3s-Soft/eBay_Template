@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { http } from "../api/http";
 
 const AuthContext = createContext(null);
@@ -13,10 +14,10 @@ export const AuthProvider = ({ children }) => {
     setUser(nextUser);
   };
 
-  const clearSession = () => {
+  const clearSession = useCallback(() => {
     localStorage.removeItem("token");
     setUser(null);
-  };
+  }, []);
 
   const signup = async (payload) => {
     const response = await http.post("/auth/signup", payload);
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     clearSession();
   };
 
-  const refreshMe = async () => {
+  const refreshMe = useCallback(async () => {
     const token = localStorage.getItem("token");
     if (!token) {
       clearSession();
@@ -50,7 +51,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [clearSession]);
 
   const updateBranding = async (payload) => {
     const response = await http.patch("/auth/settings/branding", payload);
@@ -60,7 +61,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     refreshMe();
-  }, []);
+  }, [refreshMe]);
 
   const value = {
     user,
