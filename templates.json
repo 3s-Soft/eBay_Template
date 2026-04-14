@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-13T20:52:57Z",
-  "count": 55,
+  "generated": "2026-04-14T11:03:50Z",
+  "count": 57,
   "templates": [
     {
       "name": "BE – 123956830199",
@@ -339,6 +339,22 @@
       "sizeKb": 8.2
     },
     {
+      "name": "K9 – Client Editing Guide",
+      "path": "./K9handler2024/Client-Editing-Guide.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 17.9
+    },
+    {
+      "name": "K9 – Generator",
+      "path": "./K9handler2024/final/generator.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 96.9
+    },
+    {
       "name": "K9 – Main",
       "path": "./K9handler2024/index.html",
       "category": "K9 Handler",
@@ -352,7 +368,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 48.6
+      "sizeKb": 55.9
     },
     {
       "name": "K9 – Template V11 Light",
@@ -360,7 +376,7 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 32.3
+      "sizeKb": 34.1
     },
     {
       "name": "K9 – Template V2 Street",
