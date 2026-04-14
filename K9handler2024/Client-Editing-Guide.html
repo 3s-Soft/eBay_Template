@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K9handler2024 Template Editing Guide</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+  
+  <style>
+    /* ─── TOKENS & RESET ─── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f0ff;
+      --bg2: #ede6ff;
+      --bg-card: #ffffff;
+      --purple: #7b3fc4;
+      --purple-dk: #4c2a8a;
+      --gold: #b07d00;
+      --text: #1e1030;
+      --text-sub: #4a3a6e;
+      --border: rgba(123, 63, 196, 0.18);
+      --radius: 12px;
+      --shadow: 0 8px 32px rgba(76, 42, 138, 0.08);
+      --font: 'Exo 2', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+    }
+
+    /* ─── SIDEBAR NAV ─── */
+    .sidebar {
+      width: 280px;
+      height: 100vh;
+      background: linear-gradient(180deg, var(--purple-dk), var(--purple));
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 40px 20px;
+      color: #fff;
+      overflow-y: auto;
+      box-shadow: 4px 0 24px rgba(76,42,138,0.2);
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 20px;
+    }
+
+    .sidebar-header i {
+      font-size: 32px;
+      color: #fde98a;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    
+    .sidebar-header p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 5px;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-list li {
+      margin-bottom: 8px;
+    }
+
+    .nav-list a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-list a.active, .nav-list a:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    .nav-list a i {
+      width: 16px;
+      text-align: center;
+      color: #fde98a;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .main-content {
+      margin-left: 280px;
+      flex: 1;
+      padding: 60px 50px;
+      max-width: 900px;
+    }
+
+    .intro-section {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .intro-section h1 {
+      font-size: 42px;
+      color: var(--purple-dk);
+      margin-bottom: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .intro-section p {
+      font-size: 16px;
+      color: var(--text-sub);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ─── CARDS & STEPS ─── */
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple-dk), var(--purple));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--bg2);
+      color: var(--purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .step-header h3 {
+      font-size: 22px;
+      color: var(--purple-dk);
+      font-weight: 700;
+    }
+
+    .step-desc {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 20px;
+    }
+
+    /* ─── CODE BLOCKS ─── */
+    .code-block {
+      background: #1a1b26;
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13.5px;
+      overflow-x: auto;
+      color: #a9b1d6;
+      border-left: 4px solid #fde98a;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .code-block .tag   { color: #f7768e; }
+    .code-block .attr  { color: #bb9af7; }
+    .code-block .str   { color: #9ece6a; }
+    .code-block .cmnt  { color: #565f89; font-style: italic; }
+    
+    .highlight-edit {
+      background: rgba(253, 233, 138, 0.15);
+      border: 1px solid rgba(253, 233, 138, 0.4);
+      padding: 0 4px;
+      border-radius: 3px;
+      color: #e0af68;
+      font-weight: bold;
+    }
+
+    /* ─── TIPS ─── */
+    .tip-box {
+      margin-top: 25px;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.2);
+      border-left: 4px solid #16a34a;
+      padding: 15px 20px;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .tip-box i {
+      color: #16a34a;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .tip-box p {
+      font-size: 13.5px;
+      color: #15803d;
+      margin: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    .guide-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--text-sub);
+      font-size: 13px;
+    }
+    .guide-footer span {
+      color: var(--purple-dk);
+      font-weight: 700;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <h2>Client Manual</h2>
+      <p>K9handler2024 Template Editor</p>
+    </div>
+    
+    <ul class="nav-list">
+      <li><a href="#intro" class="active"><i class="fa-solid fa-house"></i> Overview</a></li>
+      <li><a href="#step1"><i class="fa-solid fa-heading"></i> 1. Product Title</a></li>
+      <li><a href="#step2"><i class="fa-solid fa-tags"></i> 2. Tags & Badges</a></li>
+      <li><a href="#step3"><i class="fa-solid fa-images"></i> 3. Gallery Images</a></li>
+      <li><a href="#step4"><i class="fa-solid fa-list-check"></i> 4. Item Specifics</a></li>
+      <li><a href="#step5"><i class="fa-solid fa-shoe-prints"></i> 5. Condition Rating</a></li>
+      <li><a href="#step6"><i class="fa-solid fa-file-pen"></i> 6. Condition Notes</a></li>
+      <li><a href="#step7"><i class="fa-solid fa-medal"></i> 7. Key Features</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <div class="intro-section" id="intro">
+      <h1>How To Edit Your eBay Template</h1>
+      <p>Welcome! This guide is designed to help you edit your beautiful new HTML listing seamlessly, without any coding knowledge. Just open the `.html` file in a text editor (like Notepad on PC or TextEdit on Mac) and look for the numbered blocks matching the steps below!</p>
+    </div>
+
+    <!-- STOP 1 -->
+    <div class="step-card" id="step1">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <h3>Product Title (Hero Heading)</h3>
+      </div>
+      <p class="step-desc">This is the main headline for your listing. You can highlight a key text word (like a specific colourway) in purple.</p>
+      
+      <div class="code-block">
+        <span class="cmnt">&lt;!-- ✏️ 1. PRODUCT TITLE (Hero heading) --&gt;</span><br>
+        <span class="tag">&lt;h1&gt;</span>
+        <span class="highlight-edit">Nike Air Flight 89 Cork – Black / </span>
+        <span class="tag">&lt;em&gt;</span><span class="highlight-edit">Volt</span><span class="tag">&lt;/em&gt;</span>
+        <span class="highlight-edit"> · UK 9</span>
+        <span class="tag">&lt;/h1&gt;</span>
+      </div>
+
+      <div class="tip-box">
+        <i class="fa-solid fa-lightbulb"></i>
+        <p><strong>Pro Tip:</strong> Anything you wrap inside the <code>&lt;em&gt;</code> and <code>&lt;/em&gt;</code> tags will automatically be styled in the brand's vibrant purple font. Use it to highlight the most unique aspect of the shoe.</p>
+      </div>
+    </div>
+
+    <!-- STOP 2 -->
+    <div class="step-card" id="step2">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <h3>Tags / Badges</h3>
+      </div>
+      <p class="step-desc">Under the title, you will see 4 badges describing the item. You can edit the text inside them and choose their colors.</p>
+      
+      <div class="code-block">
+        <span class="cmnt">&lt;!-- Available classes: (none)=purple | .gold | .green --&gt;</span><br>
+        <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"product-badge"</span><span class="tag">&gt;</span><span class="cmnt">&lt;i class="..."&gt;&lt;/i&gt;</span> <span class="highlight-edit">Very Rare Cork Upper</span><span class="tag">&lt;/span&gt;</span><br>
+        <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"product-badge gold"</span><span class="tag">&gt;</span><span class="cmnt">&lt;i class="..."&gt;&lt;/i&gt;</span> <span class="highlight-edit">Limited Release</span><span class="tag">&lt;/span&gt;</span><br>
+      </div>
+
+      <div class="tip-box">
+        <i class="fa-solid fa-circle-check"></i>
+        <p><strong>Colorizing Badges:</strong> If you leave the class as just <code>"product-badge"</code>, it will be <strong>purple</strong>. Add the word <code>gold</code> or <code>green</code> after a space to change its theme instantly.</p>
+      </div>
+    </div>
+
+    <!-- STOP 3 -->
+    <div class="step-card" id="step3">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <h3>Product Images (Gallery)</h3>
+      </div>
+      <p class="step-desc">This is how you swap the photos out. You will need to change the image URL (the <code>src="..."</code>) in <strong>three</strong> places for each photo: the slide deck, the thumbnails list, and optionally the lightbox links at the very bottom.</p>
+      
+      <div class="code-block">
+        <span class="cmnt">&lt;!-- Large Slide Image --&gt;</span><br>
+        <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="str">"</span><span class="highlight-edit">./images/s-l1600 (3).webp</span><span class="str">"</span> <span class="attr">alt</span>=<span class="str">"</span><span class="highlight-edit">Front view</span><span class="str">"</span> <span class="tag">/&gt;</span><br><br>
+        
+        <span class="cmnt">&lt;!-- Matching Thumbnail Image --&gt;</span><br>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"thumb"</span><span class="tag">&gt;&lt;img</span> <span class="attr">src</span>=<span class="str">"</span><span class="highlight-edit">./images/s-l1600 (3).webp</span><span class="str">"</span> <span class="attr">alt</span>=<span class="str">"</span><span class="highlight-edit">Front view</span><span class="str">"</span> <span class="tag">/&gt;&lt;/div&gt;</span>
+      </div>
+
+      <div class="tip-box">
+        <i class="fa-solid fa-camera"></i>
+        <p><strong>Hosting Photos:</strong> You can use standard eBay image URLs here (like <code>https://i.ebayimg.com/...</code>) if you upload them online first, or keep using relative folder paths if you have them saved locally!</p>
+      </div>
+    </div>
+
+    <!-- STOP 4 -->
+    <div class="step-card" id="step4">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <h3>Item Specifics Table & Description</h3>
+      </div>
+      <p class="step-desc">This controls the quick-facts table on the right side of the page. Each row is a <code>&lt;tr&gt;</code> containing two <code>&lt;td&gt;</code> cells.</p>
+      
+      <div class="code-block">
+        <span class="tag">&lt;tr&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;td</span> <span class="attr">class</span>=<span class="str">"spec-label"</span><span class="tag">&gt;</span>Brand<span class="tag">&lt;/td&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;td&gt;</span><span class="highlight-edit">Nike</span><span class="tag">&lt;/td&gt;</span><br>
+        <span class="tag">&lt;/tr&gt;</span><br>
+        <span class="tag">&lt;tr&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;td</span> <span class="attr">class</span>=<span class="str">"spec-label"</span><span class="tag">&gt;</span>UK Size<span class="tag">&lt;/td&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;td&gt;&lt;strong</span> <span class="attr">style</span>=<span class="str">"color:var(--purple)"</span><span class="tag">&gt;</span><span class="highlight-edit">UK 9</span><span class="tag">&lt;/strong&gt;&lt;/td&gt;</span><br>
+        <span class="tag">&lt;/tr&gt;</span>
+      </div>
+    </div>
+
+    <!-- STOP 5 -->
+    <div class="step-card" id="step5">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <h3>Condition Rating & Meter</h3>
+      </div>
+      <p class="step-desc">Change the "meter-fill" width percentage to visually show the condition. (e.g. Excellent=90%, Good=65%, Fair=40%)</p>
+      
+      <div class="code-block">
+        <span class="cmnt">&lt;!-- Text rating --&gt;</span><br>
+        <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"condition-rating"</span><span class="tag">&gt;</span><span class="highlight-edit">Good – Pre-owned</span><span class="tag">&lt;/span&gt;</span><br><br>
+        
+        <span class="cmnt">&lt;!-- Visual meter width --&gt;</span><br>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"meter-fill"</span> <span class="attr">style</span>=<span class="str">"</span>width:<span class="highlight-edit">65%</span><span class="str">"</span><span class="tag">&gt;&lt;/div&gt;</span>
+      </div>
+    </div>
+
+    <!-- STOP 6 -->
+    <div class="step-card" id="step6">
+      <div class="step-header">
+        <div class="step-number">6</div>
+        <h3>Condition Notes List</h3>
+      </div>
+      <p class="step-desc">A detailed bulletin on scuffs, sole condition, etc. Different icons show good traits vs. warnings.</p>
+      
+      <div class="code-block">
+        <span class="cmnt">&lt;!-- Good condition item (green checkmark) --&gt;</span><br>
+        <span class="tag">&lt;li&gt;&lt;i</span> <span class="attr">class</span>=<span class="str">"fa-solid fa-check-circle"</span><span class="tag">&gt;&lt;/i&gt;&lt;strong&gt;</span><span class="highlight-edit">Laces:</span><span class="tag">&lt;/strong&gt;</span> <span class="highlight-edit">Original black laces included.</span><span class="tag">&lt;/li&gt;</span><br><br>
+
+        <span class="cmnt">&lt;!-- Warning note (yellow exclamation) --&gt;</span><br>
+        <span class="tag">&lt;li&gt;&lt;i</span> <span class="attr">class</span>=<span class="str">"fa-solid fa-triangle-exclamation"</span><span class="tag">&gt;&lt;/i&gt;&lt;strong&gt;</span><span class="highlight-edit">Toe Area:</span><span class="tag">&lt;/strong&gt;</span> <span class="highlight-edit">Light scuffs visible.</span><span class="tag">&lt;/li&gt;</span>
+      </div>
+    </div>
+
+    <!-- STOP 7 -->
+    <div class="step-card" id="step7" style="margin-bottom:0;">
+      <div class="step-header">
+        <div class="step-number">7</div>
+        <h3>Key Features (What Makes It Special)</h3>
+      </div>
+      <p class="step-desc">There are 4 feature cards at the bottom for unique selling points. You can change their icons, titles, and text.</p>
+      
+      <div class="code-block">
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"feature-card"</span><span class="tag">&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"feature-icon"</span><span class="tag">&gt;&lt;i</span> <span class="attr">class</span>=<span class="str">"</span><span class="highlight-edit">fa-solid fa-leaf</span><span class="str">"</span><span class="tag">&gt;&lt;/i&gt;&lt;/div&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;h4&gt;</span><span class="highlight-edit">Genuine Cork Upper</span><span class="tag">&lt;/h4&gt;</span><br>
+        &nbsp;&nbsp;<span class="tag">&lt;p&gt;</span><span class="highlight-edit">Natural cork material — every pair is completely unique.</span><span class="tag">&lt;/p&gt;</span><br>
+        <span class="tag">&lt;/div&gt;</span>
+      </div>
+
+      <div class="tip-box">
+        <i class="fa-solid fa-icons"></i>
+        <p><strong>Icons:</strong> You can find thousands of icons to use for free at <strong>fontawesome.com/icons</strong>. Just search for what you want (like "box" or "shoe"), and update the class name!</p>
+      </div>
+    </div>
+
+    <div class="guide-footer">
+      &copy; 2026 K9handler2024. Designed by <a href="https://3s-soft.com/" target="_blank" style="text-decoration:none;"><span>3s-Soft</span></a>.
+    </div>
+
+  </div>
+
+  <script>
+    // Automatically highlight the nav item on scroll
+    const sections = document.querySelectorAll('.intro-section, .step-card');
+    const navLinks = document.querySelectorAll('.nav-list a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const id = entry.target.getAttribute('id');
+          const activeLink = document.querySelector(`.nav-list a[href="#${id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
