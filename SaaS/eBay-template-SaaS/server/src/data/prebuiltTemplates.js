@@ -1,13 +1,13 @@
 const baseStyle = {
-  textColor: "#111827",
-  backgroundColor: "#ffffff",
-  fontFamily: "Arial, sans-serif",
-  fontSize: "14px",
+  textColor: "#e8ddd5",
+  backgroundColor: "#1c1016",
+  fontFamily: "'Inter', sans-serif",
+  fontSize: "13px",
   padding: "16px",
   margin: "0 0 14px 0",
-  borderRadius: "10px",
-  border: "1px solid #dbe3ef",
-  boxShadow: "0 1px 2px rgba(15, 23, 42, 0.08)"
+  borderRadius: "2px",
+  border: "1px solid rgba(212, 168, 83, 0.14)",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)"
 };
 
 const prebuiltTemplates = [
@@ -15,13 +15,13 @@ const prebuiltTemplates = [
     slug: "sneakers",
     name: "Sneakers Conversion Pro",
     category: "Sneakers",
-    description: "Premium storefront look with bold hero, gallery, and trust-focused detail sections.",
+    description: "Luxury dark theme with premium typography and sophisticated styling.",
     isPrebuilt: true,
     globalStyles: {
-      fontFamily: "Arial, sans-serif",
-      textColor: "#111827",
-      backgroundColor: "#f1f5f9",
-      maxWidth: "920px"
+      fontFamily: "'Inter', sans-serif",
+      textColor: "#e8ddd5",
+      backgroundColor: "#0a0608",
+      maxWidth: "860px"
     },
     blocks: [
       {
@@ -29,13 +29,13 @@ const prebuiltTemplates = [
         type: "title",
         content: {
           text: "{{title}}",
-          subtitle: "Condition: {{condition}} • Price: ${{price}} • 100% Authentic"
+          subtitle: "Condition: {{condition}} • Price: ${{price}}"
         },
         style: {
           ...baseStyle,
-          textColor: "#f8fafc",
-          backgroundColor: "#0f172a",
-          border: "1px solid rgba(245, 200, 66, 0.35)"
+          textColor: "#f5ede3",
+          backgroundColor: "#1c1016",
+          border: "1px solid rgba(212, 168, 83, 0.14)"
         }
       },
       {
@@ -92,13 +92,13 @@ const prebuiltTemplates = [
     slug: "electronics",
     name: "Electronics Trust Builder",
     category: "Electronics",
-    description: "Professional electronics format designed for clarity, confidence, and quick conversion.",
+    description: "Professional luxury format with sophisticated styling for electronics.",
     isPrebuilt: true,
     globalStyles: {
-      fontFamily: "Verdana, sans-serif",
-      textColor: "#0f172a",
-      backgroundColor: "#f1f5f9",
-      maxWidth: "940px"
+      fontFamily: "'Inter', sans-serif",
+      textColor: "#e8ddd5",
+      backgroundColor: "#0a0608",
+      maxWidth: "860px"
     },
     blocks: [
       {
@@ -106,14 +106,13 @@ const prebuiltTemplates = [
         type: "title",
         content: {
           text: "{{title}}",
-          subtitle: "Condition: {{condition}} • Price: ${{price}} • Fully Tested"
+          subtitle: "Condition: {{condition}} • Price: ${{price}}"
         },
         style: {
           ...baseStyle,
-          textColor: "#f8fafc",
-          backgroundColor: "#0f172a",
-          border: "1px solid rgba(245, 200, 66, 0.35)",
-          fontFamily: "Verdana, sans-serif"
+          textColor: "#f5ede3",
+          backgroundColor: "#1c1016",
+          border: "1px solid rgba(212, 168, 83, 0.14)"
         }
       },
       {
@@ -123,8 +122,7 @@ const prebuiltTemplates = [
           heading: "Device Photos & Closeups"
         },
         style: {
-          ...baseStyle,
-          fontFamily: "Verdana, sans-serif"
+          ...baseStyle
         }
       },
       {
@@ -152,8 +150,7 @@ const prebuiltTemplates = [
           ]
         },
         style: {
-          ...baseStyle,
-          fontFamily: "Verdana, sans-serif"
+          ...baseStyle
         }
       },
       {
@@ -164,8 +161,7 @@ const prebuiltTemplates = [
           returns: "14-day returns for items not matching listing details."
         },
         style: {
-          ...baseStyle,
-          fontFamily: "Verdana, sans-serif"
+          ...baseStyle
         }
       }
     ]
@@ -174,13 +170,13 @@ const prebuiltTemplates = [
     slug: "trading-cards",
     name: "Trading Cards Collector",
     category: "Trading Cards",
-    description: "Collector-grade visual layout that highlights condition, grading, and card details.",
+    description: "Collector-grade luxury layout for premium trading cards.",
     isPrebuilt: true,
     globalStyles: {
-      fontFamily: "Trebuchet MS, sans-serif",
-      textColor: "#111827",
-      backgroundColor: "#f1f5f9",
-      maxWidth: "900px"
+      fontFamily: "'Inter', sans-serif",
+      textColor: "#e8ddd5",
+      backgroundColor: "#0a0608",
+      maxWidth: "860px"
     },
     blocks: [
       {
@@ -192,10 +188,9 @@ const prebuiltTemplates = [
         },
         style: {
           ...baseStyle,
-          textColor: "#f8fafc",
-          backgroundColor: "#0f172a",
-          border: "1px solid rgba(245, 200, 66, 0.35)",
-          fontFamily: "Trebuchet MS, sans-serif"
+          textColor: "#f5ede3",
+          backgroundColor: "#1c1016",
+          border: "1px solid rgba(212, 168, 83, 0.14)"
         }
       },
       {
@@ -218,8 +213,7 @@ const prebuiltTemplates = [
             "{{description}}\n\nCard handled with gloves and protected immediately after photography."
         },
         style: {
-          ...baseStyle,
-          fontFamily: "Trebuchet MS, sans-serif"
+          ...baseStyle
         }
       },
       {
@@ -234,8 +228,7 @@ const prebuiltTemplates = [
           ]
         },
         style: {
-          ...baseStyle,
-          fontFamily: "Trebuchet MS, sans-serif"
+          ...baseStyle
         }
       },
       {
@@ -246,8 +239,7 @@ const prebuiltTemplates = [
           returns: "Raw cards: 14-day returns. Graded cards: no returns unless damaged in transit."
         },
         style: {
-          ...baseStyle,
-          fontFamily: "Trebuchet MS, sans-serif"
+          ...baseStyle
         }
       }
     ]
