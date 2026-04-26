@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-14T11:03:50Z",
-  "count": 57,
+  "generated": "2026-04-26T21:34:06Z",
+  "count": 62,
   "templates": [
     {
       "name": "BE – 123956830199",
@@ -352,7 +352,47 @@
       "category": "K9 Handler",
       "tagClass": "tag-k9handler",
       "icon": "🐾",
-      "sizeKb": 96.9
+      "sizeKb": 98.6
+    },
+    {
+      "name": "K9 – Template V1 Light",
+      "path": "./K9handler2024/final/template-v1-light.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 55.8
+    },
+    {
+      "name": "K9 – Template V2 Light",
+      "path": "./K9handler2024/final/template-v2-light.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 55.8
+    },
+    {
+      "name": "K9 – Template V3 Light",
+      "path": "./K9handler2024/final/template-v3-light.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 55.8
+    },
+    {
+      "name": "K9 – Template V4 Light",
+      "path": "./K9handler2024/final/template-v4-light.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 38.8
+    },
+    {
+      "name": "K9 – Test",
+      "path": "./K9handler2024/final/test.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 57.3
     },
     {
       "name": "K9 – Main",
