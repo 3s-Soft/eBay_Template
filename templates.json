@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-26T21:34:06Z",
-  "count": 62,
+  "generated": "2026-04-27T19:45:44Z",
+  "count": 63,
   "templates": [
     {
       "name": "BE – 123956830199",
@@ -345,6 +345,14 @@
       "tagClass": "tag-k9handler",
       "icon": "🐾",
       "sizeKb": 17.9
+    },
+    {
+      "name": "K9 – Client Editing Guide",
+      "path": "./K9handler2024/final/Client-Editing-Guide.html",
+      "category": "K9 Handler",
+      "tagClass": "tag-k9handler",
+      "icon": "🐾",
+      "sizeKb": 10.6
     },
     {
       "name": "K9 – Generator",
